@@ -1,0 +1,48 @@
+# 停止
+# docker-compose down
+# 再構築と再起動
+# docker-compose up -d --build
+
+version: '3.1'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - "8001:80"
+    environment:
+      WORDPRESS_DB_HOST: ${DB_HOST}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${DB_NAME}
+    volumes:
+      - ./wordpress:/var/www/html
+    restart: always
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
+    volumes:
+      - mariadb:/var/lib/mysql
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    platform: linux/amd64
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: ${DB_HOST}
+      PMA_USER: ${PMA_USER}
+      PMA_PASSWORD: ${ROOT_PASSWORD}
+    depends_on:
+      - mariadb
+    restart: always
+
+volumes:
+  wordpress:
+  mariadb:
