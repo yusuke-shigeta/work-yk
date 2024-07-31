@@ -1,0 +1,6 @@
+.el_btn {
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}

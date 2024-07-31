@@ -1,0 +1,15 @@
+.bl_main {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.bl_sec {
+  background: rgb(101, 126, 136)
+}
+
+.bl_sec_inner {
+  background: rgb(204, 230, 255);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+

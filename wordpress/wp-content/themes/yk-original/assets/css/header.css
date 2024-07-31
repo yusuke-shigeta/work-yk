@@ -1,0 +1,37 @@
+@import url('./element/btn.css');
+
+.ly_header_inner {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: 170px auto;
+}
+
+.ly_header_nav {
+  display: flex;
+  gap: 40px;
+}
+
+.ly_header_nav_list {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.bl_header {
+  background: gray;
+  height: 74px;
+}
+
+.bl_header_inner {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+.bl_header_nav_btn_inquiry {
+  height: 52px;
+  line-height: 52px;
+  border-radius: 24px;
+  background: blue;
+  color: #fff;
+}

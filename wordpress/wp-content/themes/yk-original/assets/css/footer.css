@@ -1,0 +1,9 @@
+.footer {
+  background: gray;
+  height: 400px;
+}
+
+.footer-inner {
+  width: 1240px;
+  margin: 0 auto;
+}
