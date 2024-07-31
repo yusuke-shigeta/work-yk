@@ -1,3 +1,12 @@
+<?php
+// ヘッダナビゲーション用
+$menu_items = [
+  ['link' => '#link1', 'text' => 'Link1'],
+  ['link' => '#link2', 'text' => 'Link2'],
+  ['link' => '#link3', 'text' => 'Link3'],
+];
+?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
@@ -20,21 +29,14 @@
 
         <ul class="ly_header_nav_list">
 
-          <li class="ly_header_nav_list_item">
-            <a href="bl_header_nav_list_item_link">
-              Link1
-            </a>
-          </li>
-          <li class="ly_header_nav_list_item">
-            <a href="bl_header_nav_list_item_link">
-              Link2
-            </a>
-          </li>
-          <li class="bl_header_nav_list_item">
-            <a href="bl_header_nav_list_item_link">
-              Link3
-            </a>
-          </li>
+          <?php foreach ($menu_items as $item) : ?>
+            <li class="ly_header_nav_list_item">
+              <a class="bl_header_nav_list_item_link" href="<?php echo $item['link']; ?>">
+                <?php echo $item['text'] ?>
+              </a>
+            </li>
+          <?php endforeach; ?>
+
         </ul>
 
         <a href="/" class="el_btn bl_header_nav_btn_inquiry">
