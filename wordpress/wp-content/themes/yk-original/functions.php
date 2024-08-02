@@ -1,4 +1,5 @@
-<?php // css, jsの読み込み
+<?php
+
 /**
  * wp_enqueue_styles
  * css読み込み
@@ -8,7 +9,13 @@ function wp_enqueue_styles()
 {
   $theme_version = wp_get_theme()->get('Version');
 
-  $commons = ['reset'];
+  $commons = [
+    'reset',
+    'element/nav',
+    'element/btn',
+    'header',
+    'footer',
+  ];
 
   foreach ($commons as $common) {
     wp_enqueue_style(
@@ -48,9 +55,9 @@ function enqueue_jquery()
   wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'enqueue_jquery');
-?>
 
-<?php // firstviewを各ページで出しわけ
+
+// firstviewを各ページで出しわけ
 function get_firstview_background_image()
 {
   if (is_front_page()) {
@@ -61,4 +68,3 @@ function get_firstview_background_image()
     return get_template_directory_uri() . '/assets/img/firstview-default.jpg';
   }
 }
-?>
