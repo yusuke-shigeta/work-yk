@@ -1,9 +1,9 @@
 <?php
 // ヘッダナビゲーション用
 $menu_items = [
-  ['link' => '#link1', 'text' => 'Link1'],
-  ['link' => '#link2', 'text' => 'Link2'],
-  ['link' => '#link3', 'text' => 'Link3'],
+  ['link' => '', 'text' => 'TOP'],
+  ['link' => 'achievements', 'text' => '施工実績'],
+  ['link' => '', 'text' => '会社概要'],
 ];
 ?>
 
@@ -18,28 +18,28 @@ $menu_items = [
 </head>
 
 <body>
-  <header class="ly_header bl_header">
-    <div class="ly_header_inner bl_header_inner">
+  <header class="header">
+    <div class="inner-header">
 
-      <div class="ly_header_logo bl_header_logo">
+      <div class="logo logo-header">
         <img src="" alt="Logo" width="160" height="60">
       </div>
 
-      <nav class="ly_header_nav">
+      <nav class="nav-header">
 
-        <ul class="ly_header_nav_list">
+        <ul class="navList navList-header">
 
           <?php foreach ($menu_items as $item) : ?>
-            <li class="ly_header_nav_list_item">
-              <a class="bl_header_nav_list_item_link" href="<?php echo $item['link']; ?>">
-                <?php echo $item['text'] ?>
+            <li class="navItem navItem-header">
+              <a class="navLink navLink-header" href="<?php echo esc_url(home_url($item['link'])); ?>/">
+                <?php echo esc_html($item['text']); ?>
               </a>
             </li>
           <?php endforeach; ?>
 
         </ul>
 
-        <a href="/" class="el_btn bl_header_nav_btn_inquiry">
+        <a href="<?php echo esc_url(home_url("inquiry")); ?>/" class="btn btn-inquiry">
           お問い合わせ
         </a>
 

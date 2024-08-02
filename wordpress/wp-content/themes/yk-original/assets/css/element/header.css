@@ -1,0 +1,26 @@
+.header {
+  display: grid;
+  align-items: center;
+  background: gray;
+  height: 74px;
+}
+
+.inner-header {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: 170px auto;
+  width: 1240px;
+  margin: 0 auto;
+}
+
+.nav-header {
+  display: flex;
+  gap: 40px;
+}
+
+.navList-header {
+  align-items: center;
+  gap: 40px;
+}
+

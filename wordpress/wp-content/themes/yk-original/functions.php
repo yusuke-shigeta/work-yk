@@ -1,23 +1,3 @@
-<?php // wp_head()の不要なタグを除去
-// 外部ブログツールからの投稿を受け入れ
-remove_action('wp_head', 'rsd_link');
-remove_action('wp_head', 'wlwmanifest_link');
-// バージョン表記
-remove_action('wp_head', 'wp_generator');
-
-/**
- * remove_recent_comment_css
- * ウィジェット「最近のコメント」の表示
- * @return void
- */
-function remove_recent_comment_css()
-{
-  global $wp_widget_factory;
-  remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
-}
-add_action('widgets_init', 'remove_recent_comment_css');
-?>
-
 <?php // css, jsの読み込み
 /**
  * wp_enqueue_styles
@@ -28,7 +8,7 @@ function wp_enqueue_styles()
 {
   $theme_version = wp_get_theme()->get('Version');
 
-  $commons = ['reset', 'header', 'footer'];
+  $commons = ['reset'];
 
   foreach ($commons as $common) {
     wp_enqueue_style(
@@ -41,7 +21,8 @@ function wp_enqueue_styles()
 
   $page_types = [
     'front-page' => is_front_page(),
-    'page' => is_page()
+    'page-achievements' => is_page('achievements'),
+    'page-inquiry' => is_page('inquiry'),
   ];
 
   foreach ($page_types as $type => $condition) {
@@ -67,4 +48,17 @@ function enqueue_jquery()
   wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'enqueue_jquery');
+?>
+
+<?php // firstviewを各ページで出しわけ
+function get_firstview_background_image()
+{
+  if (is_front_page()) {
+    return get_template_directory_uri() . '/assets/img/firstview-front-page.jpg';
+  } elseif (is_page('inquiry')) {
+    return get_template_directory_uri() . '/assets/img/firstview-inquiry.jpg';
+  } else {
+    return get_template_directory_uri() . '/assets/img/firstview-default.jpg';
+  }
+}
 ?>

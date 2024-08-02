@@ -1,6 +1,15 @@
-.el_btn {
+.btn {
   display: grid;
   text-align: center;
   justify-content: center;
   align-items: center;
+  border-radius: 24px;
+}
+
+.btn-inquiry {
+  width: 120px;
+  height: 52px;
+  line-height: 52px;
+  background: blue;
+  color: #fff;
 }

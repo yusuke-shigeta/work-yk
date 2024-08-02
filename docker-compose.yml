@@ -11,12 +11,15 @@ services:
     ports:
       - "8001:80"
     environment:
+      APACHE_SERVER_NAME: localhost
       WORDPRESS_DB_HOST: ${DB_HOST}
       WORDPRESS_DB_USER: ${DB_USER}
       WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
       WORDPRESS_DB_NAME: ${DB_NAME}
     volumes:
       - ./wordpress:/var/www/html
+      - ./php.ini:/usr/local/etc/php/php.ini
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     restart: always
 
   mariadb:
