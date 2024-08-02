@@ -29,7 +29,7 @@ function wp_enqueue_styles()
   }
 
   $page_types = [
-    'front-page' => is_front_page(),
+    'page-top' => is_page('top'),
     'page-achievements' => is_page('achievements'),
     'page-inquiry' => is_page('inquiry'),
   ];
@@ -58,15 +58,47 @@ function enqueue_jquery()
 }
 add_action('wp_enqueue_scripts', 'enqueue_jquery');
 
-
-// firstviewを各ページで出しわけ
-function get_firstview_background_image()
+/**
+ * get_firstview_data
+ * // firstviewのコンテンツを出しわけ
+ * @return void
+ */
+function get_firstview_data()
 {
-  if (is_front_page()) {
-    return get_template_directory_uri() . '/assets/img/firstview-front-page.jpg';
-  } elseif (is_page('inquiry')) {
-    return get_template_directory_uri() . '/assets/img/firstview-inquiry.jpg';
-  } else {
-    return get_template_directory_uri() . '/assets/img/firstview-default.jpg';
+  $pages = ['top', 'inquiry', 'achievements'];
+  $data = [];
+
+  foreach ($pages as $page) {
+    $data[$page] = [
+      'image' => "firstview-page-{$page}.jpg",
+      'heading' => [
+        'top' => 'トップページ',
+        'inquiry' => 'お問い合わせ',
+        'achievements' => '施工実績',
+      ][$page],
+      'text' => [
+        '1行目',
+        '2行目',
+        '3行目',
+      ],
+    ];
   }
+
+  $current_page = '';
+  foreach ($pages as $page) {
+    if (is_page($page)) {
+      $current_page = $page;
+      break;
+    }
+  }
+
+  if (isset($data[$current_page])) {
+    return [
+      'background_image' => get_template_directory_uri() . '/assets/img/' . $data[$current_page]['image'],
+      'heading' => $data[$current_page]['heading'],
+      'text' => implode("<br>", $data[$current_page]['text']),
+    ];
+  }
+
+  return null;
 }
