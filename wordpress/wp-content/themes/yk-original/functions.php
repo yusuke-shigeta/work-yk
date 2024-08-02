@@ -10,11 +10,13 @@ function wp_enqueue_styles()
   $theme_version = wp_get_theme()->get('Version');
 
   $commons = [
-    'reset',
+    'base/reset',
     'element/nav',
     'element/btn',
     'header',
     'footer',
+    'layout/main',
+    'layout/sec',
   ];
 
   foreach ($commons as $common) {

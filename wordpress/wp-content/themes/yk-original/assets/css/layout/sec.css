@@ -1,0 +1,9 @@
+.sec {
+  background: rgb(101, 126, 136)
+}
+
+.sec-inner {
+  background: rgb(204, 230, 255);
+  max-width: 1000px;
+  margin: 0 auto;
+}
