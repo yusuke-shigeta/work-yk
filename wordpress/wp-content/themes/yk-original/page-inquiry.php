@@ -1,6 +1,10 @@
 <?php get_header(); ?>
 
-<main id="page-inquiry" class="bl_main">
+<main id="page-inquiry" class="main">
+
+  <?php
+  @include(get_template_directory() . '/element/firstview.php');
+  ?>
 
 </main>
 
