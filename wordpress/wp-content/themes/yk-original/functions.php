@@ -2,15 +2,28 @@
 
 /**
  * remove_default_post_type_menu
- * デフォルトの「投稿」と「コメント」メニューを非表示にする
+ * デフォルトのメニューを非表示にする
  * @return void
  */
 function remove_default_post_type_menu()
 {
-  remove_menu_page('edit.php');  // 「投稿」メニューを削除
-  remove_menu_page('edit-comments.php');  // 「コメント」メニューを削除
+  // 「投稿」メニューを削除
+  remove_menu_page('edit.php');
+  // 「コメント」メニューを削除
+  remove_menu_page('edit-comments.php');
 }
 add_action('admin_menu', 'remove_default_post_type_menu');
+
+/**
+ * theme_setup
+ * アイキャッチ画像を有効化
+ * @return void
+ */
+function theme_setup()
+{
+  add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'theme_setup');
 
 /**
  * wp_enqueue_styles
@@ -40,9 +53,18 @@ function wp_enqueue_styles()
     );
   }
 
+  // アーカイブページ用のスタイル
+  if (is_archive('achievement')) {
+    wp_enqueue_style(
+      "archive-achievement",
+      get_template_directory_uri() . "/assets/css/archive-achievement.css",
+      array('reset'),
+      $theme_version
+    );
+  }
+
   $page_types = [
-    'page-top' => is_page('top'),
-    'page-achievements' => is_page('achievements'),
+    'front-page' => is_front_page(),
     'page-inquiry' => is_page('inquiry'),
   ];
 
@@ -116,17 +138,6 @@ function get_firstview_data()
 
   return null;
 }
-
-/**
- * theme_setup
- *
- * @return void
- */
-function theme_setup()
-{
-  add_theme_support('post-thumbnails');
-}
-add_action('after_setup_theme', 'theme_setup');
 
 /**
  * create_post_type_achievement
@@ -278,3 +289,53 @@ function get_custom_fields_achievement($post_id = null)
 
   return $result;
 }
+
+/**
+ * debug_page_type
+ * ログイン時、開いているページのページタイプを出力
+ * @return void
+ */
+function debug_page_type()
+{
+  if (is_front_page() && is_home()) {
+    echo "デフォルトのホームページ";
+  } elseif (is_front_page()) {
+    echo "静的フロントページ";
+  } elseif (is_home()) {
+    echo "ブログページ";
+  } elseif (is_single()) {
+    echo "単一投稿ページ";
+    echo " (投稿タイプ: " . get_post_type() . ")";
+  } elseif (is_page()) {
+    echo "固定ページ";
+  } elseif (is_category()) {
+    echo "カテゴリーアーカイブページ";
+  } elseif (is_tag()) {
+    echo "タグアーカイブページ";
+  } elseif (is_tax()) {
+    echo "タクソノミーアーカイブページ";
+  } elseif (is_archive()) {
+    if (is_post_type_archive()) {
+      echo "カスタム投稿タイプのアーカイブページ";
+      echo " (投稿タイプ: " . get_post_type() . ")";
+    } else {
+      echo "アーカイブページ";
+    }
+  } elseif (is_search()) {
+    echo "検索結果ページ";
+  } elseif (is_404()) {
+    echo "404ページ";
+  } else {
+    echo "その他のページタイプ";
+  }
+}
+
+// 使用例：
+add_action('wp_footer', function () {
+  if (is_user_logged_in()) {
+    echo '<div style="background: #f0f0f0; color: #333; padding: 10px; position: fixed; bottom: 0; right: 0; z-index: 9999;">';
+    echo "現在のページタイプ: ";
+    debug_page_type();
+    echo '</div>';
+  }
+});
