@@ -26,24 +26,47 @@ function theme_setup()
 add_action('after_setup_theme', 'theme_setup');
 
 /**
- * wp_enqueue_styles
- * css読み込み
+ * enqueue_styles_and_scripts
+ * CSSとJavaScriptの読み込み
  * @return void
  */
-function wp_enqueue_styles()
+function enqueue_styles_and_scripts()
 {
-
-  $commons = [
+  // 共通のCSS
+  $common_styles = [
     'base/reset',
     'element/nav',
     'element/btn',
-    'header',
-    'footer',
+    'element/header',
+    'element/footer',
     'layout/main',
     'layout/sec',
   ];
 
-  $page_specific_styles = [
+  // 共通のJavaScript
+  wp_enqueue_script('jquery');
+  $common_scripts = [
+    'base/main',
+    // 'element/header',
+  ];
+
+  foreach ($common_styles as $style) {
+    wp_enqueue_style(
+      $style,
+      get_template_directory_uri() . "/assets/css/{$style}.css",
+    );
+  }
+
+  foreach ($common_scripts as $script) {
+    wp_enqueue_script(
+      $script,
+      get_template_directory_uri() . "/assets/js/{$script}.js",
+    );
+  }
+
+
+  // ページ特有のアセット（CSSとJS）
+  $page_specific_assets = [
     'front-page' => is_front_page(),
     'archive-achievement' => is_post_type_archive('achievement'),
     'page-inquiry' => is_page('inquiry'),
@@ -51,34 +74,20 @@ function wp_enqueue_styles()
     'taxonomy-achievement_tag' => is_tax(),
   ];
 
-  foreach ($commons as $common) {
-    wp_enqueue_style(
-      $common,
-      get_template_directory_uri() . "/assets/css/{$common}.css",
-    );
-  }
-
-  foreach ($page_specific_styles as $style => $condition) {
+  foreach ($page_specific_assets as $asset => $condition) {
     if ($condition) {
       wp_enqueue_style(
-        $style,
-        get_template_directory_uri() . "/assets/css/{$style}.css"
+        $asset,
+        get_template_directory_uri() . "/assets/css/{$asset}.css"
+      );
+      wp_enqueue_script(
+        $asset,
+        get_template_directory_uri() . "/assets/js/{$asset}.js",
       );
     }
   }
 }
-add_action('wp_enqueue_scripts', 'wp_enqueue_styles');
-
-/**
- * enqueue_jquery
- * jQueryの読み込み
- * @return void
- */
-function enqueue_jquery()
-{
-  wp_enqueue_script('jquery');
-}
-add_action('wp_enqueue_scripts', 'enqueue_jquery');
+add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts');
 
 /**
  * get_firstview_data
