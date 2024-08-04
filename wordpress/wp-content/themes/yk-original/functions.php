@@ -72,7 +72,7 @@ add_action('wp_enqueue_scripts', 'enqueue_jquery');
 
 /**
  * get_firstview_data
- * // firstviewのコンテンツを出しわけ
+ * firstviewのコンテンツを出しわけ
  * @return void
  */
 function get_firstview_data()
@@ -153,7 +153,7 @@ function create_post_type_achievement()
       // URLリライトのルールを設定
       'rewrite' => ['slug' => 'achievements'],
       // 投稿編集画面でサポートする機能
-      'supports' => ['title', 'editor', 'thumbnail', 'custom-fields', 'tags'], // 修正: tagsを追加
+      'supports' => ['title', 'editor', 'thumbnail', 'tags'],
       // 'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'author', 'custom-fields',]
       // 'show_in_rest' => true,
       // 'template' => [],
@@ -177,3 +177,104 @@ function create_post_type_achievement()
   );
 }
 add_action('init', 'create_post_type_achievement');
+
+
+/**
+ * add_custom_fields_achievement
+ * 施工実績のカスタムフィールドを追加
+ * @return void
+ */
+function add_custom_fields_achievement()
+{
+  add_meta_box(
+    'custom_fields_achievement',
+    '施工実績詳細',
+    'custom_fields_achievement_callback',
+    'achievement',
+    'normal',
+    'default'
+  );
+}
+add_action('add_meta_boxes', 'add_custom_fields_achievement');
+
+/**
+ * custom_fields_achievement_callback
+ * カスタムフィールドの入力フォームを表示
+ * @param WP_Post $post 現在の投稿オブジェクト
+ * @return void
+ */
+function custom_fields_achievement_callback($post)
+{
+  wp_nonce_field(basename(__FILE__), 'custom_fields_achievement_nonce');
+
+  $fields = [
+    'client_name' => [
+      'label' => 'クライアント名',
+      'type' => 'text'
+    ],
+    'project_date' => [
+      'label' => 'プロジェクト日付',
+      'type' => 'date'
+    ]
+  ];
+
+  foreach ($fields as $field_name => $field_data) {
+    $value = get_post_meta($post->ID, $field_name, true);
+?>
+    <p>
+      <label for="<?php echo esc_attr($field_name); ?>"><?php echo esc_html($field_data['label']); ?>：</label>
+      <input type="<?php echo esc_attr($field_data['type']); ?>" name="<?php echo esc_attr($field_name); ?>" id="<?php echo esc_attr($field_name); ?>" value="<?php echo esc_attr($value); ?>" />
+    </p>
+<?php
+  }
+}
+
+/**
+ * save_custom_fields_achievement
+ * カスタムフィールドの値を保存
+ * @param int $post_id 投稿ID
+ * @return void
+ */
+function save_custom_fields_achievement($post_id)
+{
+  if (!isset($_POST['custom_fields_achievement_nonce']) || !wp_verify_nonce($_POST['custom_fields_achievement_nonce'], basename(__FILE__))) {
+    return;
+  }
+  if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    return;
+  }
+  if (!current_user_can('edit_post', $post_id)) {
+    return;
+  }
+
+  $fields = ['client_name', 'project_date'];
+
+  foreach ($fields as $field) {
+    if (isset($_POST[$field])) {
+      update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+    }
+  }
+}
+add_action('save_post_achievement', 'save_custom_fields_achievement');
+
+/**
+ * get_custom_fields_achievement
+ * 施工実績のカスタムフィールド値を取得
+ * @param int $post_id 投稿ID
+ * @return array カスタムフィールドの値
+ */
+function get_custom_fields_achievement($post_id = null)
+{
+  if (!$post_id) {
+    $post_id = get_the_ID();
+  }
+
+  $fields = ['client_name', 'project_date'];
+  $result = [];
+
+  foreach ($fields as $field) {
+    $result[$field] = get_post_meta($post_id, $field, true);
+  }
+
+  return $result;
+}
