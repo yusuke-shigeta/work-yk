@@ -19,7 +19,7 @@
       endwhile;
       the_posts_navigation();
     else :
-      echo '<p>実績はまだありません。</p>';
+      echo '<p>実績はまだありませaaaん。</p>';
     endif;
     ?>
   </div>
