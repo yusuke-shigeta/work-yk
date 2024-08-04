@@ -303,18 +303,18 @@ function debug_page_type()
   if (is_front_page() && is_home()) {
     echo "デフォルトのホームページ";
   } elseif (is_front_page()) {
-    echo "静的フロントページ";
+    echo "is_front_page";
   } elseif (is_home()) {
-    echo "ブログページ";
+    echo "is_home";
   } elseif (is_single()) {
-    echo "単一投稿ページ";
+    echo "is_single";
     echo " (投稿タイプ: " . get_post_type() . ")";
   } elseif (is_page()) {
-    echo "固定ページ";
+    echo "is_page";
   } elseif (is_category()) {
-    echo "カテゴリーアーカイブページ";
+    echo "is_category";
   } elseif (is_tag()) {
-    echo "タグアーカイブページ";
+    echo "is_tag";
   } elseif (is_tax()) {
     echo "タクソノミーアーカイブページ";
     if (is_post_type_tax()) {
@@ -327,15 +327,15 @@ function debug_page_type()
     }
   } elseif (is_archive()) {
     if (is_post_type_archive()) {
-      echo "カスタム投稿タイプのアーカイブページ";
-      echo " (投稿タイプ: " . get_post_type() . ")";
+      echo "is_archive";
+      echo " (is_post_type_archive: " . get_post_type() . ")";
     } else {
-      echo "アーカイブページ";
+      echo "is_archive";
     }
   } elseif (is_search()) {
-    echo "検索結果ページ";
+    echo "is_search";
   } elseif (is_404()) {
-    echo "404ページ";
+    echo "is_404";
   } else {
     echo "その他のページタイプ";
   }
@@ -345,7 +345,6 @@ function debug_page_type()
 add_action('wp_footer', function () {
   if (is_user_logged_in()) {
     echo '<div style="background: #f0f0f0; color: #333; padding: 10px; position: fixed; bottom: 0; right: 0; z-index: 9999;">';
-    echo "現在のページタイプ: ";
     debug_page_type();
     echo '</div>';
   }
