@@ -148,14 +148,32 @@ function create_post_type_achievement()
       'public' => true,
       // アーカイブページを持つかどうか
       'has_archive' => true,
+      // タグを出力
+      'taxonomies' => array('achievement_tag'),
       // URLリライトのルールを設定
       'rewrite' => ['slug' => 'achievements'],
       // 投稿編集画面でサポートする機能
-      'supports' => ['title', 'editor', 'thumbnail', 'custom-fields',],
+      'supports' => ['title', 'editor', 'thumbnail', 'custom-fields', 'tags'], // 修正: tagsを追加
       // 'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'author', 'custom-fields',]
       // 'show_in_rest' => true,
       // 'template' => [],
     ]
+  );
+
+  // タクソノミーの登録
+  register_taxonomy(
+    'achievement_tag',
+    'achievement',
+    array(
+      'label' => 'タグ',
+      'hierarchical' => false,
+      'public' => true,
+      'show_ui' => true,
+      'show_in_rest' => true,
+      'show_admin_column' => true,
+      'query_var' => true,
+      'rewrite' => array('slug' => 'achievement-tag'),
+    )
   );
 }
 add_action('init', 'create_post_type_achievement');

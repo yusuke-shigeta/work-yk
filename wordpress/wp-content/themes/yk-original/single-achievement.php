@@ -15,14 +15,21 @@
         <div class="entry-content">
           <?php the_content(); ?>
         </div>
+
         <?php
         // 投稿日時を表示する場合
         echo '<p class="post-date">投稿日: ' . get_the_date() . '</p>';
 
-        // カスタムフィールドがある場合の例
-        $client = get_post_meta(get_the_ID(), 'client', true);
-        if ($client) {
-          echo '<p class="client">クライアント: ' . esc_html($client) . '</p>';
+        $tags = wp_get_post_terms(get_the_ID(), 'achievement_tag');
+        if ($tags && !is_wp_error($tags)) {
+          echo '<div class="post-tags">';
+          echo '<span>タグ: </span>';
+          foreach ($tags as $tag) {
+            echo '<a href="' . esc_url(get_term_link($tag->term_id)) . '">' . esc_html($tag->name) . '</a> ';
+          }
+          echo '</div>';
+        } else {
+          echo '<div class="post-tags">タグはありません。</div>';
         }
         ?>
     <?php

@@ -2,7 +2,7 @@
 // ヘッダナビゲーション用
 $menu_items = [
   ['link' => '', 'text' => 'TOP'],
-  ['link' => 'achievements', 'text' => '施工実績'],
+  ['link' => 'achievement', 'text' => '施工実績'],
   ['link' => '', 'text' => '会社概要'],
 ];
 ?>
