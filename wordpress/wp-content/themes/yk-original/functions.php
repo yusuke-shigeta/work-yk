@@ -172,7 +172,7 @@ function create_post_type_achievement()
       'show_in_rest' => true,
       'show_admin_column' => true,
       'query_var' => true,
-      'rewrite' => array('slug' => 'achievement-tag'),
+      'rewrite' => array('slug' => 'achievements-tag'),
     )
   );
 }
