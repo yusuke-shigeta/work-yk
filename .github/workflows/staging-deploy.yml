@@ -1,21 +1,22 @@
 name: staging deploy
 
 on:
-push:
-branches: - master
+  push:
+    branches:
+      - master
 
 jobs:
-FTP-Deploy-Action:
-name: FTP-Deploy-Action
-runs-on: ubuntu-latest
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
 
     steps:
-        - uses: actions/checkout@v2
-        - name: FTP-Deploy-Action
-          uses: SamKirkland/FTP-Deploy-Action@4.2.0
-          with:
-              server: ${{ secrets.PROD_SERVER }}
-              username: ${{ secrets.PROD_USERNAME }}
-              password: ${{ secrets.PROD_PASSWORD }}
-              local-dir: ./wordpress/wp-content/themes/yk-original/
-              server-dir: /dnw-web.com/public_html/work/yk/wp-content/themes/yk-original/
+      - uses: actions/checkout@v2
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        with:
+          server: ${{ secrets.PROD_SERVER }}
+          username: ${{ secrets.PROD_USERNAME }}
+          password: ${{ secrets.PROD_PASSWORD }}
+          local-dir: ./wordpress/wp-content/themes/yk-original/
+          server-dir: /dnw-web.com/public_html/work/yk/wp-content/themes/yk-original/
