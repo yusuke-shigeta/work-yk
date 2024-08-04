@@ -1,10 +1,6 @@
 <?php
 // ヘッダナビゲーション用
-$menu_items = [
-  ['link' => '', 'text' => 'TOP'],
-  ['link' => 'achievement', 'text' => '施工実績'],
-  ['link' => '', 'text' => '会社概要'],
-];
+$menu_items = get_menu_items_header();
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +25,7 @@ $menu_items = [
 
         <ul class="navList navList-header">
 
-          <?php foreach ($menu_items as $item) : ?>
+          <?php foreach ($menu_items as $key => $item) : ?>
             <li class="navItem navItem-header">
               <a class="navLink navLink-header" href="<?php echo esc_url(home_url($item['link'])); ?>/">
                 <?php echo esc_html($item['text']); ?>
