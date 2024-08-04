@@ -97,38 +97,44 @@ add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts');
 function get_firstview_data()
 {
   $pages = [
-    'top' => [
+    'front-page' => [
+      'condition' => is_front_page(),
+      'background_image' => 'firstview-front-page.jpg',
       'heading' => 'トップページ',
       'text' => [
-        'トップページの1行目',
-        'トップページの2行目',
-        'トップページの3行目'
+        'トップページ1',
+        'トップページ2',
+        'トップページ3',
       ],
     ],
-    'inquiry' => [
-      'heading' => 'お問い合わせ',
-      'text' => [
-        'お問い合わせの1行目',
-        'お問い合わせの2行目',
-        'お問い合わせの3行目',
-      ],
-    ],
-    'achievements' => [
+    'archive-achievement' => [
+      'condition' => is_post_type_archive('achievement'),
+      'background_image' => 'firstview-archive-achievement.jpg',
       'heading' => '施工実績',
       'text' => [
-        '施工実績の1行目',
-        '施工実績の2行目',
-        '施工実績の3行目',
+        '施工実績1',
+        '施工実績2',
+        '施工実績3',
+      ],
+    ],
+    'page-inquiry' => [
+      'condition' => is_page('inquiry'),
+      'background_image' => 'firstview-page-inquiry.jpg',
+      'heading' => 'お問い合わせ',
+      'text' => [
+        'お問い合わせ1',
+        'お問い合わせ2',
+        'お問い合わせ3',
       ],
     ],
   ];
 
-  foreach ($pages as $page => $content) {
-    if (is_page($page)) {
+  foreach ($pages as $page => $data) {
+    if ($data['condition']) {
       return [
-        'background_image' => get_template_directory_uri() . "/assets/img/firstview-page-{$page}.jpg",
-        'heading' => $content['heading'],
-        'text' => implode("<br>", $content['text']),
+        'background_image' => get_template_directory_uri() . "/assets/img/{$data['background_image']}",
+        'heading' => $data['heading'],
+        'text' => implode('<br>', $data['text']),
       ];
     }
   }
