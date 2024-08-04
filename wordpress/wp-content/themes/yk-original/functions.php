@@ -32,7 +32,6 @@ add_action('after_setup_theme', 'theme_setup');
  */
 function wp_enqueue_styles()
 {
-  $theme_version = wp_get_theme()->get('Version');
 
   $commons = [
     'base/reset',
@@ -44,37 +43,26 @@ function wp_enqueue_styles()
     'layout/sec',
   ];
 
+  $page_specific_styles = [
+    'front-page' => is_front_page(),
+    'archive-achievement' => is_post_type_archive('achievement'),
+    'page-inquiry' => is_page('inquiry'),
+    'single-achievement' => is_singular('achievement'),
+    'taxonomy-achievement_tag' => is_tax(),
+  ];
+
   foreach ($commons as $common) {
     wp_enqueue_style(
       $common,
       get_template_directory_uri() . "/assets/css/{$common}.css",
-      array(),
-      $theme_version
     );
   }
 
-  // アーカイブページ用のスタイル
-  if (is_archive('achievement')) {
-    wp_enqueue_style(
-      "archive-achievement",
-      get_template_directory_uri() . "/assets/css/archive-achievement.css",
-      array('reset'),
-      $theme_version
-    );
-  }
-
-  $page_types = [
-    'front-page' => is_front_page(),
-    'page-inquiry' => is_page('inquiry'),
-  ];
-
-  foreach ($page_types as $type => $condition) {
+  foreach ($page_specific_styles as $style => $condition) {
     if ($condition) {
       wp_enqueue_style(
-        $type,
-        get_template_directory_uri() . "/assets/css/{$type}.css",
-        array('reset'),
-        $theme_version
+        $style,
+        get_template_directory_uri() . "/assets/css/{$style}.css"
       );
     }
   }
@@ -314,6 +302,14 @@ function debug_page_type()
     echo "タグアーカイブページ";
   } elseif (is_tax()) {
     echo "タクソノミーアーカイブページ";
+    if (is_post_type_tax()) {
+      echo "タクソノミーアーカイブページ";
+      $term = get_queried_object();
+      $taxonomy = get_taxonomy($term->taxonomy);
+      if ($taxonomy) {
+        echo " (タクソノミー: " . $term->taxonomy . ", 投稿タイプ: " . implode(', ', $taxonomy->object_type) . ")";
+      }
+    }
   } elseif (is_archive()) {
     if (is_post_type_archive()) {
       echo "カスタム投稿タイプのアーカイブページ";
