@@ -7,16 +7,14 @@ $page = get_page_by_path($page_slug);
 if ($page) {
   $post_id = $page->ID;
   $background_images = get_post_meta($post_id, 'background_images', true);
-
-  if (is_array($background_images)) {
-    foreach ($background_images as $image) {
-      // echo '<img src="' . esc_url($image) . '" style="max-width: 100%; height: auto;" />';
-    }
-  } else {
-    echo 'No images found.';
-  }
-} else {
-  echo 'Page not found.';
+}
+// デフォルトの背景画像を設定
+if (empty($background_images)) {
+  $background_images = [
+    get_template_directory_uri() . '/assets/img/firstview-archive-work.jpg',
+    get_template_directory_uri() . '/assets/img/firstview-front-page.jpg',
+    get_template_directory_uri() . '/assets/img/firstview-page-inquiry.jpg',
+  ];
 }
 ?>
 
@@ -26,7 +24,7 @@ if ($page) {
     <div class="frontPage-firstview-bg">
       <?php foreach ($background_images as $index => $image) : ?>
         <img class="frontPage-firstview-bg-img-<?php echo $index; ?>>" src="<?php echo esc_url($image) ?>" alt="Image <?php echo $index + 1; ?>" width="1440" height="700">
-        <p class="frontPage-firstview-bgIndex">(00<span class="frontPage-firstview-bgIndex-number"><?php echo $index + 1; ?></span>/003)</p>
+        <p class="frontPage-firstview-bgIndex">(00<span class="frontPage-firstview-bgIndex-number"><?php echo $index + 1; ?></span>/00<?php echo count($background_images); ?>)</p>
       <?php endforeach; ?>
     </div>
     <p class="frontPage-firstview-catchphrase">Design Your Life ｜ YK Co., Ltd.</p>
