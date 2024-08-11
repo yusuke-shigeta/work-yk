@@ -6,3 +6,12 @@
   display: flex;
   align-items: center;
 }
+
+.navLink:hover {
+  opacity: 0.7;
+}
+
+.navLink-sns {
+  width: 24px;
+  height: 24px;
+}

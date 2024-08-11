@@ -1,9 +1,32 @@
 .footer {
-  background: gray;
-  height: 400px;
+  background: #292929;
+  height: 269px;
 }
 
 .footer-inner {
-  width: 1240px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  max-width: 1340px;
   margin: 0 auto;
+}
+
+.footer-logo {
+  width: 86px;
+}
+
+.footer-nav {
+  grid-column: 1/2;
+}
+
+.footer-navLink {
+  color: var(--text-color-gray);
+}
+
+.footer-info-text {
+  color: var(--text-color-gray);
+}
+
+.footer-copyright {
+  color: var(--text-color-gray);
 }

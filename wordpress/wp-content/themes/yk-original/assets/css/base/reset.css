@@ -3,28 +3,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+  font-size: 14px;
 }
 
-
-article, aside, details, figcaption, figure, 
-footer, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+hgroup,
+menu,
+nav,
+section {
   display: block;
-}
-
-html {
-  font-size: 62.5%;
 }
 
 body {
   line-height: 1;
-  font-size: 1.6rem;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
 a {
+  display: block;
   text-decoration: none;
   color: inherit;
 }
@@ -36,12 +42,21 @@ img {
   vertical-align: bottom;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-h1,h2,h3,h4,h5,h6,p,div {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
   margin: 0;
   font-weight: normal;
-  font-size: 1.6rem;
 }

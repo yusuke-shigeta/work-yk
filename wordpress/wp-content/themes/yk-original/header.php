@@ -15,19 +15,19 @@ $menu_items = get_menu_items_header();
 
 <body>
   <header class="header">
-    <div class="inner-header">
+    <div class="header-inner">
 
-      <div class="logo logo-header">
-        <img src="" alt="Logo" width="160" height="60">
-      </div>
+      <a class="logo header-logo" href="<?php echo home_url() ?>">
+        <img src="<?php echo get_template_directory_uri() ?>/assets/img/header-logo.png" alt="Logo" width="61" height="24">
+      </a>
 
-      <nav class="nav-header">
+      <nav class="header-nav">
 
-        <ul class="navList navList-header">
+        <ul class="navList header-navList">
 
           <?php foreach ($menu_items as $key => $item) : ?>
-            <li class="navItem navItem-header">
-              <a class="navLink navLink-header" href="<?php echo esc_url(home_url($item['link'])); ?>/">
+            <li class="navItem">
+              <a class="navLink footer-navLink" href="<?php echo esc_url(home_url($item['link'])); ?>/">
                 <?php echo esc_html($item['text']); ?>
               </a>
             </li>
@@ -35,7 +35,7 @@ $menu_items = get_menu_items_header();
 
         </ul>
 
-        <a href="<?php echo esc_url(home_url("inquiry")); ?>/" class="btn btn-inquiry">
+        <a href="<?php echo esc_url(home_url("inquiry")); ?>/" class="btn btn-arrow btn-color-gray header-btn">
           お問い合わせ
         </a>
 

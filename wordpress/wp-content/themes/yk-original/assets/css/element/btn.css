@@ -3,13 +3,32 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  border-radius: 24px;
+  border-radius: 50px;
 }
 
-.btn-inquiry {
-  width: 120px;
-  height: 52px;
-  line-height: 52px;
-  background: blue;
+.btn-arrow {
+  position: relative;
+}
+.btn-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  background: url("../../img/btn-arrow-default.png");
+  width: 14px;
+  height: 14px;
+}
+.btn-arrow:hover::after {
+  background: url("../../img/btn-arrow-active.png");
+}
+
+.btn-color-gray {
+  color: #71726d;
+  background: #fff;
+  border: #71726d solid 1px;
+}
+.btn-color-gray:hover {
   color: #fff;
+  background: #71726d;
 }

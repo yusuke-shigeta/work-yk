@@ -35,6 +35,8 @@ function enqueue_styles_and_scripts()
   // 共通のCSS
   $common_styles = [
     'base/reset',
+    'base/variables',
+    'base/global',
     'element/nav',
     'element/btn',
     'element/header',
@@ -186,7 +188,7 @@ function custom_fields_achievement_callback($post)
       <label for="<?php echo esc_attr($field_name); ?>"><?php echo esc_html($field_data['label']); ?>：</label>
       <input type="<?php echo esc_attr($field_data['type']); ?>" name="<?php echo esc_attr($field_name); ?>" id="<?php echo esc_attr($field_name); ?>" value="<?php echo esc_attr($value); ?>" />
     </p>
-<?php
+  <?php
   }
 }
 
@@ -372,3 +374,117 @@ add_action('wp_footer', function () {
     echo '</div>';
   }
 });
+
+/**
+ * add_custom_fields_specific_page
+ *
+ * @return void
+ */
+function add_custom_fields_specific_page()
+{
+  // 特定のページスラッグを指定
+  $specific_page_slug = 'front-page'; // ここにページスラッグを指定
+
+  // 現在の投稿オブジェクトを取得
+  global $post;
+
+  if ($post && $post->post_name === $specific_page_slug) {
+    add_meta_box(
+      'background_image_meta_box', // ID
+      'Background Images', // タイトル
+      'show_background_image_meta_box', // コールバック関数
+      'page', // 投稿タイプ
+      'normal', // コンテキスト
+      'high', // 優先度
+      null, // コールバック引数
+      ['__block_editor_compatible_meta_box' => true] // Gutenberg対応
+    );
+  }
+}
+add_action('add_meta_boxes', 'add_custom_fields_specific_page');
+
+/**
+ * show_background_image_meta_box
+ *
+ * @param  mixed $post
+ * @return void
+ */
+function show_background_image_meta_box($post)
+{
+  $background_images = get_post_meta($post->ID, 'background_images', true);
+  if (!is_array($background_images)) {
+    $background_images = [];
+  }
+  ?>
+  <label for="background_images">Background Images:</label>
+  <input type="hidden" name="background_images" id="background_images" value="<?php echo esc_attr(json_encode($background_images)); ?>" />
+  <div id="background_images_preview" style="max-width: 300px; height: auto;">
+    <?php foreach ($background_images as $image) : ?>
+      <div class="background_image_item" style="margin-bottom: 10px;">
+        <img src="<?php echo esc_url($image); ?>" style="max-width: 300px; height: auto;" />
+        <input type="button" class="remove_single_image_button button" value="Remove Image" />
+      </div>
+    <?php endforeach; ?>
+  </div>
+  <input type="button" id="upload_background_images_button" class="button" value="Upload Images" />
+  <script>
+    jQuery(document).ready(function($) {
+      var mediaUploader;
+      $('#upload_background_images_button').click(function(e) {
+        e.preventDefault();
+        if (mediaUploader) {
+          mediaUploader.open();
+          return;
+        }
+        mediaUploader = wp.media.frames.file_frame = wp.media({
+          title: 'Choose Images',
+          button: {
+            text: 'Choose Images'
+          },
+          multiple: true
+        });
+        mediaUploader.on('select', function() {
+          var attachments = mediaUploader.state().get('selection').toJSON();
+          var images = JSON.parse($('#background_images').val());
+          attachments.forEach(function(attachment) {
+            images.push(attachment.url);
+            $('#background_images_preview').append('<div class="background_image_item" style="margin-bottom: 10px;"><img src="' + attachment.url + '" style="max-width: 100%; height: auto;" /><input type="button" class="remove_single_image_button button" value="Remove Image" /></div>');
+          });
+          $('#background_images').val(JSON.stringify(images));
+        });
+        mediaUploader.open();
+      });
+
+      $('#background_images_preview').on('click', '.remove_single_image_button', function(e) {
+        e.preventDefault();
+        var index = $(this).parent().index();
+        var images = JSON.parse($('#background_images').val());
+        images.splice(index, 1);
+        $('#background_images').val(JSON.stringify(images));
+        $(this).parent().remove();
+      });
+    });
+  </script>
+<?php
+}
+
+/**
+ * save_background_image_meta_box
+ *
+ * @param  mixed $post_id
+ * @return void
+ */
+function save_background_image_meta_box($post_id)
+{
+  if (array_key_exists('background_images', $_POST)) {
+    $images = json_decode(stripslashes($_POST['background_images']), true);
+    if (is_array($images)) {
+      update_post_meta(
+        $post_id,
+        'background_images',
+        array_map('esc_url_raw', $images)
+      );
+    }
+  }
+}
+add_action('save_post', 'save_background_image_meta_box');
