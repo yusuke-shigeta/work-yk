@@ -266,59 +266,6 @@ function get_menu_items_header()
 }
 
 /**
- * get_firstview_data
- * firstviewのコンテンツを出しわけ
- * @return void
- */
-function get_firstview_data()
-{
-  $pages = [
-    'front-page' => [
-      'condition' => is_front_page(),
-      'background_image' => 'firstview-front-page.jpg',
-      'heading' => 'トップページ',
-      'text' => [
-        'トップページ1',
-        'トップページ2',
-        'トップページ3',
-      ],
-    ],
-    'archive-work' => [
-      'condition' => is_post_type_archive('work'),
-      'background_image' => 'firstview-archive-work.jpg',
-      'heading' => '施工実績',
-      'text' => [
-        '施工実績1',
-        '施工実績2',
-        '施工実績3',
-      ],
-    ],
-    'page-inquiry' => [
-      'condition' => is_page('inquiry'),
-      'background_image' => 'firstview-page-inquiry.jpg',
-      'heading' => 'お問い合わせ',
-      'text' => [
-        'お問い合わせ1',
-        'お問い合わせ2',
-        'お問い合わせ3',
-      ],
-    ],
-  ];
-
-  foreach ($pages as $page => $data) {
-    if ($data['condition']) {
-      return [
-        'background_image' => get_template_directory_uri() . "/assets/img/{$data['background_image']}",
-        'heading' => $data['heading'],
-        'text' => implode('<br>', $data['text']),
-      ];
-    }
-  }
-
-  return null;
-}
-
-/**
  * debug_page_type
  * ログイン時、開いているページのページタイプを出力
  * @return void

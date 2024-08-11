@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
-<main id="page-inquiry" class="main">
+<main id="archive-work" class="main">
 
   <?php
+  $fistview_bg = "firstview-archive-work.jpg";
+  $firstview_title = "施工実績";
   @include(get_template_directory() . '/element/firstview.php');
   ?>
 
