@@ -47,7 +47,7 @@ if ($page) {
   </section>
 
   <?php
-  // achievements
+  // works
   ?>
   <section class="sec">
     <div class="sec-inner">

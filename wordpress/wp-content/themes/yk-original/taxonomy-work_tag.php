@@ -9,7 +9,7 @@
   ?>
 
   <?php if (have_posts()) : ?>
-    <div class="achievement-list">
+    <div class="work-list">
       <?php while (have_posts()) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
           <header class="entry-header">

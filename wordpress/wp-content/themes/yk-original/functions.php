@@ -70,10 +70,10 @@ function enqueue_styles_and_scripts()
   // ページ特有のアセット（CSSとJS）
   $page_specific_assets = [
     'front-page' => is_front_page(),
-    'archive-achievement' => is_post_type_archive('achievement'),
+    'archive-work' => is_post_type_archive('work'),
     'page-inquiry' => is_page('inquiry'),
-    'single-achievement' => is_singular('achievement'),
-    'taxonomy-achievement_tag' => is_tax(),
+    'single-work' => is_singular('work'),
+    'taxonomy-work_tag' => is_tax(),
   ];
 
   foreach ($page_specific_assets as $asset => $condition) {
@@ -92,15 +92,15 @@ function enqueue_styles_and_scripts()
 add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts');
 
 /**
- * create_post_type_achievement
+ * create_post_type_work
  *
  * @return void
  */
-function create_post_type_achievement()
+function create_post_type_work()
 {
   // 新しい投稿タイプを追加
   register_post_type(
-    'achievement', // 投稿タイプのスラッグ
+    'work', // 投稿タイプのスラッグ
     [
       // 管理画面での表示名を設定する配列
       'labels' => [
@@ -112,9 +112,9 @@ function create_post_type_achievement()
       // アーカイブページを持つかどうか
       'has_archive' => true,
       // タグを出力
-      'taxonomies' => array('achievement_tag'),
+      'taxonomies' => array('work_tag'),
       // URLリライトのルールを設定
-      'rewrite' => ['slug' => 'achievements'],
+      'rewrite' => ['slug' => 'works'],
       // 投稿編集画面でサポートする機能
       'supports' => ['title', 'editor', 'thumbnail', 'tags'],
       // 'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'author', 'custom-fields',]
@@ -125,8 +125,8 @@ function create_post_type_achievement()
 
   // タクソノミーの登録
   register_taxonomy(
-    'achievement_tag',
-    'achievement',
+    'work_tag',
+    'work',
     array(
       'label' => 'タグ',
       'hierarchical' => false,
@@ -135,40 +135,40 @@ function create_post_type_achievement()
       'show_in_rest' => true,
       'show_admin_column' => true,
       'query_var' => true,
-      'rewrite' => array('slug' => 'achievements-tag'),
+      'rewrite' => array('slug' => 'works-tag'),
     )
   );
 }
-add_action('init', 'create_post_type_achievement');
+add_action('init', 'create_post_type_work');
 
 
 /**
- * add_custom_fields_achievement
+ * add_custom_fields_work
  * 施工実績のカスタムフィールドを追加
  * @return void
  */
-function add_custom_fields_achievement()
+function add_custom_fields_work()
 {
   add_meta_box(
-    'custom_fields_achievement',
+    'custom_fields_work',
     '施工実績詳細',
-    'custom_fields_achievement_callback',
-    'achievement',
+    'custom_fields_work_callback',
+    'work',
     'normal',
     'default'
   );
 }
-add_action('add_meta_boxes', 'add_custom_fields_achievement');
+add_action('add_meta_boxes', 'add_custom_fields_work');
 
 /**
- * custom_fields_achievement_callback
+ * custom_fields_work_callback
  * カスタムフィールドの入力フォームを表示
  * @param WP_Post $post 現在の投稿オブジェクト
  * @return void
  */
-function custom_fields_achievement_callback($post)
+function custom_fields_work_callback($post)
 {
-  wp_nonce_field(basename(__FILE__), 'custom_fields_achievement_nonce');
+  wp_nonce_field(basename(__FILE__), 'custom_fields_work_nonce');
 
   $fields = [
     'client_name' => [
@@ -193,14 +193,14 @@ function custom_fields_achievement_callback($post)
 }
 
 /**
- * save_custom_fields_achievement
+ * save_custom_fields_work
  * カスタムフィールドの値を保存
  * @param int $post_id 投稿ID
  * @return void
  */
-function save_custom_fields_achievement($post_id)
+function save_custom_fields_work($post_id)
 {
-  if (!isset($_POST['custom_fields_achievement_nonce']) || !wp_verify_nonce($_POST['custom_fields_achievement_nonce'], basename(__FILE__))) {
+  if (!isset($_POST['custom_fields_work_nonce']) || !wp_verify_nonce($_POST['custom_fields_work_nonce'], basename(__FILE__))) {
     return;
   }
   if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
@@ -218,15 +218,15 @@ function save_custom_fields_achievement($post_id)
     }
   }
 }
-add_action('save_post_achievement', 'save_custom_fields_achievement');
+add_action('save_post_work', 'save_custom_fields_work');
 
 /**
- * get_custom_fields_achievement
+ * get_custom_fields_work
  * 施工実績のカスタムフィールド値を取得
  * @param int $post_id 投稿ID
  * @return array カスタムフィールドの値
  */
-function get_custom_fields_achievement($post_id = null)
+function get_custom_fields_work($post_id = null)
 {
   if (!$post_id) {
     $post_id = get_the_ID();
@@ -254,8 +254,8 @@ function get_menu_items_header()
       'link' => '',
       'text' => 'TOP',
     ],
-    'achievements' => [
-      'link' => 'achievements',
+    'works' => [
+      'link' => 'works',
       'text' => '施工実績',
     ],
     'companyoverview' => [
@@ -283,9 +283,9 @@ function get_firstview_data()
         'トップページ3',
       ],
     ],
-    'archive-achievement' => [
-      'condition' => is_post_type_archive('achievement'),
-      'background_image' => 'firstview-archive-achievement.jpg',
+    'archive-work' => [
+      'condition' => is_post_type_archive('work'),
+      'background_image' => 'firstview-archive-work.jpg',
       'heading' => '施工実績',
       'text' => [
         '施工実績1',

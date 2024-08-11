@@ -3,14 +3,14 @@ get_header();
 
 while (have_posts()) :
   the_post();
-  $custom_fields = get_custom_fields_achievement();
+  $custom_fields = get_custom_fields_work();
 ?>
   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <h1 class="entry-h1">
       <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
     </h1>
 
-    <div class="achievement-details">
+    <div class="work-details">
       <?php
       $field_labels = [
         'client_name' => 'クライアント名',
@@ -32,7 +32,7 @@ while (have_posts()) :
 
     <?php
     // タグの出力
-    $tags = wp_get_post_terms(get_the_ID(), 'achievement_tag');
+    $tags = wp_get_post_terms(get_the_ID(), 'work_tag');
     if (!empty($tags) && !is_wp_error($tags)) :
     ?>
       <div class="entry-tags">
