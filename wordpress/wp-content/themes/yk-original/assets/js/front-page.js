@@ -1,20 +1,24 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const images = document.querySelectorAll(".frontPage-firstview-bg img");
+document.addEventListener("DOMContentLoaded", async () => {
+  const images = Array.from(document.querySelectorAll(".frontPage-firstview-bg img"));
+  const fadeNumber = Array.from(document.querySelectorAll(".frontPage-firstview-bgIndex-number"));
   let currentIndex = 0;
 
   function showNextImage() {
-    images.forEach((img, index) => {
-      img.classList.remove("active");
-      if (index === currentIndex) {
-        img.classList.add("active");
-      }
-    });
+    for (const [index, img] of images.entries()) {
+      img.classList.toggle("active", index === currentIndex);
+    }
+
+    for (const [index, fade] of fadeNumber.entries()) {
+      fade.classList.toggle("active", index === currentIndex);
+    }
+
     currentIndex = (currentIndex + 1) % images.length;
   }
 
   // 初期表示
   images[0].classList.add("active");
+  fadeNumber[0].classList.add("active");
 
-  // 3秒ごとに次の画像を表示
+  // 5秒ごとに次の画像を表示
   setInterval(showNextImage, 5000);
 });

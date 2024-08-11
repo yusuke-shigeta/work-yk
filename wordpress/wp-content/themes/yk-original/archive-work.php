@@ -5,7 +5,7 @@
   <?php
   $fistview_bg = "firstview-archive-work.jpg";
   $firstview_title = "施工実績";
-  @include(get_template_directory() . '/element/firstview.php');
+  @include(get_template_directory() . '/element/Firstview.php');
   ?>
 
   <div class="">

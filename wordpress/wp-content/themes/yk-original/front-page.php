@@ -26,32 +26,40 @@ if ($page) {
     <div class="frontPage-firstview-bg">
       <?php foreach ($background_images as $index => $image) : ?>
         <img class="frontPage-firstview-bg-img-<?php echo $index; ?>>" src="<?php echo esc_url($image) ?>" alt="Image <?php echo $index + 1; ?>" width="1440" height="700">
+        <p class="frontPage-firstview-bgIndex">(00<span class="frontPage-firstview-bgIndex-number"><?php echo $index + 1; ?></span>/003)</p>
       <?php endforeach; ?>
     </div>
+    <p class="frontPage-firstview-catchphrase">Design Your Life ｜ YK Co., Ltd.</p>
     <div class="frontPage-firstview-inner">
       <div class="frontPage-firstview-contents">
         <h2 class="frontPage-firstview-title">
-          <p class="frontPage-firstview-text">
-            私達は、持てる全てを以ってお客様にとって<br>
-            ベストな解決を提案いたします。<br>
-            私達が提供できるサービスは、工事関係全般...<br>
-            リノベーション、アートワーク、原状回復、店舗改修、<br>
-            その他日常小修繕など、小さなことでもお伺いしており、<br>
-            有り難いことに今日まで多くの管理会社、<br>
-            オーナー様にご愛顧いただいております。<br>
-            私達の解決、デザインがお客様の生活の一助となりますように。<br>
-            私達は株式会社YKです。
-          </p>
+          <img src="<?php echo get_template_directory_uri() ?>/assets/img/title-weAreYk.png" alt="We are YK" width="385" height="151">
+        </h2>
+        <p class="frontPage-firstview-text">
+          私達は、持てる全てを以ってお客様にとって<br>
+          ベストな解決を提案いたします。<br>
+          私達が提供できるサービスは、工事関係全般...<br>
+          リノベーション、アートワーク、原状回復、店舗改修、<br>
+          その他日常小修繕など、小さなことでもお伺いしており、<br>
+          有り難いことに今日まで多くの管理会社、<br>
+          オーナー様にご愛顧いただいております。<br>
+          私達の解決、デザインがお客様の生活の一助となりますように。<br>
+          私達は株式会社YKです。
+        </p>
       </div>
     </div>
   </section>
 
   <?php
-  // works
+  // achievements
   ?>
   <section class="sec">
     <div class="sec-inner">
-      施工実績
+      <?php
+      $title_head2_img_en = "title-works.png";
+      $title_head2_ja = "施工実績";
+      @include(get_template_directory() . '/element/Title-head2.php');
+      ?>
     </div>
   </section>
 
