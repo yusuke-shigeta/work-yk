@@ -48,22 +48,28 @@
 
 .frontPage-firstview-bgIndex {
   position: absolute;
-  top: 54%;
+  top: 50%;
   left: 2%;
   transform: translateY(-50%) rotate(270deg);
-  transform-origin: top left;
+  transform-origin: center;
+  width: 210px;
+  height: 210px;
   z-index: 3;
   color: var(--text-color-white);
+  text-align: center;
 }
 
 .frontPage-firstview-catchphrase {
   position: absolute;
   z-index: 3;
-  top: 62%;
+  top: 50%;
   right: 2%;
   transform: translateY(-50%) rotate(90deg);
-  transform-origin: top right;
+  transform-origin: center;
+  width: 210px;
+  height: 210px;
   color: var(--text-color-white);
+  text-align: center;
 }
 
 .frontPage-firstview-inner {
@@ -91,4 +97,5 @@
 
 .frontPage-firstview-text {
   color: var(--text-color-white);
+  text-align: center;
 }

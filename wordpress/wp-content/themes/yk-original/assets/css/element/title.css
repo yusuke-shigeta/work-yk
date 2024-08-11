@@ -1,0 +1,13 @@
+.title-head2 {
+  text-align: center;
+}
+
+.title-head2-en-img {
+  width: auto;
+}
+
+.title-head2-ja {
+  display: block;
+  color: var(--text-color-green);
+  font-weight: bold;
+}

@@ -39,9 +39,11 @@ function enqueue_styles_and_scripts()
     'base/global',
     'element/nav',
     'element/btn',
+    'element/title',
     'element/header',
     'element/footer',
     'layout/main',
+    'layout/inner',
     'layout/sec',
   ];
 

@@ -58,6 +58,8 @@ if ($page) {
       <?php
       $title_head2_img_en = "title-works.png";
       $title_head2_ja = "施工実績";
+      $title_head2_img_en_width = "239";
+      $title_head2_img_en_height = "50";
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
     </div>
@@ -68,7 +70,13 @@ if ($page) {
   ?>
   <section class="sec">
     <div class="sec-inner">
-      会社概要
+      <?php
+      $title_head2_img_en = "title-company.png";
+      $title_head2_ja = "会社概要";
+      $title_head2_img_en_width = "239";
+      $title_head2_img_en_height = "50";
+      @include(get_template_directory() . '/element/Title-head2.php');
+      ?>
     </div>
   </section>
 
@@ -77,7 +85,13 @@ if ($page) {
   ?>
   <section class="sec">
     <div class="sec-inner">
-      お問い合わせ
+      <?php
+      $title_head2_img_en = "title-contact.png";
+      $title_head2_ja = "お問い合わせ";
+      $title_head2_img_en_width = "239";
+      $title_head2_img_en_height = "50";
+      @include(get_template_directory() . '/element/Title-head2.php');
+      ?>
     </div>
   </section>
 
