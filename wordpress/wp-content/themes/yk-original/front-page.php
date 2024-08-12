@@ -71,7 +71,7 @@ if (empty($background_images)) {
       <?php
       $title_head2_img_en = "title-company.png";
       $title_head2_ja = "会社概要";
-      $title_head2_img_en_width = "239";
+      $title_head2_img_en_width = "352";
       $title_head2_img_en_height = "50";
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
@@ -81,12 +81,12 @@ if (empty($background_images)) {
   <?php
   // inquiry
   ?>
-  <section class="sec">
+  <section class="sec frontPage-contact">
     <div class="sec-inner">
       <?php
       $title_head2_img_en = "title-contact.png";
       $title_head2_ja = "お問い合わせ";
-      $title_head2_img_en_width = "239";
+      $title_head2_img_en_width = "353";
       $title_head2_img_en_height = "50";
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>

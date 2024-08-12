@@ -99,3 +99,7 @@
   color: var(--text-color-white);
   text-align: center;
 }
+
+.frontPage-contact {
+  background: var(--bg-color-gray);
+}
