@@ -143,6 +143,7 @@ function create_post_type_work()
 }
 add_action('init', 'create_post_type_work');
 
+define('WORK_CUSTOM_FIELDS', ['場所', '建物種別', '増築年数', '費用', '対象面積', '工期']);
 
 /**
  * add_custom_fields_work
@@ -168,9 +169,6 @@ add_action('add_meta_boxes', 'add_custom_fields_work');
  * @param WP_Post $post 現在の投稿オブジェクト
  * @return void
  */
-
-define('WORK_CUSTOM_FIELDS', ['場所', '建物種別', '増築年数', '費用', '対象面積', '工期']);
-
 function custom_fields_work_callback($post)
 {
   wp_nonce_field(basename(__FILE__), 'custom_fields_work_nonce');
@@ -185,6 +183,63 @@ function custom_fields_work_callback($post)
     </p>
   <?php
   }
+
+  // Image upload field
+  $images = get_post_meta($post->ID, 'work_images', true);
+  if (!is_array($images)) {
+    $images = [];
+  }
+  ?>
+  <label for="work_images">Images:</label>
+  <input type="hidden" name="work_images" id="work_images" value="<?php echo esc_attr(json_encode($images)); ?>" />
+  <div id="work_images_preview" style="max-width: 300px; height: auto;">
+    <?php foreach ($images as $image) : ?>
+      <div class="work_image_item" style="margin-bottom: 10px;">
+        <img src="<?php echo esc_url($image); ?>" style="max-width: 300px; height: auto;" />
+        <input type="button" class="remove_single_image_button button" value="Remove Image" />
+      </div>
+    <?php endforeach; ?>
+  </div>
+  <input type="button" id="upload_work_images_button" class="button" value="Upload Images" />
+  <script>
+    jQuery(document).ready(function($) {
+      var mediaUploader;
+      $('#upload_work_images_button').click(function(e) {
+        e.preventDefault();
+        if (mediaUploader) {
+          mediaUploader.open();
+          return;
+        }
+        mediaUploader = wp.media.frames.file_frame = wp.media({
+          title: 'Choose Images',
+          button: {
+            text: 'Choose Images'
+          },
+          multiple: true
+        });
+        mediaUploader.on('select', function() {
+          var attachments = mediaUploader.state().get('selection').toJSON();
+          var images = JSON.parse($('#work_images').val());
+          attachments.forEach(function(attachment) {
+            images.push(attachment.url);
+            $('#work_images_preview').append('<div class="work_image_item" style="margin-bottom: 10px;"><img src="' + attachment.url + '" style="max-width: 100%; height: auto;" /><input type="button" class="remove_single_image_button button" value="Remove Image" /></div>');
+          });
+          $('#work_images').val(JSON.stringify(images));
+        });
+        mediaUploader.open();
+      });
+
+      $('#work_images_preview').on('click', '.remove_single_image_button', function(e) {
+        e.preventDefault();
+        var index = $(this).parent().index();
+        var images = JSON.parse($('#work_images').val());
+        images.splice(index, 1);
+        $('#work_images').val(JSON.stringify(images));
+        $(this).parent().remove();
+      });
+    });
+  </script>
+<?php
 }
 
 /**
@@ -211,16 +266,23 @@ function save_custom_fields_work($post_id)
       update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
     }
   }
+
+  if (array_key_exists('work_images', $_POST)) {
+    $images = json_decode(stripslashes($_POST['work_images']), true);
+    if (is_array($images)) {
+      update_post_meta($post_id, 'work_images', array_map('esc_url_raw', $images));
+    }
+  }
 }
 add_action('save_post_work', 'save_custom_fields_work');
 
 /**
- * get_custom_fields_work
+ * get_work_data
  * 施工実績のカスタムフィールド値を取得
  * @param int $post_id 投稿ID
  * @return array カスタムフィールドの値
  */
-function get_custom_fields_work($post_id = null)
+function get_work_data($post_id = null)
 {
   if (!$post_id) {
     $post_id = get_the_ID();
@@ -234,6 +296,26 @@ function get_custom_fields_work($post_id = null)
   }
 
   return $result;
+}
+
+/**
+ * get_work_images
+ * 施工実績の画像を取得
+ * @param int $post_id 投稿ID
+ * @return array 画像URLの配列
+ */
+function get_work_images($post_id = null)
+{
+  if (!$post_id) {
+    $post_id = get_the_ID();
+  }
+
+  $images = get_post_meta($post_id, 'work_images', true);
+  if (!is_array($images)) {
+    $images = [];
+  }
+
+  return $images;
 }
 
 /**
@@ -258,63 +340,6 @@ function get_menu_items_header()
     ],
   ];
 }
-
-/**
- * debug_page_type
- * ログイン時、開いているページのページタイプを出力
- * @return void
- */
-function debug_page_type()
-{
-  if (is_front_page() && is_home()) {
-    echo "デフォルトのホームページ";
-  } elseif (is_front_page()) {
-    echo "is_front_page";
-  } elseif (is_home()) {
-    echo "is_home";
-  } elseif (is_single()) {
-    echo "is_single";
-    echo " (投稿タイプ: " . get_post_type() . ")";
-  } elseif (is_page()) {
-    echo "is_page";
-  } elseif (is_category()) {
-    echo "is_category";
-  } elseif (is_tag()) {
-    echo "is_tag";
-  } elseif (is_tax()) {
-    echo "タクソノミーアーカイブページ";
-    if (is_post_type_tax()) {
-      echo "タクソノミーアーカイブページ";
-      $term = get_queried_object();
-      $taxonomy = get_taxonomy($term->taxonomy);
-      if ($taxonomy) {
-        echo " (タクソノミー: " . $term->taxonomy . ", 投稿タイプ: " . implode(', ', $taxonomy->object_type) . ")";
-      }
-    }
-  } elseif (is_archive()) {
-    if (is_post_type_archive()) {
-      echo "is_archive";
-      echo " (is_post_type_archive: " . get_post_type() . ")";
-    } else {
-      echo "is_archive";
-    }
-  } elseif (is_search()) {
-    echo "is_search";
-  } elseif (is_404()) {
-    echo "is_404";
-  } else {
-    echo "その他のページタイプ";
-  }
-}
-
-// 使用例：
-add_action('wp_footer', function () {
-  if (is_user_logged_in()) {
-    echo '<div style="background: #f0f0f0; color: #333; padding: 10px; position: fixed; bottom: 0; right: 0; z-index: 9999;">';
-    debug_page_type();
-    echo '</div>';
-  }
-});
 
 /**
  * add_custom_fields_specific_page
@@ -356,7 +381,7 @@ function show_background_image_meta_box($post)
   if (!is_array($background_images)) {
     $background_images = [];
   }
-  ?>
+?>
   <label for="background_images">Background Images:</label>
   <input type="hidden" name="background_images" id="background_images" value="<?php echo esc_attr(json_encode($background_images)); ?>" />
   <div id="background_images_preview" style="max-width: 300px; height: auto;">
@@ -429,3 +454,60 @@ function save_background_image_meta_box($post_id)
   }
 }
 add_action('save_post', 'save_background_image_meta_box');
+
+/**
+ * debug_page_type
+ * ログイン時、開いているページのページタイプを出力
+ * @return void
+ */
+function debug_page_type()
+{
+  if (is_front_page() && is_home()) {
+    echo "デフォルトのホームページ";
+  } elseif (is_front_page()) {
+    echo "is_front_page";
+  } elseif (is_home()) {
+    echo "is_home";
+  } elseif (is_single()) {
+    echo "is_single";
+    echo " (投稿タイプ: " . get_post_type() . ")";
+  } elseif (is_page()) {
+    echo "is_page";
+  } elseif (is_category()) {
+    echo "is_category";
+  } elseif (is_tag()) {
+    echo "is_tag";
+  } elseif (is_tax()) {
+    echo "タクソノミーアーカイブページ";
+    if (is_post_type_tax()) {
+      echo "タクソノミーアーカイブページ";
+      $term = get_queried_object();
+      $taxonomy = get_taxonomy($term->taxonomy);
+      if ($taxonomy) {
+        echo " (タクソノミー: " . $term->taxonomy . ", 投稿タイプ: " . implode(', ', $taxonomy->object_type) . ")";
+      }
+    }
+  } elseif (is_archive()) {
+    if (is_post_type_archive()) {
+      echo "is_archive";
+      echo " (is_post_type_archive: " . get_post_type() . ")";
+    } else {
+      echo "is_archive";
+    }
+  } elseif (is_search()) {
+    echo "is_search";
+  } elseif (is_404()) {
+    echo "is_404";
+  } else {
+    echo "その他のページタイプ";
+  }
+}
+
+// 使用例：
+add_action('wp_footer', function () {
+  if (is_user_logged_in()) {
+    echo '<div style="background: #f0f0f0; color: #333; padding: 10px; position: fixed; bottom: 0; right: 0; z-index: 9999;">';
+    debug_page_type();
+    echo '</div>';
+  }
+});

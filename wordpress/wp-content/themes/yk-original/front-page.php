@@ -70,9 +70,12 @@ if (empty($background_images)) {
 
         if ($works_query->have_posts()) :
           while ($works_query->have_posts()) : $works_query->the_post();
-            $custom_fields = get_custom_fields_work();
+            $work_data = get_work_data();
+            $work_images = get_work_images();
+            $work_thumbnail = $work_images[0];
         ?>
             <li class="postItem">
+              <img src="<?php echo  $work_thumbnail; ?>" alt="サムネイル">
               <h3 class=""><?php the_title(); ?></h3>
               <p>場所: <?php echo esc_html($custom_fields['場所']); ?></p>
               <p>建物種別: <?php echo esc_html($custom_fields['建物種別']); ?></p>
