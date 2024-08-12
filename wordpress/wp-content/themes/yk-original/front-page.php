@@ -13,7 +13,7 @@ if (empty($background_images)) {
   $background_images = [
     get_template_directory_uri() . '/assets/img/firstview-archive-work.jpg',
     get_template_directory_uri() . '/assets/img/firstview-front-page.jpg',
-    get_template_directory_uri() . '/assets/img/firstview-page-inquiry.jpg',
+    get_template_directory_uri() . '/assets/img/firstview-page-contact.jpg',
   ];
 }
 ?>
@@ -49,7 +49,7 @@ if (empty($background_images)) {
   </section>
 
   <?php
-  // achievements
+  // works
   ?>
   <section class="sec">
     <div class="sec-inner">
@@ -60,11 +60,41 @@ if (empty($background_images)) {
       $title_head2_img_en_height = "50";
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
+      <ul class="postList">
+        <?php
+        $args = array(
+          'post_type' => 'work',
+          'posts_per_page' => 3,
+        );
+        $works_query = new WP_Query($args);
+
+        if ($works_query->have_posts()) :
+          while ($works_query->have_posts()) : $works_query->the_post();
+            $custom_fields = get_custom_fields_work();
+        ?>
+            <li class="postItem">
+              <h3 class=""><?php the_title(); ?></h3>
+              <p>場所: <?php echo esc_html($custom_fields['場所']); ?></p>
+              <p>建物種別: <?php echo esc_html($custom_fields['建物種別']); ?></p>
+              <p>増築年数: <?php echo esc_html($custom_fields['増築年数']); ?></p>
+              <p>費用: <?php echo esc_html($custom_fields['費用']); ?></p>
+              <p>対象面積: <?php echo esc_html($custom_fields['対象面積']); ?></p>
+              <p>工期: <?php echo esc_html($custom_fields['工期']); ?></p>
+              <a href="<?php echo get_permalink(); ?>">詳細を見る</a>
+            </li>
+          <?php
+          endwhile;
+          wp_reset_postdata();
+          ?>
+        <?php else: ?>
+          <p>施工実績がありません。</p>
+        <?php endif; ?>
+      </ul>
     </div>
   </section>
 
   <?php
-  // companyoverview
+  // company
   ?>
   <section class="sec">
     <div class="sec-inner">
@@ -79,7 +109,7 @@ if (empty($background_images)) {
   </section>
 
   <?php
-  // inquiry
+  // contact
   ?>
   <section class="sec frontPage-contact">
     <div class="sec-inner">

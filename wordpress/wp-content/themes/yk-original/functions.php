@@ -168,27 +168,20 @@ add_action('add_meta_boxes', 'add_custom_fields_work');
  * @param WP_Post $post 現在の投稿オブジェクト
  * @return void
  */
+
+define('WORK_CUSTOM_FIELDS', ['場所', '建物種別', '増築年数', '費用', '対象面積', '工期']);
+
 function custom_fields_work_callback($post)
 {
   wp_nonce_field(basename(__FILE__), 'custom_fields_work_nonce');
 
-  $fields = [
-    'client_name' => [
-      'label' => 'クライアント名',
-      'type' => 'text'
-    ],
-    'project_date' => [
-      'label' => 'プロジェクト日付',
-      'type' => 'date'
-    ]
-  ];
-
-  foreach ($fields as $field_name => $field_data) {
+  $fields = WORK_CUSTOM_FIELDS; // Use the constant here
+  foreach ($fields as $field_name) {
     $value = get_post_meta($post->ID, $field_name, true);
 ?>
     <p>
-      <label for="<?php echo esc_attr($field_name); ?>"><?php echo esc_html($field_data['label']); ?>：</label>
-      <input type="<?php echo esc_attr($field_data['type']); ?>" name="<?php echo esc_attr($field_name); ?>" id="<?php echo esc_attr($field_name); ?>" value="<?php echo esc_attr($value); ?>" />
+      <label for="<?php echo esc_attr($field_name); ?>"><?php echo esc_html(ucfirst(str_replace('_', ' ', $field_name))); ?>：</label>
+      <input type="text" name="<?php echo esc_attr($field_name); ?>" id="<?php echo esc_attr($field_name); ?>" value="<?php echo esc_attr($value); ?>" />
     </p>
   <?php
   }
@@ -212,8 +205,7 @@ function save_custom_fields_work($post_id)
     return;
   }
 
-  $fields = ['client_name', 'project_date'];
-
+  $fields = WORK_CUSTOM_FIELDS;
   foreach ($fields as $field) {
     if (isset($_POST[$field])) {
       update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
@@ -234,7 +226,7 @@ function get_custom_fields_work($post_id = null)
     $post_id = get_the_ID();
   }
 
-  $fields = ['client_name', 'project_date'];
+  $fields = WORK_CUSTOM_FIELDS;
   $result = [];
 
   foreach ($fields as $field) {
