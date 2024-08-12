@@ -24,11 +24,17 @@
 }
 
 .btn-color-gray {
-  color: #71726d;
-  background: #fff;
-  border: #71726d solid 1px;
+  /* background: #fff; */
+  border: var(--text-color-gray) solid 1px;
+  color: var(--text-color-gray);
 }
 .btn-color-gray:hover {
+  background: var(--text-color-gray);
   color: #fff;
-  background: #71726d;
+}
+
+.btn-color-white {
+  background: transparent;
+  border: var(--text-color-white) solid 1px;
+  color: var(--text-color-white);
 }

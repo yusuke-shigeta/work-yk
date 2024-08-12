@@ -2,5 +2,7 @@
   --text-color-white: #fff;
   --text-color-gray: #71726d;
   --text-color-green: #65ca75;
+  --bg-color-white: #fff;
   --bg-color-gray: #717170;
+  --bg-color-cover: rgba(0, 0, 0, 0.5);
 }
