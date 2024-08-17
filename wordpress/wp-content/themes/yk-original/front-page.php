@@ -7,6 +7,7 @@
   ?>
   <section class="firstview">
     <div class="firstview-bg">
+
       <?php
       $page_slug = 'front-page'; // 取得したいページのスラッグを指定
       $page = get_page_by_path($page_slug);
@@ -24,10 +25,12 @@
         ];
       }
       ?>
+
       <?php foreach ($background_images as $index => $image) : ?>
         <img class="firstview-bg-img-<?php echo $index; ?>>" src="<?php echo esc_url($image) ?>" alt="Image <?php echo $index + 1; ?>" width="1440" height="700">
         <p class="firstview-bgIndex">(00<span class="firstview-bgIndex-number"><?php echo $index + 1; ?></span>/00<?php echo count($background_images); ?>)</p>
       <?php endforeach; ?>
+
     </div>
     <p class="firstview-catchphrase">Design Your Life ｜ YK Co., Ltd.</p>
     <div class="firstview-inner">
@@ -53,8 +56,10 @@
   <?php
   // works
   ?>
+
   <section class="sec">
     <div class="sec-inner">
+
       <?php
       $title_head2_img_en = "title-works.png";
       $title_head2_ja = "施工実績";
@@ -62,18 +67,22 @@
       $title_head2_img_en_height = "50";
 
       @include(get_template_directory() . '/element/Title-head2.php');
+      ?>
 
+      <?php
       $posts_per_page = 3;
 
       @include(get_template_directory() . '/element/PostList.php')
       ?>
+
     </div>
   </section>
 
   <?php
   // company
   ?>
-  <section class="sec">
+
+  <section class="sec company">
     <div class="sec-inner">
       <?php
       $title_head2_img_en = "title-company.png";
@@ -84,6 +93,7 @@
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
       <ul class="company-list">
+
         <?php
         $company_list = [
           '商号' => '株式会社 YK',
@@ -101,12 +111,14 @@
           '役員' => 'テキストテキストテキストテキストテキストテキストテキスト'
         ];
         ?>
+
         <?php foreach ($company_list as $title => $text) : ?>
           <li class="company-item">
             <h3 class="company-item-title"><?php echo $title; ?></h3>
             <p class="company-item-text"><?php echo $text; ?></p>
           </li>
         <?php endforeach; ?>
+
       </ul>
     </div>
   </section>
@@ -114,6 +126,7 @@
   <?php
   // contact
   ?>
+
   <section class="sec contact">
     <div class="sec-inner">
       <?php
@@ -124,7 +137,9 @@
 
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
+
       <p class="contact-text">テキストテキストテキストテキストテキストテキスト</p>
+
       <?php
       $btn_color = "white";
       $btn_unique_class = "contact-btn";
