@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const images = Array.from(document.querySelectorAll(".frontPage-firstview-bg img"));
-  const fadeNumber = Array.from(document.querySelectorAll(".frontPage-firstview-bgIndex-number"));
+  const images = Array.from(document.querySelectorAll(".firstview-bg img"));
+  const fadeNumber = Array.from(document.querySelectorAll(".firstview-bgIndex-number"));
   let currentIndex = 0;
 
   function showNextImage() {

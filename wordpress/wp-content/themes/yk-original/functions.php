@@ -37,14 +37,8 @@ function enqueue_styles_and_scripts()
     'base/reset',
     'base/variables',
     'base/global',
-    'element/nav',
-    'element/btn',
-    'element/title',
-    'element/header',
-    'element/footer',
-    'layout/main',
-    'layout/inner',
-    'layout/sec',
+    'header',
+    'footer',
   ];
 
   // 共通のJavaScript

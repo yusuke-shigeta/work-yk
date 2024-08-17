@@ -1,39 +1,41 @@
 <?php get_header(); ?>
 
-<?php
-$page_slug = 'front-page'; // 取得したいページのスラッグを指定
-$page = get_page_by_path($page_slug);
-
-if ($page) {
-  $post_id = $page->ID;
-  $background_images = get_post_meta($post_id, 'background_images', true);
-}
-// デフォルトの背景画像を設定
-if (empty($background_images)) {
-  $background_images = [
-    get_template_directory_uri() . '/assets/img/firstview-archive-work.jpg',
-    get_template_directory_uri() . '/assets/img/firstview-front-page.jpg',
-    get_template_directory_uri() . '/assets/img/firstview-page-contact.jpg',
-  ];
-}
-?>
-
 <main id="front-page" class="main">
 
-  <section class="frontPage-firstview">
-    <div class="frontPage-firstview-bg">
+  <?php
+  // firstview
+  ?>
+  <section class="firstview">
+    <div class="firstview-bg">
+      <?php
+      $page_slug = 'front-page'; // 取得したいページのスラッグを指定
+      $page = get_page_by_path($page_slug);
+
+      if ($page) {
+        $post_id = $page->ID;
+        $background_images = get_post_meta($post_id, 'background_images', true);
+      }
+      // デフォルトの背景画像を設定
+      if (empty($background_images)) {
+        $background_images = [
+          get_template_directory_uri() . '/assets/img/firstview-archive-work.jpg',
+          get_template_directory_uri() . '/assets/img/firstview-front-page.jpg',
+          get_template_directory_uri() . '/assets/img/firstview-page-contact.jpg',
+        ];
+      }
+      ?>
       <?php foreach ($background_images as $index => $image) : ?>
-        <img class="frontPage-firstview-bg-img-<?php echo $index; ?>>" src="<?php echo esc_url($image) ?>" alt="Image <?php echo $index + 1; ?>" width="1440" height="700">
-        <p class="frontPage-firstview-bgIndex">(00<span class="frontPage-firstview-bgIndex-number"><?php echo $index + 1; ?></span>/00<?php echo count($background_images); ?>)</p>
+        <img class="firstview-bg-img-<?php echo $index; ?>>" src="<?php echo esc_url($image) ?>" alt="Image <?php echo $index + 1; ?>" width="1440" height="700">
+        <p class="firstview-bgIndex">(00<span class="firstview-bgIndex-number"><?php echo $index + 1; ?></span>/00<?php echo count($background_images); ?>)</p>
       <?php endforeach; ?>
     </div>
-    <p class="frontPage-firstview-catchphrase">Design Your Life ｜ YK Co., Ltd.</p>
-    <div class="frontPage-firstview-inner">
-      <div class="frontPage-firstview-contents">
-        <h2 class="frontPage-firstview-title">
+    <p class="firstview-catchphrase">Design Your Life ｜ YK Co., Ltd.</p>
+    <div class="firstview-inner">
+      <div class="firstview-contents">
+        <h2 class="firstview-title">
           <img src="<?php echo get_template_directory_uri() ?>/assets/img/title-weAreYk.png" alt="We are YK" width="385" height="151">
         </h2>
-        <p class="frontPage-firstview-text">
+        <p class="firstview-text">
           私達は、持てる全てを以ってお客様にとって<br>
           ベストな解決を提案いたします。<br>
           私達が提供できるサービスは、工事関係全般...<br>
@@ -111,13 +113,38 @@ if (empty($background_images)) {
       $title_head2_img_en_height = "50";
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
+      <ul class="company-list">
+        <?php
+        $company_list = [
+          '商号' => '株式会社 YK',
+          '代表取締役社長' => '工藤　準',
+          '資本金' => '◯◯◯◯円',
+          '所在地' => '〒157-0061<br>東京都世田谷区北烏山3-18-17　エスペラント烏山Ⅲ202',
+          'Tel' => '03-6795-8733',
+          'Fax' => '03-6795-8733',
+          'Mobile' => '090-1224-8836',
+          '主な株主' => 'テキストテキストテキストテキストテキストテキストテキスト',
+          '事業内容' => 'テキストテキストテキストテキストテキストテキストテキスト',
+          'E-mail' => 'kudo@yk-rm.co.jp',
+          '取引銀行' => 'テキストテキストテキストテキストテキストテキストテキスト',
+          '従業員' => '⚪︎人',
+          '役員' => 'テキストテキストテキストテキストテキストテキストテキスト'
+        ];
+        ?>
+        <?php foreach ($company_list as $title => $text) : ?>
+          <li class="company-item">
+            <h3 class="company-item-title"><?php echo $title; ?></h3>
+            <p class="company-item-text"><?php echo $text; ?></p>
+          </li>
+        <?php endforeach; ?>
+      </ul>
     </div>
   </section>
 
   <?php
   // contact
   ?>
-  <section class="sec frontPage-contact">
+  <section class="sec contact">
     <div class="sec-inner">
       <?php
       $title_head2_img_en = "title-contact.png";
@@ -126,6 +153,8 @@ if (empty($background_images)) {
       $title_head2_img_en_height = "50";
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
+      <p class="contact-text">テキストテキストテキストテキストテキストテキスト</p>
+      <a class="btn btn-arrow btn-color-white" href="">お問い合わせする</a>
     </div>
   </section>
 
