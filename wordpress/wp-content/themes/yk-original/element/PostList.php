@@ -9,7 +9,7 @@
   if ($works_query->have_posts()) :
     while ($works_query->have_posts()) : $works_query->the_post();
       $work_data = get_work_data();
-      $work_images = get_work_images();
+      $work_images = get_work_images_before();
       $work_thumbnail = $work_images[0];
   ?>
       <li class="postItem">
