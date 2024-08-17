@@ -1,0 +1,17 @@
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.sec {
+}
+
+.sec-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.inner {
+  width: 100%;
+  margin: 0 auto;
+}
