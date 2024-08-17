@@ -4,25 +4,25 @@
       <img src="<?php echo get_template_directory_uri() ?>/assets/img/header-logo.png" alt="Logo" width="61" height="24">
     </a>
     <nav class="nav">
-      <ul class="navList">
-        <?php
-        $menu_items = [
-          "top" => [
-            "link" => '',
-            "text" => "TOP",
-          ],
-          "works" => [
-            "link" => 'works',
-            "text" => "施工実績",
-          ],
-          "company" => [
-            "link" => '',
-            "text" => "会社概要",
-          ],
-        ];
-        @include(get_template_directory() . '/element/NavItem.php')
-        ?>
-      </ul>
+
+      <?php
+      $menu_items = [
+        "top" => [
+          "link" => '',
+          "text" => "TOP",
+        ],
+        "works" => [
+          "link" => 'works',
+          "text" => "施工実績",
+        ],
+        "company" => [
+          "link" => '',
+          "text" => "会社概要",
+        ],
+      ];
+      @include(get_template_directory() . '/element/NavList.php')
+      ?>
+
     </nav>
     <div class="footer-info">
       <p class="footer-info-text">株式会社YK</p>
@@ -37,9 +37,7 @@
       </ul>
     </nav>
     <p class="footer-copyright">
-      <?php
-      printf(esc_html__('© %1$s %2$s', 'yk-original'), date('Y'), get_bloginfo('name'));
-      ?>
+      <?php printf(esc_html__('© %1$s %2$s', 'yk-original'), date('Y'), get_bloginfo('name')); ?>
     </p>
   </div>
 </footer>

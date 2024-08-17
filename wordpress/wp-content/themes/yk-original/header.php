@@ -18,26 +18,24 @@
 
       <nav class="header-nav">
 
-        <ul class="navList header-navList">
-          <?php
-          $menu_items = [
-            "top" => [
-              "link" => '',
-              "text" => "TOP",
-            ],
-            "works" => [
-              "link" => 'works',
-              "text" => "施工実績",
-            ],
-            "company" => [
-              "link" => '',
-              "text" => "会社概要",
-            ],
-          ];
-          @include(get_template_directory() . '/element/NavItem.php')
-          ?>
-
-        </ul>
+        <?php
+        $navList_unique_class = "header-navList";
+        $menu_items = [
+          "top" => [
+            "link" => '',
+            "text" => "TOP",
+          ],
+          "works" => [
+            "link" => 'works',
+            "text" => "施工実績",
+          ],
+          "company" => [
+            "link" => '',
+            "text" => "会社概要",
+          ],
+        ];
+        @include(get_template_directory() . '/element/NavList.php')
+        ?>
 
         <?php
         $btn_color = "gray";
