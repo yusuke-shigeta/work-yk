@@ -24,7 +24,6 @@
 }
 
 .btn-color-gray {
-  /* background: #fff; */
   border: var(--text-color-gray) solid 1px;
   color: var(--text-color-gray);
 }
@@ -37,4 +36,11 @@
   background: transparent;
   border: var(--text-color-white) solid 1px;
   color: var(--text-color-white);
+}
+.btn-color-white:hover {
+  color: var(--text-color-gray);
+  background: var(--bg-color-white);
+}
+.btn-color-white:hover .btn-arrow::after {
+  background: url("../../img/btn-arrow-active.png");
 }

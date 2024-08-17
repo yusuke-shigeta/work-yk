@@ -1,8 +1,3 @@
-<?php
-// ヘッダナビゲーション用
-$menu_items = get_menu_items_header();
-?>
-
 <footer class="footer">
   <div class="footer-inner ">
     <a class="logo footer-logo" href="<?php echo home_url() ?>">
@@ -10,13 +5,23 @@ $menu_items = get_menu_items_header();
     </a>
     <nav class="nav">
       <ul class="navList">
-        <?php foreach ($menu_items as $key => $item) : ?>
-          <li class="navItem">
-            <a class="navLink footer-navLink" href="<?php echo esc_url(home_url($item['link'])); ?>/">
-              <?php echo esc_html($item['text']); ?>
-            </a>
-          </li>
-        <?php endforeach; ?>
+        <?php
+        $menu_items = [
+          "top" => [
+            "link" => '',
+            "text" => "TOP",
+          ],
+          "works" => [
+            "link" => 'works',
+            "text" => "施工実績",
+          ],
+          "company" => [
+            "link" => '',
+            "text" => "会社概要",
+          ],
+        ];
+        @include(get_template_directory() . '/element/NavItem.php')
+        ?>
       </ul>
     </nav>
     <div class="footer-info">

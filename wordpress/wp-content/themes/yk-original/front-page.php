@@ -87,7 +87,13 @@
                 <p class="postItem-text">費用: <?php echo esc_html($work_data['費用']); ?></p>
                 <p class="postItem-text">対象面積: <?php echo esc_html($work_data['対象面積']); ?></p>
                 <p class="postItem-text">工期: <?php echo esc_html($work_data['工期']); ?></p>
-                <a class="btn btn-arrow btn-color-white postItem-link" href="<?php echo get_permalink(); ?>">詳細を見る</a>
+                <?php
+                $btn_color = "white";
+                $btn_unique_class = "postItem-link";
+                $btn_text = "詳細を見る";
+                $btn_link = get_permalink();
+                @include(get_template_directory() . '/element/Btn.php');
+                ?>
               </a>
             </li>
           <?php
@@ -154,7 +160,13 @@
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
       <p class="contact-text">テキストテキストテキストテキストテキストテキスト</p>
-      <a class="btn btn-arrow btn-color-white" href="">お問い合わせする</a>
+      <?php
+      $btn_color = "white";
+      $btn_unique_class = "contact-btn";
+      $btn_text = "お問い合わせする";
+      $btn_link = esc_url(home_url("inquiry"));
+      @include(get_template_directory() . '/element/Btn.php');
+      ?>
     </div>
   </section>
 
