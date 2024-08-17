@@ -45,7 +45,6 @@ function enqueue_styles_and_scripts()
   wp_enqueue_script('jquery');
   $common_scripts = [
     'base/main',
-    // 'element/header',
   ];
 
   foreach ($common_styles as $style) {
