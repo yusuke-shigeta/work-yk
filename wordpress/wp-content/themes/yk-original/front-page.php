@@ -62,14 +62,11 @@
       $title_head2_img_en_height = "50";
 
       @include(get_template_directory() . '/element/Title-head2.php');
-      ?>
-      <ul class="postList">
-        <?php
-        $posts_per_page = 3;
 
-        @include(get_template_directory() . '/element/PostItem.php')
-        ?>
-      </ul>
+      $posts_per_page = 3;
+
+      @include(get_template_directory() . '/element/PostList.php')
+      ?>
     </div>
   </section>
 
