@@ -1,8 +1,3 @@
-<?php
-// ヘッダナビゲーション用
-$menu_items = get_menu_items_header();
-?>
-
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
@@ -24,7 +19,22 @@ $menu_items = get_menu_items_header();
       <nav class="header-nav">
 
         <ul class="navList header-navList">
-
+          <?php
+          $menu_items = [
+            [
+              "link" => '',
+              "text" => "TOP",
+            ],
+            [
+              "link" => 'works',
+              "text" => "施工実績",
+            ],
+            [
+              "link" => '',
+              "text" => "会社概要",
+            ],
+          ];
+          ?>
           <?php foreach ($menu_items as $key => $item) : ?>
             <li class="navItem">
               <a class="navLink footer-navLink" href="<?php echo esc_url(home_url($item['link'])); ?>/">
@@ -35,9 +45,13 @@ $menu_items = get_menu_items_header();
 
         </ul>
 
-        <a href="<?php echo esc_url(home_url("inquiry")); ?>/" class="btn btn-arrow btn-color-gray header-btn">
-          お問い合わせ
-        </a>
+        <?php
+        $btn_color = "gray";
+        $btn_unique_class = "header-btn";
+        $btn_text = "お問い合わせ";
+        $btn_link = esc_url(home_url("inquiry"));
+        @include(get_template_directory() . '/element/Btn.php');
+        ?>
 
       </nav>
 

@@ -313,29 +313,6 @@ function get_work_images($post_id = null)
 }
 
 /**
- * get_menu_items_header
- *
- * @return array
- */
-function get_menu_items_header()
-{
-  return [
-    'top' => [
-      'link' => '',
-      'text' => 'TOP',
-    ],
-    'works' => [
-      'link' => 'works',
-      'text' => '施工実績',
-    ],
-    'companyoverview' => [
-      'link' => '',
-      'text' => '会社概要',
-    ],
-  ];
-}
-
-/**
  * add_custom_fields_specific_page
  *
  * @return void

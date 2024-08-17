@@ -1,3 +1,11 @@
+@import url("./layout/main.css");
+@import url("./layout/inner.css");
+@import url("./layout/sec.css");
+@import url("./element/nav.css");
+@import url("./element/btn.css");
+@import url("./element/logo.css");
+@import url("./element/postList.css");
+
 body {
   color: red;
 }
