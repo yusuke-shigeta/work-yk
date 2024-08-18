@@ -9,12 +9,18 @@
   if ($works_query->have_posts()) :
     while ($works_query->have_posts()) : $works_query->the_post();
       $work_data = get_work_data();
-      $work_images = get_work_images_before();
-      $work_thumbnail = $work_images[0];
+      $work_images_after = get_work_images_after();
+      $work_thumbnail = $work_images_after[0];
   ?>
       <li class="postItem">
         <a href="<?php echo get_permalink(); ?>">
-          <img class="postItem-thumbnail" src="<?php echo $work_thumbnail; ?>" alt="サムネイル">
+          <?php if (has_post_thumbnail()) : ?>
+            <?php the_post_thumbnail('full', ['class' => 'postItem-thumbnail', 'alt' => 'サムネイル']); ?>
+          <?php elseif ($work_thumbnail) : ?>
+            <img class="postItem-thumbnail" src="<?php echo $work_thumbnail; ?>" alt="サムネイル">
+          <?php else : ?>
+            <img class="postItem-thumbnail" src="<?php echo get_template_directory_uri() ?>/assets/img/firstview-archive-work.jpg" alt="サムネイル">
+          <?php endif; ?>
           <h3 class="postItem-title"><?php the_title(); ?></h3>
           <p class="postItem-text">場所: <?php echo esc_html($work_data['場所']); ?></p>
           <p class="postItem-text">建物種別: <?php echo esc_html($work_data['建物種別']); ?></p>

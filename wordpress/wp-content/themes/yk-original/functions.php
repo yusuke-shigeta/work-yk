@@ -426,6 +426,12 @@ function get_work_images_before($post_id = null)
   return $images;
 }
 
+/**
+ * get_work_images_after
+ * 施工後の画像を取得
+ * @param int $post_id 投稿ID
+ * @return array 画像URLの配列
+ */
 function get_work_images_after($post_id = null)
 {
   if (!$post_id) {
