@@ -36,10 +36,24 @@
       $posts_per_page = 6;
       @include(get_template_directory() . '/element/PostList.php')
       ?>
+      <?php
+      echo paginate_links(array(
+        'total' => $works_query->max_num_pages,
+        'current' => $paged,
+        'format' => 'page/%#%/',
+        'show_all' => false,
+        'end_size' => 1,
+        'mid_size' => 2,
+        'prev_next' => true,
+        'prev_text' => __('« 前へ'),
+        'next_text' => __('次へ »'),
+        'type' => 'plain',
+        'add_args' => false,
+        'add_fragment' => '',
+      ));
+      ?>
     </div>
   </section>
-
-
 </main>
 
 <?php get_footer(); ?>

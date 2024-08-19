@@ -1,8 +1,10 @@
 <ul class="postList">
   <?php
+  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
   $args = array(
     'post_type' => 'work',
     'posts_per_page' => $posts_per_page,
+    'paged' => $paged
   );
   $works_query = new WP_Query($args);
 
