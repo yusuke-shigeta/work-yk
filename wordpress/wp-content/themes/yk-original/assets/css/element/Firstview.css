@@ -1,0 +1,12 @@
+.firstview {
+  background: #71726d;
+  padding: 62px 20px;
+}
+
+.firstview-title {
+  color: var(--text-color-white);
+  font-weight: bold;
+  font-size: 36px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}

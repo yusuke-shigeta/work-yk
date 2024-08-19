@@ -9,8 +9,10 @@
   if ($works_query->have_posts()) :
     while ($works_query->have_posts()) : $works_query->the_post();
       $work_data = get_work_data();
+      $work_images_before = get_work_images_before();
       $work_images_after = get_work_images_after();
       $work_thumbnail = $work_images_after[0];
+      $work_before = $work_images_before[0];
   ?>
       <li class="postItem">
         <a href="<?php echo get_permalink(); ?>">

@@ -1,8 +1,5 @@
 @import url("./element/nav.css");
 @import url("./element/Btn.css");
 @import url("./element/logo.css");
+@import url("./element/Firstview.css");
 @import url("./element/PostList.css");
-
-body {
-  color: red;
-}
