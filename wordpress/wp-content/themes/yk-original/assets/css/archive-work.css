@@ -4,3 +4,24 @@
 @import url("./element/Firstview.css");
 @import url("./element/PostList.css");
 @import url("./element/Pagination.css");
+
+.tag {
+}
+
+.tag-inner {
+  max-width: 800px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.tag-item {
+}
+
+.tag-link {
+  border-radius: 50px;
+  padding: 10px 30px;
+}

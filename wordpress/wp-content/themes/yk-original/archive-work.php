@@ -14,13 +14,19 @@
       $work_tags = get_terms(array(
         'taxonomy' => 'work_tag',
         'hide_empty' => false,
+        'orderby' => 'count',
+        'order' => 'DESC',
+        'number' => 10,
       ));
       ?>
       <?php if ($work_tags) : ?>
         <ul class="tag-list">
           <?php foreach ($work_tags as $tag) : ?>
             <li class="tag-item">
-              <a href="<?php echo get_term_link($tag->term_id); ?>" class="tag-link"><?php echo $tag->name; ?></a>
+              <a href="<?php echo get_term_link($tag->term_id); ?>" class="btn-color-gray tag-link">
+                <?php echo $tag->name; ?>
+                (<?php echo $tag->count; ?>)
+              </a>
             </li>
           <?php endforeach; ?>
         </ul>
