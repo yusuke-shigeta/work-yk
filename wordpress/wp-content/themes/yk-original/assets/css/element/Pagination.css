@@ -1,0 +1,33 @@
+.pagination {
+  margin: 20px 0 0;
+}
+
+ul.page-numbers {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+a.page-numbers,
+span.page-numbers {
+  padding: 12px 15px;
+  border-radius: 8px;
+}
+
+a.page-numbers {
+  border: var(--text-color-gray) solid 1px;
+  color: var(--text-color-gray);
+}
+
+a.page-numbers:hover {
+  background: var(--bg-color-gray);
+  border: var(--text-color-white) solid 1px;
+  color: var(--text-color-white);
+}
+
+.page-numbers .current {
+  background: var(--bg-color-gray);
+  border: var(--text-color-white) solid 1px;
+  color: var(--text-color-white);
+}
