@@ -61,6 +61,16 @@ function enqueue_styles_and_scripts()
     );
   }
 
+  if (is_singular('work')) {
+    wp_enqueue_style(
+      'swiper-css',
+      "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css",
+    );
+    wp_enqueue_script(
+      'swiper-js',
+      "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+    );
+  }
 
   // ページ特有のアセット（CSSとJS）
   $page_specific_assets = [
