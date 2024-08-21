@@ -20,16 +20,7 @@
       ));
       ?>
       <?php if ($work_tags) : ?>
-        <ul class="tag-list">
-          <?php foreach ($work_tags as $tag) : ?>
-            <li class="tag-item">
-              <a href="<?php echo get_term_link($tag->term_id); ?>" class="btn-color-gray tag-link">
-                <?php echo $tag->name; ?>
-                (<?php echo $tag->count; ?>)
-              </a>
-            </li>
-          <?php endforeach; ?>
-        </ul>
+        <?php @include(get_template_directory() . '/element/TagList.php'); ?>
       <?php else: ?>
         タグは未設定です。
       <?php endif; ?>

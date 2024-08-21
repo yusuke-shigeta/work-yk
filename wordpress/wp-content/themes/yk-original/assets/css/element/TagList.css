@@ -1,0 +1,13 @@
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.tagItem {
+}
+
+.tagLink {
+  border-radius: 50px;
+  padding: 10px 30px;
+}
