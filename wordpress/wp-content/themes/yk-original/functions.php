@@ -559,6 +559,12 @@ function save_background_image_meta_box($post_id)
 }
 add_action('save_post', 'save_background_image_meta_box');
 
+function get_current_url()
+{
+  global $wp;
+  return home_url(add_query_arg(array(), $wp->request));
+}
+
 /**
  * debug_page_type
  * ログイン時、開いているページのページタイプを出力

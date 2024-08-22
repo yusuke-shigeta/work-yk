@@ -151,6 +151,11 @@
     </div>
   </section>
 
+  <form action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" method="post">
+    <input type="text" name="name" id="name">
+    <input type="submit" value="送信">
+  </form>
+
 </main>
 
 <?php get_footer(); ?>

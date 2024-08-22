@@ -21,6 +21,9 @@
     <input type="submit" name="submit" value="送信">
   </form>
 
+  <?php var_dump($_SERVER['REQUEST_URI']); ?>
+  <?php var_dump(esc_url($_SERVER['REQUEST_URI'])); ?>
+
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = sanitize_text_field($_POST['name']);
@@ -38,6 +41,8 @@
     } else {
       echo '<p>メッセージの送信に失敗しました。</p>';
     }
+  } else {
+    error_log("Form not submitted"); // デバッグ用ログ
   }
   ?>
 

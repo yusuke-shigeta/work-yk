@@ -3,7 +3,7 @@
 # 再構築と再起動
 # docker-compose up -d --build
 
-version: '3.1'
+version: "3.1"
 
 services:
   wordpress:
@@ -45,6 +45,12 @@ services:
     depends_on:
       - mariadb
     restart: always
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"
 
 volumes:
   wordpress:
