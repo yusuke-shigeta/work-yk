@@ -65,7 +65,7 @@ function enqueue_styles_and_scripts()
   $page_specific_assets = [
     'front-page' => is_front_page(),
     'archive-work' => is_post_type_archive('work'),
-    'page-inquiry' => is_page('inquiry'),
+    'page-contact' => is_page('contact'),
     'single-work' => is_singular('work'),
     'taxonomy-work_tag' => is_tax(),
   ];

@@ -144,7 +144,7 @@
       $btn_color = "white";
       $btn_unique_class = "contact-btn";
       $btn_text = "お問い合わせする";
-      $btn_link = esc_url(home_url("inquiry"));
+      $btn_link = esc_url(home_url("contact"));
 
       @include(get_template_directory() . '/element/Btn.php');
       ?>

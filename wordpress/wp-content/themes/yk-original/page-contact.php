@@ -1,9 +1,11 @@
 <?php get_header(); ?>
 
-<main id="page-inquiry" class="main">
+<main id="page-contact" class="main">
 
   <?php
-  @include(get_template_directory() . '/element/firstview.php');
+  $fistview_bg = "firstview-archive-work.jpg";
+  $firstview_title = "お問い合わせ";
+  @include(get_template_directory() . '/element/Firstview.php');
   ?>
 
 </main>

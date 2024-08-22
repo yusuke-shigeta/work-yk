@@ -41,7 +41,7 @@
         $btn_color = "gray";
         $btn_unique_class = "header-btn";
         $btn_text = "お問い合わせ";
-        $btn_link = esc_url(home_url("inquiry"));
+        $btn_link = esc_url(home_url("contact"));
         @include(get_template_directory() . '/element/Btn.php');
         ?>
 
