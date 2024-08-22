@@ -9,24 +9,26 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("work-image-after").style.display = "block";
   });
 
-  // Function to initialize Swiper
-  function initializeSwiper(swiperClass1, swiperClass2) {
-    if (document.querySelector(swiperClass1) && document.querySelector(swiperClass2)) {
-      var swiper = new Swiper(swiperClass1, {
-        spaceBetween: 10,
-        slidesPerView: 4,
-        freeMode: true,
-        watchSlidesProgress: true,
-      });
-      var swiper2 = new Swiper(swiperClass2, {
-        thumbs: {
-          swiper: swiper,
-        },
-      });
-    }
-  }
+  document.querySelectorAll(".slider").forEach((slideContainer) => {
+    const slides = slideContainer.querySelectorAll(".slide");
+    const paginationButtons = slideContainer.querySelectorAll(".pagination-btn");
+    let currentIndex = 0;
 
-  // Initialize Swipers
-  initializeSwiper(".mySwiper", ".mySwiper2");
-  initializeSwiper(".mySwiper3", ".mySwiper4");
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
+      });
+      currentIndex = index;
+    }
+
+    paginationButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const index = parseInt(this.getAttribute("data-index"));
+        showSlide(index);
+      });
+    });
+
+    // Initialize the slider
+    showSlide(currentIndex);
+  });
 });

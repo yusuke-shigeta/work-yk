@@ -28,28 +28,26 @@ while (have_posts()) :
       // print_r($work_data);
       ?>
 
-      <div class="tab">
+      <div class="l-tab">
         <button class="btn btn-color-gray" id="btn-work-image-before">施工前</button>
         <button class="btn btn-color-gray" id="btn-work-image-after">施工後</button>
       </div>
 
       <!-- 施工前 -->
       <div id="work-image-before">
-        <div class="swiper mySwiper2">
-          <div class="swiper-wrapper">
+        <div class="slider">
+          <div class="slides">
             <?php foreach ($work_images_before as $image) : ?>
-              <div class="swiper-slide">
+              <div class="slide">
                 <img src="<?php echo $image; ?>" />
               </div>
             <?php endforeach; ?>
           </div>
-        </div>
-        <div thumbsSlider="" class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <?php foreach ($work_images_before as $image) : ?>
-              <div class="swiper-slide">
-                <img src="<?php echo $image; ?>" />
-              </div>
+          <div class="pagination">
+            <?php foreach ($work_images_before as $index => $image) : ?>
+              <button class="pagination-btn" data-index="<?php echo $index; ?>">
+                <img src="<?php echo $image; ?>" alt="Thumbnail <?php echo $index + 1; ?>" />
+              </button>
             <?php endforeach; ?>
           </div>
         </div>
@@ -57,21 +55,19 @@ while (have_posts()) :
 
       <!-- 施工後 -->
       <div id="work-image-after" style="display: none;">
-        <div class="swiper mySwiper4">
-          <div class="swiper-wrapper">
+        <div class="slider">
+          <div class="slides">
             <?php foreach ($work_images_after as $image) : ?>
-              <div class="swiper-slide">
+              <div class="slide">
                 <img src="<?php echo $image; ?>" />
               </div>
             <?php endforeach; ?>
           </div>
-        </div>
-        <div thumbsSlider="" class="swiper mySwiper3">
-          <div class="swiper-wrapper">
-            <?php foreach ($work_images_after as $image) : ?>
-              <div class="swiper-slide">
-                <img src="<?php echo $image; ?>" />
-              </div>
+          <div class="pagination">
+            <?php foreach ($work_images_after as $index => $image) : ?>
+              <button class="pagination-btn" data-index="<?php echo $index; ?>">
+                <img src="<?php echo $image; ?>" alt="Thumbnail <?php echo $index + 1; ?>" />
+              </button>
             <?php endforeach; ?>
           </div>
         </div>
