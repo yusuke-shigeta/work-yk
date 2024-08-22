@@ -1,7 +1,8 @@
 /* Reset and base styles */
 * {
-  margin: 0;
+  border: none;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
   font-family: YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
   font-size: 14px;
