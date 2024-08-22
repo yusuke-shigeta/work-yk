@@ -152,7 +152,7 @@
   </section>
 
   <form action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" method="post">
-    <input type="text" name="name" id="name">
+    <input type="text" name="user_name" id="name">
     <input type="submit" value="送信">
   </form>
 
