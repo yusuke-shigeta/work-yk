@@ -6,9 +6,6 @@
 @import url("./element/PostList.css");
 @import url("./element/Pagination.css");
 
-.tag {
-}
-
 .tag-inner {
   max-width: 800px;
 }
