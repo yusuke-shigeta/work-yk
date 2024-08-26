@@ -1,4 +1,4 @@
-name: staging deploy
+name: Deploy
 
 on:
   push:
@@ -6,17 +6,30 @@ on:
       - master
 
 jobs:
-  FTP-Deploy-Action:
-    name: FTP-Deploy-Action
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: FTP-Deploy-Action
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to FTP server
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
-          server: ${{ secrets.PROD_SERVER }}
-          username: ${{ secrets.PROD_USERNAME }}
-          password: ${{ secrets.PROD_PASSWORD }}
+          server: ftp://your-ftp-server.com
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./wordpress/wp-content/themes/yk-original/
           server-dir: /dnw-web.com/public_html/work/yk/wp-content/themes/yk-original/
+          dangerous-clean-slate: true
