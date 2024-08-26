@@ -20,4 +20,7 @@ jobs:
           password: ${{ secrets.PROD_PASSWORD }}
           local-dir: ./wordpress/wp-content/themes/yk-original/
           server-dir: /dnw-web.com/public_html/work/yk/wp-content/themes/yk-original/
+          exclude: |
+            **/node_modules/**
+            **/layout/**  # ここで layout ディレクトリを除外
           delete: true
