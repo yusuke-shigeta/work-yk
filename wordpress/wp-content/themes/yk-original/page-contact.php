@@ -30,13 +30,11 @@
     $email = sanitize_email($_POST['user_email']);
     $message = sanitize_textarea_field($_POST['user_message']);
 
-    $to = "dnw.webx@gmail.com";
+    $to = "dnw.webx@gmail.com"; // 送信先のメールアドレスに変更してください
     $subject = "お問い合わせフォームからのメッセージ";
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
+    $headers = "From: $email";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
     $body = "名前: $name\nメールアドレス: $email\nメッセージ:\n$message";
 
@@ -45,11 +43,9 @@
 
       $user_subject = "お問い合わせありがとうございます";
       $user_body = "お問い合わせありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n" . $body;
-      $user_headers = "From: dnw.webx@gmail.com\r\n";
-      $user_headers .= "Reply-To: dnw.webx@gmail.com\r\n";
+      $user_headers = "From: no-reply@yourdomain.com"; // 送信元のメールアドレスに変更してください
       $user_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
       $user_headers .= "MIME-Version: 1.0\r\n";
-      $user_headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
       wp_mail($email, $user_subject, $user_body, $user_headers);
     } else {
