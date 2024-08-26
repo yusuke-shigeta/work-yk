@@ -38,6 +38,12 @@
 
     if (wp_mail($to, $subject, $body, $headers)) {
       echo '<p>メッセージが送信されました。</p>';
+
+      $user_subject = "お問い合わせありがとうございます";
+      $user_body = "お問い合わせありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n" . $body;
+      $user_headers = "From: no-reply@yourdomain.com"; // 送信元のメールアドレスに変更してください
+
+      wp_mail($email, $user_subject, $user_body, $user_headers);
     } else {
       echo '<p>メッセージの送信に失敗しました。</p>';
       error_log("Mail failed to send to $to with subject $subject");
