@@ -44,7 +44,7 @@
 
       $user_subject = "お問い合わせありがとうございます";
       $user_body = "お問い合わせありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n" . $body;
-      $user_headers = "From: dnw.webx@gmail.com"; // 送信元のメールアドレスに変更してください
+      $user_headers = "From: dnw.webx@gmail.com\r\n"; // 送信元のメールアドレスに変更してください
       $user_headers .= "Reply-To: dnw.webx@gmail.com\r\n";
       $user_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
       $user_headers .= "MIME-Version: 1.0\r\n";
