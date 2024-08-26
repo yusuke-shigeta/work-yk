@@ -21,9 +21,6 @@
     <input type="submit" name="submit" value="送信">
   </form>
 
-  <?php var_dump($_SERVER['REQUEST_URI']); ?>
-  <?php var_dump(esc_url($_SERVER['REQUEST_URI'])); ?>
-
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = sanitize_text_field($_POST['user_name']);
@@ -62,6 +59,5 @@
   ?>
 
 </main>
-<?php phpinfo(); ?>
 
 <?php get_footer(); ?>
