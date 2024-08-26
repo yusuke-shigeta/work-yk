@@ -32,7 +32,7 @@
 
     $to = "dnw.webx@gmail.com"; // 送信先のメールアドレスに変更してください
     $subject = "お問い合わせフォームからのメッセージ";
-    $headers = "From: $email";
+    $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
