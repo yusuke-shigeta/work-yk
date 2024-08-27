@@ -61,8 +61,9 @@
     <div class="sec-inner">
 
       <?php
-      $title_head2_img_en = "title-works.png";
       $title_head2_ja = "施工実績";
+      $title_head2_color = "main";
+      $title_head2_img_en = "title-works.svg";
       $title_head2_img_en_width = "239";
       $title_head2_img_en_height = "50";
 
@@ -85,10 +86,11 @@
   <section class="sec company">
     <div class="sec-inner">
       <?php
-      $title_head2_img_en = "title-company.png";
       $title_head2_ja = "会社概要";
-      $title_head2_img_en_width = "352";
-      $title_head2_img_en_height = "50";
+      $title_head2_color = "main";
+      $title_head2_img_en = "title-company.svg";
+      $title_head2_img_en_width = "86";
+      $title_head2_img_en_height = "48";
 
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
@@ -130,8 +132,9 @@
   <section class="sec contact">
     <div class="sec-inner">
       <?php
-      $title_head2_img_en = "title-contact.png";
       $title_head2_ja = "お問い合わせ";
+      $title_head2_color = "white";
+      $title_head2_img_en = "title-contact.svg";
       $title_head2_img_en_width = "353";
       $title_head2_img_en_height = "50";
 

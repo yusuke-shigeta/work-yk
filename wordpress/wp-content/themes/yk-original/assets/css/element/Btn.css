@@ -25,22 +25,22 @@
 }
 
 .btn-color-gray {
-  border: var(--text-color-gray) solid 1px;
-  color: var(--text-color-gray);
+  border: var(--main-color) solid 1px;
+  color: var(--main-color);
 }
 .btn-color-gray:hover {
-  background: var(--text-color-gray);
+  background: var(--main-color);
   color: #fff;
 }
 
 .btn-color-white {
   background: transparent;
-  border: var(--text-color-white) solid 1px;
-  color: var(--text-color-white);
+  border: var(--white) solid 1px;
+  color: var(--white);
 }
 .btn-color-white:hover {
-  color: var(--text-color-gray);
-  background: var(--bg-color-white);
+  color: var(--main-color);
+  background: var(--white);
 }
 .btn-color-white:hover .btn-arrow::after {
   background: url("../../img/btn-arrow-active.png");

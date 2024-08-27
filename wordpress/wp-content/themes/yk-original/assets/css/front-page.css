@@ -61,7 +61,7 @@
   width: 210px;
   height: 210px;
   z-index: 3;
-  color: var(--text-color-white);
+  color: var(--white);
   text-align: center;
 }
 
@@ -74,7 +74,7 @@
   transform-origin: center;
   width: 210px;
   height: 210px;
-  color: var(--text-color-white);
+  color: var(--white);
   text-align: center;
 }
 
@@ -102,10 +102,10 @@
 }
 
 .firstview-text {
-  color: var(--text-color-white);
+  color: var(--white);
   text-align: center;
 }
 
 .contact {
-  background: var(--bg-color-gray);
+  background: var(--main-color);
 }

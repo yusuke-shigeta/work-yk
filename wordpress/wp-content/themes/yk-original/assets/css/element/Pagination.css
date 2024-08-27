@@ -16,18 +16,18 @@ span.page-numbers {
 }
 
 a.page-numbers {
-  border: var(--text-color-gray) solid 1px;
-  color: var(--text-color-gray);
+  border: var(--main-color) solid 1px;
+  color: var(--main-color);
 }
 
 a.page-numbers:hover {
-  background: var(--bg-color-gray);
-  border: var(--text-color-white) solid 1px;
-  color: var(--text-color-white);
+  background: var(--main-color);
+  border: var(--white) solid 1px;
+  color: var(--white);
 }
 
 .page-numbers .current {
-  background: var(--bg-color-gray);
-  border: var(--text-color-white) solid 1px;
-  color: var(--text-color-white);
+  background: var(--main-color);
+  border: var(--white) solid 1px;
+  color: var(--white);
 }

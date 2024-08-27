@@ -30,7 +30,7 @@
 .header-navList {
   align-items: center;
   gap: 40px;
-  color: var(--text-color-gray);
+  color: var(--main-color);
 }
 
 .header-btn {

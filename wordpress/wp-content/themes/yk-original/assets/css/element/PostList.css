@@ -42,7 +42,7 @@
 .postItem-title,
 .postItem-text {
   position: relative;
-  color: var(--text-color-white);
+  color: var(--white);
 }
 
 .postItem-text {
@@ -64,8 +64,8 @@
 }
 
 .postItem:hover .postItem-link {
-  color: var(--text-color-gray);
-  background: var(--bg-color-white);
+  color: var(--main-color);
+  background: var(--white);
 }
 
 .postItem:hover .btn-arrow::after {

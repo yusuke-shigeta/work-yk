@@ -20,13 +20,13 @@
 }
 
 .footer-navLink {
-  color: var(--text-color-gray);
+  color: var(--main-color);
 }
 
 .footer-info-text {
-  color: var(--text-color-gray);
+  color: var(--main-color);
 }
 
 .footer-copyright {
-  color: var(--text-color-gray);
+  color: var(--main-color);
 }
