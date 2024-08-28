@@ -29,13 +29,11 @@
       <p class="footer-info-text">〒000-0000</p>
       <p class="footer-info-text">住所テキストテキストテキストテキストテキスト</p>
     </div>
-    <nav class="nav footer-nav">
-      <ul class="navList">
-        <li class="navLink navLink-sns">
-          <a href=""><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram"></a>
-        </li>
-      </ul>
-    </nav>
+    <ul class="snsList">
+      <li class="snsLink snsLink-sns">
+        <a href=""><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram"></a>
+      </li>
+    </ul>
     <p class="footer-copyright">
       <?php printf(esc_html__('© %1$s %2$s', 'yk-original'), date('Y'), get_bloginfo('name')); ?>
     </p>

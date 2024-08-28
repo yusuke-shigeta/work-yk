@@ -12,8 +12,9 @@
   <header class="header">
     <div class="inner header-inner">
 
-      <a class="logo header-logo" href="<?php echo home_url() ?>">
-        <img src="<?php echo get_template_directory_uri() ?>/assets/img/header-logo.png" alt="Logo" width="61" height="24">
+      <a class="logo l-header-logo" href="<?php echo home_url() ?>">
+        <span class="header-logo"><img src="<?php echo get_template_directory_uri() ?>/assets/img/header-logo.png" alt="Logo" width="30" height="30"></span>
+        <span class="header-logo-text"><img src="<?php echo get_template_directory_uri() ?>/assets/img/header-logo-text.png" alt="株式会社YK" width="120" height="70"></span>
       </a>
 
       <nav class="header-nav">
@@ -23,7 +24,7 @@
         $menu_items = [
           "top" => [
             "link" => '',
-            "text" => "TOP",
+            "text" => "トップ",
           ],
           "works" => [
             "link" => 'works',
@@ -36,6 +37,12 @@
         ];
         @include(get_template_directory() . '/element/NavList.php')
         ?>
+
+        <ul class="snsList">
+          <li class="snsLink snsLink-sns">
+            <a href=""><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram"></a>
+          </li>
+        </ul>
 
         <?php
         $btn_color = "gray";
