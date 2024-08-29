@@ -4,4 +4,5 @@
   --white: #fff;
   --bg-color-cover: rgba(0, 0, 0, 0.5);
   --font-family-default: "Yu Mincho Light", "YuMincho", "Yu Mincho", "游明朝体", sans-serif;
+  --transition-default: all ease 0.3s;
 }

@@ -5,7 +5,7 @@
   <?php
   // firstview
   ?>
-  <section class="firstview">
+  <div class="firstview">
     <div class="firstview-bg">
 
       <?php
@@ -51,14 +51,14 @@
         </p>
       </div>
     </div>
-  </section>
+  </div>
 
   <?php
   // works
   ?>
 
-  <section class="sec">
-    <div class="sec-inner">
+  <section class="sec works">
+    <div class="sec-inner works-inner">
 
       <?php
       $title_head2_ja = "施工実績";
@@ -76,6 +76,17 @@
       @include(get_template_directory() . '/element/PostList.php')
       ?>
 
+      <div class="l-works-btn">
+        <?php
+        $btn_color = "gray";
+        $btn_unique_class = "works-btn";
+        $btn_text = "全ての施工実績を見る";
+        $btn_link = esc_url(home_url("works"));
+
+        @include(get_template_directory() . '/element/Btn.php');
+        ?>
+      </div>
+
     </div>
   </section>
 
@@ -84,13 +95,13 @@
   ?>
 
   <section class="sec company">
-    <div class="sec-inner">
+    <div class="sec-inner company-inner">
       <?php
       $title_head2_ja = "会社概要";
       $title_head2_color = "main";
       $title_head2_img_en = "title-company.svg";
-      $title_head2_img_en_width = "86";
-      $title_head2_img_en_height = "48";
+      $title_head2_img_en_width = "123";
+      $title_head2_img_en_height = "67";
 
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
