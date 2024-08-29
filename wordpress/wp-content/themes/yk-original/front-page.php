@@ -57,7 +57,7 @@
   // works
   ?>
 
-  <section class="sec works">
+  <section class="works">
     <div class="inner inner-sec works-inner">
 
       <?php
@@ -94,7 +94,7 @@
   // company
   ?>
 
-  <section class="sec company">
+  <section class="company">
     <div class="inner inner-sec company-inner">
       <?php
       $title_head2_ja = "会社概要";
@@ -140,7 +140,7 @@
   // contact
   ?>
 
-  <section class="sec contact">
+  <section class="contact">
     <div class="inner inner-sec contact-inner">
       <?php
       $title_head2_ja = "お問い合わせ";

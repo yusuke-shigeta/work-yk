@@ -74,11 +74,11 @@ function enqueue_styles_and_scripts()
     if ($condition) {
       wp_enqueue_style(
         $asset,
-        get_template_directory_uri() . "/assets/css/{$asset}.css"
+        get_template_directory_uri() . "/assets/css/pages/{$asset}/styles.css"
       );
       wp_enqueue_script(
         $asset,
-        get_template_directory_uri() . "/assets/js/{$asset}.js",
+        get_template_directory_uri() . "/assets/js/pages/{$asset}/script.js",
       );
     }
   }

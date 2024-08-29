@@ -1,8 +1,8 @@
-@import url("./element/nav.css");
-@import url("./element/Btn.css");
-@import url("./element/logo.css");
-@import url("./element/Firstview.css");
-@import url("./element/TagList.css");
+@import url("../../element/nav.css");
+@import url("../../element/Btn.css");
+@import url("../../element/logo.css");
+@import url("../../element/Firstview.css");
+@import url("../../element/TagList.css");
 
 html,
 body {

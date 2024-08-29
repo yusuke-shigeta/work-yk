@@ -1,15 +1,14 @@
 .btn {
-  display: grid;
+  display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
+  margin: 0 auto;
   cursor: pointer;
 }
 
 .btn-arrow {
-  display: flex;
-  justify-content: center;
   gap: 5%;
 }
 .btn-arrow::after {
