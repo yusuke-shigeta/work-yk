@@ -58,7 +58,7 @@
   ?>
 
   <section class="sec works">
-    <div class="sec-inner works-inner">
+    <div class="inner inner-sec works-inner">
 
       <?php
       $title_head2_ja = "施工実績";
@@ -95,7 +95,7 @@
   ?>
 
   <section class="sec company">
-    <div class="sec-inner company-inner">
+    <div class="inner inner-sec company-inner">
       <?php
       $title_head2_ja = "会社概要";
       $title_head2_color = "main";
@@ -141,7 +141,7 @@
   ?>
 
   <section class="sec contact">
-    <div class="sec-inner">
+    <div class="inner inner-sec contact-inner">
       <?php
       $title_head2_ja = "お問い合わせ";
       $title_head2_color = "white";

@@ -4,22 +4,15 @@
 }
 
 .main {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.sec {
-  padding: 120px 0 120px;
-}
-
-.sec-inner {
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .inner {
   width: 100%;
   margin: 0 auto;
+}
+
+.inner-sec {
+  max-width: 1000px;
 }
 
 .text-color-main {

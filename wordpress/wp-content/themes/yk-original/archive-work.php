@@ -8,8 +8,8 @@
   @include(get_template_directory() . '/element/Firstview.php');
   ?>
 
-  <section class="sec tag">
-    <div class="sec-inner tag-inner">
+  <article class="tag">
+    <div class="inner tag-inner">
       <?php
       $work_tags = get_terms(array(
         'taxonomy' => 'work_tag',
@@ -25,10 +25,10 @@
         タグは未設定です。
       <?php endif; ?>
     </div>
-  </section>
+  </article>
 
   <section class="sec">
-    <div class="sec-inner">
+    <div class="inner inner-sec">
       <?php
       $posts_per_page = 6;
       @include(get_template_directory() . '/element/PostList.php');

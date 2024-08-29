@@ -4,6 +4,16 @@
 @import url("./element/Title-head2.css");
 @import url("./element/PostList.css");
 
+.sec {
+  padding: 120px 0 120px;
+}
+.sec:first-of-type {
+  padding: 140px 0 120px;
+}
+.sec:last-of-type {
+  padding: 120px 0 140px;
+}
+
 .firstview {
   position: relative;
 }
@@ -149,6 +159,7 @@
 
 .company-item-title,
 .company-item-text {
+  line-height: var(--line-height-default);
 }
 
 .company-item-title {

@@ -13,7 +13,7 @@ while (have_posts()) :
   the_post();
 ?>
   <article class="sec">
-    <div class="sec-inner">
+    <div class="inner-sec">
 
       <?php
       $work_images_before = get_work_images_before();
