@@ -15,7 +15,8 @@
 }
 
 /* animation */
-.postItem::before,
+.postItem-inner::before,
+.postItem-title::after,
 .postItem-dataItem,
 .postItem-btn {
   transition: var(--transition-default);
