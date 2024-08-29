@@ -1,0 +1,13 @@
+.contact {
+  background: var(--main-color);
+}
+
+.contact-text {
+  text-align: center;
+}
+
+.contact-btn {
+  width: 200px;
+  height: 34px;
+  margin: 40px auto 0;
+}
