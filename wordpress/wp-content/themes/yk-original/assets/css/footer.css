@@ -1,3 +1,8 @@
+.footer-info,
+.footer-copyright {
+  color: var(--main-color);
+}
+
 .footer {
   background: #292929;
   height: 269px;
@@ -5,28 +10,20 @@
 
 .footer-inner {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: repeat(2, auto);
   justify-content: space-between;
-  max-width: 1340px;
-  margin: 0 auto;
 }
 
-.footer-logo {
-  width: 86px;
+.footer-info-logo {
+  width: 40px;
+  height: 40px;
 }
 
-.footer-nav {
-  grid-column: 1/2;
+.footer-info-sns {
+  width: 24px;
+  height: 24px;
 }
 
-.footer-navLink {
-  color: var(--main-color);
-}
-
-.footer-info-text {
-  color: var(--main-color);
-}
-
-.footer-copyright {
-  color: var(--main-color);
+.footer-navList {
+  color: var(--white);
 }
