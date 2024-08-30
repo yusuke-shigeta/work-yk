@@ -59,3 +59,8 @@ div {
   margin: 0;
   font-weight: normal;
 }
+
+button {
+  border: none;
+  background: transparent;
+}
