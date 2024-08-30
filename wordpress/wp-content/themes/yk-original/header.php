@@ -32,6 +32,7 @@
           ],
           "company" => [
             "link" => '',
+            "anchor_link" => '#company',
             "text" => "会社概要",
           ],
         ];

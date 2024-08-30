@@ -94,7 +94,7 @@
   // company
   ?>
 
-  <section class="company">
+  <section id="company" class="company">
     <div class="inner inner-sec company-inner">
       <?php
       $title_head2_ja = "会社概要";
