@@ -13,19 +13,12 @@ while (have_posts()) :
   the_post();
 ?>
   <article class="sec">
-    <div class="inner-sec">
+    <div class="inner inner-sec">
 
       <?php
       $work_images_before = get_work_images_before();
       $work_images_after = get_work_images_after();
       $work_data = get_work_data();
-
-      // echo "<pre>";
-      // print_r($work_images_before);
-      // echo "<pre>";
-      // print_r($work_images_after);
-      // echo "<pre>";
-      // print_r($work_data);
       ?>
 
       <div class="l-tab">
