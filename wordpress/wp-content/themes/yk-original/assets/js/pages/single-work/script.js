@@ -45,31 +45,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const imgBefore = document.getElementById("work-image-before");
   const imgAfter = document.getElementById("work-image-after");
 
-  btnBefore.addEventListener("click", function () {
-    if (isAnimating) return;
-    isAnimating = true;
-    btnBefore.classList.add("is-active");
-    btnAfter.classList.remove("is-active");
-    imgBefore.style.display = "block";
-    imgAfter.style.display = "none";
-    fadeIn(imgBefore, 500);
-    fadeOut(imgAfter, 500);
+  if (imgBefore && imgAfter) {
+    btnBefore.addEventListener("click", function () {
+      if (isAnimating) return;
+      isAnimating = true;
+      btnBefore.classList.add("is-active");
+      btnAfter.classList.remove("is-active");
+      imgBefore.style.display = "block";
+      imgAfter.style.display = "none";
+      fadeIn(imgBefore, 500);
+      fadeOut(imgAfter, 500);
 
-    setTimeout(() => (isAnimating = false), 500);
-  });
+      setTimeout(() => (isAnimating = false), 500);
+    });
+  }
 
-  btnAfter.addEventListener("click", function () {
-    if (isAnimating) return;
-    isAnimating = true;
-    btnAfter.classList.add("is-active");
-    btnBefore.classList.remove("is-active");
-    imgBefore.style.display = "none";
-    imgAfter.style.display = "block";
-    fadeIn(imgAfter, 500);
-    fadeOut(imgBefore, 500);
+  if (imgBefore && imgAfter) {
+    btnAfter.addEventListener("click", function () {
+      if (isAnimating) return;
+      isAnimating = true;
+      btnAfter.classList.add("is-active");
+      btnBefore.classList.remove("is-active");
+      imgBefore.style.display = "none";
+      imgAfter.style.display = "block";
+      fadeIn(imgAfter, 500);
+      fadeOut(imgBefore, 500);
 
-    setTimeout(() => (isAnimating = false), 500);
-  });
+      setTimeout(() => (isAnimating = false), 500);
+    });
+  }
 
   document.querySelectorAll(".slider").forEach((slideContainer) => {
     const slides = slideContainer.querySelectorAll(".slide");
