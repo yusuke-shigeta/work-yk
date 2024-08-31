@@ -1,0 +1,26 @@
+.article * {
+  line-height: var(--line-height-default);
+}
+
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6 {
+  font-weight: bold;
+  margin: 10px 0 10px;
+}
+
+.article h2 {
+  font-size: 24px;
+  background: #eff2f6;
+  border-left: 4px solid #000;
+  padding: 0 0 0 20px;
+}
+
+.article h3 {
+  display: inline-block;
+  border-bottom: 2px solid #000;
+  padding: 0 0 4px;
+  font-size: 18px;
+}

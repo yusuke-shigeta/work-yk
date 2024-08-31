@@ -13,8 +13,8 @@ get_header();
   while (have_posts()) :
     the_post();
   ?>
-    <section class="sec">
-      <div class="inner inner-sec">
+    <section class="sec work-image">
+      <div class="inner inner-sec work-image-inner">
 
         <?php
         $work_images_before = get_work_images_before();
@@ -27,48 +27,44 @@ get_header();
           <button class="btn btn-color-gray tab js-tab" id="btn-work-image-after">施工後</button>
         </div>
 
-        <div class="work-image">
-
-          <!-- 施工前 -->
-          <div id="work-image-before">
-            <div class="slider">
-              <div class="slides">
-                <?php foreach ($work_images_before as $image) : ?>
-                  <div class="slide">
-                    <img src="<?php echo $image; ?>" />
-                  </div>
-                <?php endforeach; ?>
-              </div>
-              <div class="pagination">
-                <?php foreach ($work_images_before as $index => $image) : ?>
-                  <button class="pagination-btn <?php echo $index === 0 ? 'is-active' : ''; ?>" data-index="<?php echo $index; ?>" data-index="<?php echo $index; ?>">
-                    <img src="<?php echo $image; ?>" alt="Thumbnail <?php echo $index + 1; ?>" />
-                  </button>
-                <?php endforeach; ?>
-              </div>
+        <!-- 施工前 -->
+        <div class="work-image-before" id="work-image-before">
+          <div class="slider">
+            <div class="slides">
+              <?php foreach ($work_images_before as $image) : ?>
+                <div class="slide">
+                  <img src="<?php echo $image; ?>" />
+                </div>
+              <?php endforeach; ?>
+            </div>
+            <div class="pagination">
+              <?php foreach ($work_images_before as $index => $image) : ?>
+                <button class="pagination-btn <?php echo $index === 0 ? 'is-active' : ''; ?>" data-index="<?php echo $index; ?>" data-index="<?php echo $index; ?>">
+                  <img src="<?php echo $image; ?>" alt="Thumbnail <?php echo $index + 1; ?>" />
+                </button>
+              <?php endforeach; ?>
             </div>
           </div>
+        </div>
 
-          <!-- 施工後 -->
-          <div id="work-image-after" style="display: none;">
-            <div class="slider">
-              <div class="slides">
-                <?php foreach ($work_images_after as $image) : ?>
-                  <div class="slide">
-                    <img src="<?php echo $image; ?>" />
-                  </div>
-                <?php endforeach; ?>
-              </div>
-              <div class="pagination">
-                <?php foreach ($work_images_after as $index => $image) : ?>
-                  <button class="pagination-btn <?php echo $index === 0 ? 'is-active' : ''; ?>" data-index="<?php echo $index; ?>" data-index="<?php echo $index; ?>">
-                    <img src="<?php echo $image; ?>" alt="Thumbnail <?php echo $index + 1; ?>" />
-                  </button>
-                <?php endforeach; ?>
-              </div>
+        <!-- 施工後 -->
+        <div class="work-image-after" id="work-image-after" style="display: none;">
+          <div class="slider">
+            <div class="slides">
+              <?php foreach ($work_images_after as $image) : ?>
+                <div class="slide">
+                  <img src="<?php echo $image; ?>" />
+                </div>
+              <?php endforeach; ?>
+            </div>
+            <div class="pagination">
+              <?php foreach ($work_images_after as $index => $image) : ?>
+                <button class="pagination-btn <?php echo $index === 0 ? 'is-active' : ''; ?>" data-index="<?php echo $index; ?>" data-index="<?php echo $index; ?>">
+                  <img src="<?php echo $image; ?>" alt="Thumbnail <?php echo $index + 1; ?>" />
+                </button>
+              <?php endforeach; ?>
             </div>
           </div>
-
         </div>
 
       </div>
@@ -76,6 +72,7 @@ get_header();
 
     <section class="sec work-data">
       <div class="inner inner-sec work-data-inner">
+        <h2 class="work-data-title">施工実績情報</h2>
         <ul class="work-data-list">
           <?php
           $work_data = get_work_data();
@@ -85,7 +82,12 @@ get_header();
             <?php if ($work_data[$key]): ?>
 
               <li class="work-data-item">
-                <?php echo esc_html($key); ?>: <?php echo esc_html($work_data[$key]); ?>
+                <h3 class="work-data-item-title">
+                  <?php echo esc_html($key); ?>
+                </h3>
+                <p class="work-data-item-text">
+                  <?php echo esc_html($work_data[$key]); ?>
+                </p>
               </li>
 
             <?php endif; ?>
@@ -94,7 +96,7 @@ get_header();
       </div>
     </section>
 
-    <article class="sec article">
+    <article class="sec article work-article">
       <div class="inner inner-sec">
         <div class="entry-content">
           <?php the_content(); ?>
@@ -102,7 +104,7 @@ get_header();
       </div>
     </article>
 
-    <article class="sec tag">
+    <article class="sec work-tag">
       <div class="inner inner-sec">
         <?php
         $work_tags = wp_get_post_terms(get_the_ID(), 'work_tag');

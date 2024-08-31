@@ -7,9 +7,12 @@
 }
 
 .firstview-title {
+  max-width: 1000px;
+  margin: 0 auto;
   color: var(--white);
   font-weight: bold;
   font-size: 36px;
   letter-spacing: 0.04em;
+  line-height: var(--line-height-default);
   text-align: center;
 }
