@@ -29,6 +29,7 @@
 
   <section class="sec">
     <div class="inner inner-sec">
+
       <ul class="postList">
         <?php
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -47,6 +48,7 @@
         endif;
         ?>
       </ul>
+
       <?php
       @include(get_template_directory() . '/element/Pagination.php');
       ?>
