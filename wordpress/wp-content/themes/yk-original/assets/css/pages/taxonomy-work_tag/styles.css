@@ -3,3 +3,8 @@
 @import url("../../element/logo.css");
 @import url("../../element/PostList.css");
 @import url("../../element/Firstview.css");
+@import url("../../element/Pagination.css");
+
+.sec {
+  padding: 0 0 120px;
+}

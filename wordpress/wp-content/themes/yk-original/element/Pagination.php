@@ -1,7 +1,7 @@
 <div class="pagination">
   <?php
   echo paginate_links(array(
-    'total' => $works_query->max_num_pages,
+    'total' => $work_query->max_num_pages,
     'current' => $paged,
     'format' => 'page/%#%/',
     'show_all' => false,

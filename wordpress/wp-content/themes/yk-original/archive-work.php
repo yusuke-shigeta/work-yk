@@ -38,10 +38,10 @@
           'posts_per_page' => 6,
           'paged' => $paged
         );
-        $works_query = new WP_Query($args);
+        $work_query = new WP_Query($args);
 
-        if ($works_query->have_posts()) :
-          while ($works_query->have_posts()) : $works_query->the_post();
+        if ($work_query->have_posts()) :
+          while ($work_query->have_posts()) : $work_query->the_post();
             @include(get_template_directory() . '/element/PostList.php');
           endwhile;
           wp_reset_postdata();
