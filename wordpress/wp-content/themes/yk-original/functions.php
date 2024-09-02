@@ -148,10 +148,10 @@ function add_custom_fields_work()
     'default'
   );
 
-  // 画像用のメタボックスを追加（施工前）
+  // 画像用のメタボックスを追加（施工前・中）
   add_meta_box(
     'work_images_meta_box',
-    '施工実績画像（施工前）',
+    '施工実績画像（施工前・中）',
     'work_images_meta_box_callback',
     'work',
     'normal',

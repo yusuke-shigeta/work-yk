@@ -21,7 +21,7 @@ get_header();
 
           <div class="l-tab">
             <?php if (!empty($work_images_before)): ?>
-              <button class="btn btn-color-gray tab js-tab is-active" id="btn-work-image-before">施工前</button>
+              <button class="btn btn-color-gray tab js-tab is-active" id="btn-work-image-before">施工前・中</button>
             <?php endif; ?>
             <?php if (!empty($work_images_after)): ?>
               <button class="btn btn-color-gray tab js-tab" id="btn-work-image-after">施工後</button>
