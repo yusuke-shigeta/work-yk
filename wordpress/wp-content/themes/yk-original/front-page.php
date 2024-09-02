@@ -70,11 +70,22 @@
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
 
-      <?php
-      $posts_per_page = 3;
+      <ul class="postList">
+        <?php
+        $args = array(
+          'post_type' => 'work',
+          'posts_per_page' => 3,
+        );
+        $work_query = new WP_Query($args);
 
-      @include(get_template_directory() . '/element/PostList.php')
-      ?>
+        if ($work_query->have_posts()) :
+          while ($work_query->have_posts()) : $work_query->the_post();
+            @include(get_template_directory() . '/element/PostList.php');
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
+      </ul>
 
       <div class="l-works-btn">
         <?php
