@@ -29,9 +29,25 @@
 
   <section class="sec">
     <div class="inner inner-sec">
+      <ul class="postList">
+        <?php
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $args = array(
+          'post_type' => 'work',
+          'posts_per_page' => 6,
+          'paged' => $paged
+        );
+        $works_query = new WP_Query($args);
+
+        if ($works_query->have_posts()) :
+          while ($works_query->have_posts()) : $works_query->the_post();
+            @include(get_template_directory() . '/element/PostList.php');
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
+      </ul>
       <?php
-      $posts_per_page = 6;
-      @include(get_template_directory() . '/element/PostList.php');
       @include(get_template_directory() . '/element/Pagination.php');
       ?>
     </div>
