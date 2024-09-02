@@ -24,7 +24,7 @@ get_header();
               <button class="btn btn-color-gray tab js-tab is-active" id="btn-work-image-before">施工前・中</button>
             <?php endif; ?>
             <?php if (!empty($work_images_after)): ?>
-              <button class="btn btn-color-gray tab js-tab" id="btn-work-image-after">施工後</button>
+              <button class="btn btn-color-gray tab js-tab <?php echo !empty($work_images_before) ? '' : 'is-active'; ?>" id="btn-work-image-after">施工後</button>
             <?php endif; ?>
           </div>
 
@@ -52,7 +52,7 @@ get_header();
 
           <!-- 施工後 -->
           <?php if (!empty($work_images_after)): ?>
-            <div class="work-image-after" id="work-image-after" style="display: none;">
+            <div class="work-image-after" id="work-image-after" style="display: <?php echo !empty($work_images_before) ? 'none' : 'block'; ?>">
               <div class="slider">
                 <div class="slides">
                   <?php foreach ($work_images_after as $image) : ?>
