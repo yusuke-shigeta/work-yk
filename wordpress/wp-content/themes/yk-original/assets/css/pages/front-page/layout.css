@@ -1,11 +1,21 @@
 .works {
-  padding: 140px 0 120px;
+  padding: 100px 0;
 }
 
 .company {
-  padding: 120px 0;
+  padding: 80px 0;
 }
 
 .contact {
   padding: 72px 0 72px;
+}
+
+@media screen and (min-width: 960px) {
+  .works {
+    padding: 140px 0 120px;
+  }
+
+  .company {
+    padding: 120px 0;
+  }
 }

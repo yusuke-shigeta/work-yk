@@ -3,7 +3,12 @@
   font-size: 14px;
 }
 
-.main {
+.text-color-main {
+  color: var(--main-color);
+}
+
+.text-color-white {
+  color: var(--white);
 }
 
 .inner {
@@ -12,14 +17,13 @@
 }
 
 .inner-sec {
-  max-width: 1014px;
-  padding: 0 14px;
+  max-width: 600px;
+  padding: 0 4%;
 }
 
-.text-color-main {
-  color: var(--main-color);
-}
-
-.text-color-white {
-  color: var(--white);
+@media screen and (min-width: 960px) {
+  .inner-sec {
+    max-width: 1014px;
+    padding: 0 14px;
+  }
 }
