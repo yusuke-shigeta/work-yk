@@ -39,9 +39,9 @@
         @include(get_template_directory() . '/element/NavList.php')
         ?>
 
-        <ul class="snsList">
-          <li class="snsLink snsLink-sns">
-            <a href=""><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram"></a>
+        <ul class="header-snsList">
+          <li class="header-snsItem">
+            <a class="header-snsLink" href=""><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram"></a>
           </li>
         </ul>
 

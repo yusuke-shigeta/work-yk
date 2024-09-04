@@ -36,8 +36,9 @@
 
 .firstview-bg {
   width: 100%;
-  padding-top: 56.25%;
-  max-width: 1440px;
+  max-width: 600px;
+  height: 600px;
+  /* height: 640px; */
   margin: 0 auto;
 }
 .firstview-bg::before {
@@ -105,13 +106,29 @@
 }
 
 .firstview-title {
-  width: 385px;
+  width: 295px;
   margin: 0 auto;
 }
 
 .firstview-text {
   margin: 36px 0 0;
   color: var(--white);
+  font-size: 13px;
   text-align: center;
   line-height: 1.7;
+}
+
+@media screen and (min-width: 960px) {
+  .firstview-bg {
+    max-width: 1440px;
+    padding-top: 56.25%;
+  }
+
+  .firstview-title {
+    width: 385px;
+  }
+
+  .firstview-text {
+    font-size: 14px;
+  }
 }

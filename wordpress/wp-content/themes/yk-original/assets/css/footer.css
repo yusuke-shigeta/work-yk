@@ -38,6 +38,7 @@
 }
 
 .footer-navList {
+  display: flex;
   color: var(--main-color);
   gap: 60px;
 }

@@ -2,10 +2,6 @@
   display: flex;
 }
 
-.navList {
-  display: flex;
-}
-
 .navLink:hover {
   opacity: 0.7;
 }
