@@ -8,7 +8,7 @@
   ?>
 
   <?php
-  $fistview_bg = "firstview-archive-work.jpg";
+  // $fistview_bg = "firstview-archive-work.jpg";
   $firstview_title = $tag_name;
   @include(get_template_directory() . '/element/Firstview.php');
   ?>

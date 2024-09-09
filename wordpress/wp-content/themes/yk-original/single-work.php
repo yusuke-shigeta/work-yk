@@ -4,7 +4,7 @@ get_header();
 
 <main>
   <?php
-  $fistview_bg = "firstview-archive-work.jpg";
+  // $fistview_bg = "firstview-archive-work.jpg";
   $firstview_title = get_the_title();
   @include(get_template_directory() . '/element/Firstview.php');
   ?>
