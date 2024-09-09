@@ -1,0 +1,107 @@
+.slide img,
+.pagination-btn img,
+.pagination-btn::before {
+  border-radius: 0px;
+}
+
+.work-image-inner {
+  padding: 0;
+}
+
+.l-tab {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 0 0 20px;
+}
+
+.tab {
+  width: 130px;
+  height: 36px;
+  margin: 0;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  justify-content: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  box-sizing: border-box;
+  display: none;
+}
+
+.slide img {
+  width: auto;
+  max-height: 300px;
+}
+
+.pagination {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 10px 0 0;
+  gap: 10px;
+}
+
+.pagination-btn {
+  position: relative;
+  cursor: pointer;
+}
+
+.pagination-btn img {
+  width: 100%;
+  height: 50px;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.pagination-btn.is-active img {
+  opacity: 1;
+}
+
+.js-tab.is-active {
+  background: var(--main-color);
+  color: #fff;
+}
+
+@media screen and (min-width: 960px) {
+  .slide img,
+  .pagination-btn img,
+  .pagination-btn::before {
+    border-radius: 8px;
+  }
+
+  .work-image-inner {
+    padding: 0 14px;
+  }
+
+  .l-tab {
+    gap: 24px;
+    margin: 0 0 24px;
+  }
+
+  .tab {
+    width: 140px;
+    height: 40px;
+  }
+
+  .slide img {
+    max-height: 490px;
+  }
+
+  .pagination {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .pagination-btn img {
+    height: 60px;
+  }
+}
