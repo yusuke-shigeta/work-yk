@@ -6,14 +6,14 @@
         <img src="<?php echo get_template_directory_uri() ?>/assets/img/header-logo.png" alt="Logo" width="61" height="24">
       </a>
       <p class="footer-info-text">株式会社YK</p>
-      <p class="footer-info-text">〒000-0000</p>
-      <p class="footer-info-text">住所テキストテキストテキストテキストテキスト</p>
+      <p class="footer-info-text">〒157-0061</p>
+      <p class="footer-info-text">東京都世田谷区北烏山3-18-17 エスペラント烏山Ⅲ202</p>
       <a class="footer-info-sns" href="">
         <img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram">
       </a>
     </div>
 
-    <nav class="nav">
+    <nav class="footer-nav">
       <?php
       $navList_unique_class = "footer-navList";
       $menu_items = [
