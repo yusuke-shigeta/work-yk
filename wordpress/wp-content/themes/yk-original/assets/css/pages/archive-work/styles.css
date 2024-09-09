@@ -7,9 +7,19 @@
 @import url("../../element/Pagination.css");
 
 .tag-inner {
-  max-width: 800px;
+  max-width: 600px;
 }
 
 .sec {
   margin: 80px 0 120px;
+}
+
+@media screen and (min-width: 960px) {
+  .tag-inner {
+    max-width: 800px;
+  }
+
+  .sec {
+    margin: 80px 0 120px;
+  }
 }

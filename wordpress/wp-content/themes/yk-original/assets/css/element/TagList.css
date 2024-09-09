@@ -11,3 +11,8 @@
   border-radius: 50px;
   padding: 10px 30px;
 }
+
+@media screen and (min-width: 960px) {
+  .tag-inner {
+  }
+}

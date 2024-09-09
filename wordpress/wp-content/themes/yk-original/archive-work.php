@@ -3,20 +3,20 @@
 <main id="archive-work" class="main">
 
   <?php
-  $fistview_bg = "firstview-archive-work.jpg";
+  // $fistview_bg = "firstview-archive-work.jpg";
   $firstview_title = "施工実績";
   @include(get_template_directory() . '/element/Firstview.php');
   ?>
 
   <article class="tag">
-    <div class="inner tag-inner">
+    <div class="inner inner-sec tag-inner">
       <?php
       $work_tags = get_terms(array(
         'taxonomy' => 'work_tag',
         'hide_empty' => false,
         'orderby' => 'count',
         'order' => 'DESC',
-        'number' => 10,
+        'number' => 8,
       ));
       ?>
       <?php if ($work_tags) : ?>
