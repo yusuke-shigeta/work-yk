@@ -15,8 +15,8 @@
 .company-item {
   position: relative;
   display: grid;
-  grid-template-columns: 180px auto;
-  padding: 0 0 12px;
+  grid-template-columns: 140px auto;
+  padding: 0 0 10px;
 }
 .company-item::before {
   content: "";
@@ -29,5 +29,16 @@
   background: #d9dbd0;
 }
 .company-item:not(:last-child) {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
+}
+
+@media screen and (min-width: 960px) {
+  .company-item {
+    grid-template-columns: 180px auto;
+    padding: 0 0 12px;
+  }
+
+  .company-item:not(:last-child) {
+    margin: 0 0 12px;
+  }
 }
