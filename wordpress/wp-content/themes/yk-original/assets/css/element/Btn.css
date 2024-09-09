@@ -9,7 +9,7 @@
 }
 
 .btn-arrow {
-  gap: 5%;
+  gap: 8px;
 }
 .btn-arrow::after {
   content: "";
