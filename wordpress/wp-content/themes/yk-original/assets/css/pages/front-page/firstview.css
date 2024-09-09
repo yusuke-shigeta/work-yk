@@ -23,6 +23,7 @@
 .firstview,
 .firstview-bg {
   position: relative;
+  margin: 0 auto;
 }
 
 .firstview-bg::before,
@@ -48,7 +49,6 @@
   width: 100%;
   max-width: 600px;
   height: 600px;
-  /* height: 640px; */
   margin: 0 auto;
 }
 .firstview-bg::before {
@@ -119,8 +119,12 @@
 }
 
 @media screen and (min-width: 960px) {
+  .firstview,
   .firstview-bg {
     max-width: 1440px;
+  }
+
+  .firstview-bg {
     padding-top: 56.25%;
   }
 
