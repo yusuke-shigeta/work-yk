@@ -1,5 +1,5 @@
 .pagination {
-  margin: 80px 0 0;
+  margin: 48px 0 0;
 }
 
 ul.page-numbers {
@@ -30,4 +30,10 @@ a.page-numbers:hover {
   background: var(--main-color);
   border: var(--white) solid 1px;
   color: var(--white);
+}
+
+@media screen and (min-width: 960px) {
+  .pagination {
+    margin: 80px 0 0;
+  }
 }

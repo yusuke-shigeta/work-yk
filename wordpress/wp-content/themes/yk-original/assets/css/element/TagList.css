@@ -1,7 +1,7 @@
 .tagList {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 14px;
 }
 
 .tagItem {
@@ -14,7 +14,8 @@
 }
 
 @media screen and (min-width: 960px) {
-  .tag-inner {
+  .tagList {
+    gap: 20px;
   }
 
   .tagBtn {
