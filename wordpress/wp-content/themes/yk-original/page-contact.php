@@ -9,16 +9,18 @@
   ?>
 
   <form action="" method="post">
-    <label for="name">名前:</label>
-    <input type="text" id="name" name="user_name" required>
+    <label for="user_name">名前:</label>
+    <input type="text" id="user_name" name="user_name" required>
 
-    <label for="email">メールアドレス:</label>
-    <input type="email" id="email" name="user_email" required>
+    <label for="user_email">メールアドレス:</label>
+    <input type="email" id="user_email" name="user_email" required>
 
-    <label for="message">メッセージ:</label>
-    <textarea id="message" name="user_message" required></textarea>
+    <label for="user_message">メッセージ:</label>
+    <textarea id="user_message" name="user_message" required></textarea>
 
-    <input type="submit" name="submit" value="送信">
+    <label for="contact_submit">
+      <input id="contact_submit" type="submit" name="submit" value="送信">
+    </label>
   </form>
 
   <?php
@@ -27,26 +29,26 @@
     $email = sanitize_email($_POST['user_email']);
     $message = sanitize_textarea_field($_POST['user_message']);
 
-    $to = "dnw.webx@gmail.com"; // 送信先のメールアドレスに変更してください
-    $subject = "お問い合わせフォームからのメッセージ";
-    $headers = "From: 株式会社YK管理者向け <dnw.webx@gmail.com>\r\n";
-    $headers .= "Reply-To: dnw.webx@gmail.com\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
+    $to_admin = "dnw.webx@gmail.com"; // 送信先のメールアドレスに変更してください
+    $subject_admin = "お問い合わせフォームからのメッセージ";
+    $headers_admin = "From: 株式会社YK管理者向け <dnw.webx@gmail.com>\r\n";
+    $headers_admin .= "Reply-To: dnw.webx@gmail.com\r\n";
+    $headers_admin .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $headers_admin .= "MIME-Version: 1.0\r\n";
 
-    $body = "名前: $name\nメールアドレス: $email\nメッセージ:\n$message";
+    $body_admin = "名前: $name\nメールアドレス: $email\nメッセージ:\n$message";
 
-    if (wp_mail($to, $subject, $body, $headers)) {
+    if (wp_mail($to_admin, $subject_admin, $body_admin, $headers_admin)) {
       echo '<p>メッセージが送信されました。</p>';
 
-      $user_subject = "お問い合わせありがとうございます";
-      $user_body = "お問い合わせありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n" . $body;
-      $user_headers = "From: 株式会社YKユーザー向け <dnw.webx@gmail.com>\r\n"; // 送信元のメールアドレスに変更してください
-      $user_headers .= "Reply-To: dnw.webx@gmail.com\r\n";
-      $user_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-      $user_headers .= "MIME-Version: 1.0\r\n";
+      $subject_user = "お問い合わせありがとうございます";
+      $body_user = "お問い合わせありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n" . $body;
+      $headers_user = "From: 株式会社YKユーザー向け <dnw.webx@gmail.com>\r\n"; // 送信元のメールアドレスに変更してください
+      $headers_user .= "Reply-To: $email\r\n";
+      $headers_user .= "Content-Type: text/plain; charset=UTF-8\r\n";
+      $headers_user .= "MIME-Version: 1.0\r\n";
 
-      wp_mail($email, $user_subject, $user_body, $user_headers);
+      wp_mail($email, $subject_user, $body_user, $headers_user);
     } else {
       echo '<p>メッセージの送信に失敗しました。</p>';
       error_log("Mail failed to send to $to with subject $subject");
