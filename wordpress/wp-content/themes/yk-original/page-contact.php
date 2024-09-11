@@ -83,7 +83,7 @@
     $name = sanitize_text_field($_POST['user_name']);
     $email = sanitize_email($_POST['user_email']);
     // 任意
-    $detail = isset($_POST['details']) ? array_map('sanitize_text_field', $_POST['details']) : ['なし'];
+    $detail = isset($_POST['details']) ? implode(', ', array_map('sanitize_text_field', $_POST['details'])) : 'なし';
     $company = isset($_POST['user_company']) ? sanitize_text_field($_POST['user_company']) : 'なし';
     $tel = isset($_POST['user_tel']) ? sanitize_text_field($_POST['user_tel']) : 'なし';
     $message = isset($_POST['user_message']) ? sanitize_text_field($_POST['user_message']) : 'なし';;
@@ -116,7 +116,8 @@
       $headers_user .= "MIME-Version: 1.0\r\n";
 
       $body_user = <<<EOD
-      $name 様 お問い合わせありがとうございます。
+      $name 様 
+      お問い合わせありがとうございます。
 
       名前: $name
       会社名: $company
