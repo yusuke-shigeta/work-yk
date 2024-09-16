@@ -19,5 +19,5 @@ jobs:
           username: ${{ secrets.YK_STAGING_USERNAME }}
           password: ${{ secrets.YK_STAGING_PASSWORD }}
           local-dir: ./wordpress/wp-content/themes/yk-original/
-          server-dir: /home/r0971375/public_html/yk-rm.co.jp/
+          server-dir: /home/r0971375/public_html/yk-rm.co.jp.testrs.jp/wp-content/themes/yk-original/
           dangerous-clean-slate: true # 追加: サーバーディレクトリをクリアしてからアップロードこれ時間かかる
