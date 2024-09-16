@@ -1,0 +1,23 @@
+name: staging deploy
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        with:
+          server: ${{ secrets.YK_STAGING_SERVER }}
+          username: ${{ secrets.YK_STAGING_USERNAME }}
+          password: ${{ secrets.YK_STAGING_PASSWORD }}
+          local-dir: ./wordpress/wp-content/themes/yk-original/
+          server-dir: /home/r0971375/public_html/yk-rm.co.jp/
+          dangerous-clean-slate: true # 追加: サーバーディレクトリをクリアしてからアップロードこれ時間かかる
