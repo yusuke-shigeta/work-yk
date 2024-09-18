@@ -41,7 +41,7 @@
 
         <ul class="header-snsList">
           <li class="header-snsItem">
-            <a class="header-snsLink" href="https://www.instagram.com/yk_design_inc/"><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram"></a>
+            <a class="link header-snsLink" href="https://www.instagram.com/yk_design_inc/"><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram"></a>
           </li>
         </ul>
 

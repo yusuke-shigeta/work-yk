@@ -13,21 +13,9 @@
 
     <ul class="footer-snsList">
       <li class="footer-snsItem">
-        <a class="footer-snsLink" href="https://www.instagram.com/yk_design_inc/"><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram"></a>
+        <a class="link footer-snsLink" href="https://www.instagram.com/yk_design_inc/"><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram"></a>
       </li>
     </ul>
-
-    <!-- <div class="footer-info">
-      <a class="logo footer-info-logo" href="<?php echo home_url() ?>">
-        <img src="<?php echo get_template_directory_uri() ?>/assets/img/header-logo.png" alt="Logo" width="61" height="24">
-      </a>
-      <p class="footer-info-text">株式会社YK</p>
-      <p class="footer-info-text">〒157-0061</p>
-      <p class="footer-info-text">東京都世田谷区北烏山3-18-17 エスペラント烏山Ⅲ202</p>
-      <a class="footer-info-sns" href="https://www.instagram.com/yk_design_inc/">
-        <img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram">
-      </a>
-    </div> -->
 
     <nav class="footer-nav">
       <?php
