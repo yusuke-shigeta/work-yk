@@ -15,9 +15,9 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
-          server: ${{ secrets.YK_PROD_SERVER }}
-          username: ${{ secrets.YK_PROD_USERNAME }}
-          password: ${{ secrets.YK_PROD_PASSWORD }}
+          server: ${{ secrets.YK_STAGING_SERVER }} # テスト環境と同じ
+          username: ${{ secrets.YK_STAGING_USERNAME }} # テスト環境と同じ
+          password: ${{ secrets.YK_STAGING_PASSWORD }} # テスト環境と同じ
           local-dir: ./wordpress/wp-content/themes/yk-original/
           server-dir: /dnw-web.com/public_html/work/yk/wp-content/themes/yk-original/
           dangerous-clean-slate: true # 追加: サーバーディレクトリをクリアしてからアップロードこれ時間かかる
