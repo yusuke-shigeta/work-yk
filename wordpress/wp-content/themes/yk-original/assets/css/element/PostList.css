@@ -28,27 +28,17 @@
   opacity: 0;
 }
 
-.postItem:hover .postItem-inner::before,
-.postItem:hover .postItem-title::after,
-.postItem:hover .postItem-dataItem,
 .postItem.is-active .postItem-inner::before,
-.postItem.is-active .postItem-title,
+.postItem.is-active .postItem-title::after,
 .postItem.is-active .postItem-dataItem {
   opacity: 1;
 }
 
-.postItem:hover .postItem-btn {
-  color: var(--main-color);
-  background: var(--white);
-}
 .postItem.is-active .postItem-btn {
   color: var(--main-color);
   background: var(--white);
 }
 
-.postItem:hover .btn-arrow::after {
-  background: url("../../img/btn-arrow-active.png");
-}
 .postItem.is-active .btn-arrow::after {
   background: url("../../img/btn-arrow-active.png");
 }
