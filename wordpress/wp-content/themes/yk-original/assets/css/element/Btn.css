@@ -11,15 +11,6 @@
 .btn-arrow {
   gap: 8px;
 }
-.btn-arrow::after {
-  content: "";
-  background: url("../../img/btn-arrow-default.png") center / cover no-repeat;
-  width: 14px;
-  height: 14px;
-}
-.btn-arrow:hover::after {
-  background: url("../../img/btn-arrow-active.png");
-}
 
 .btn-color-gray {
   border: var(--main-color) solid 1px;
@@ -41,4 +32,38 @@
 }
 .btn-color-white:hover .btn-arrow::after {
   background: url("../../img/btn-arrow-active.png");
+}
+
+.btn-arrow-parts {
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 0 0 0 2px var(--sub-color);
+  border-radius: 100%;
+  width: 18px;
+  height: 18px;
+}
+.btn-arrow-parts::before,
+.btn-arrow-parts::after {
+  content: "";
+}
+.btn-arrow-parts::before {
+  position: absolute;
+  display: inline-block;
+  border-top: 2px solid var(--sub-color);
+  border-right: 2px solid var(--sub-color);
+  width: 4px;
+  height: 4px;
+  top: 6px;
+  left: 6px;
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+.btn-arrow-parts::after {
+  position: absolute;
+  display: inline-block;
+  width: 5px;
+  height: 2px;
+  top: 8px;
+  left: 5px;
+  background: var(--sub-color);
 }
