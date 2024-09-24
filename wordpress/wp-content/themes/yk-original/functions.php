@@ -565,59 +565,59 @@ function get_current_url()
   return home_url(add_query_arg(array(), $wp->request));
 }
 
-/**
- * debug_page_type
- * ログイン時、開いているページのページタイプを出力
- * @return void
- */
-function debug_page_type()
-{
-  if (is_front_page() && is_home()) {
-    echo "デフォルトのホームページ";
-  } elseif (is_front_page()) {
-    echo "is_front_page";
-  } elseif (is_home()) {
-    echo "is_home";
-  } elseif (is_single()) {
-    echo "is_single";
-    echo " (投稿タイプ: " . get_post_type() . ")";
-  } elseif (is_page()) {
-    echo "is_page";
-  } elseif (is_category()) {
-    echo "is_category";
-  } elseif (is_tag()) {
-    echo "is_tag";
-  } elseif (is_tax()) {
-    echo "タクソノミーアーカイブページ";
-    if (is_post_type_tax()) {
-      echo "タクソノミーアーカイブページ";
-      $term = get_queried_object();
-      $taxonomy = get_taxonomy($term->taxonomy);
-      if ($taxonomy) {
-        echo " (タクソノミー: " . $term->taxonomy . ", 投稿タイプ: " . implode(', ', $taxonomy->object_type) . ")";
-      }
-    }
-  } elseif (is_archive()) {
-    if (is_post_type_archive()) {
-      echo "is_archive";
-      echo " (is_post_type_archive: " . get_post_type() . ")";
-    } else {
-      echo "is_archive";
-    }
-  } elseif (is_search()) {
-    echo "is_search";
-  } elseif (is_404()) {
-    echo "is_404";
-  } else {
-    echo "その他のページタイプ";
-  }
-}
+// /**
+//  * debug_page_type
+//  * ログイン時、開いているページのページタイプを出力
+//  * @return void
+//  */
+// function debug_page_type()
+// {
+//   if (is_front_page() && is_home()) {
+//     echo "デフォルトのホームページ";
+//   } elseif (is_front_page()) {
+//     echo "is_front_page";
+//   } elseif (is_home()) {
+//     echo "is_home";
+//   } elseif (is_single()) {
+//     echo "is_single";
+//     echo " (投稿タイプ: " . get_post_type() . ")";
+//   } elseif (is_page()) {
+//     echo "is_page";
+//   } elseif (is_category()) {
+//     echo "is_category";
+//   } elseif (is_tag()) {
+//     echo "is_tag";
+//   } elseif (is_tax()) {
+//     echo "タクソノミーアーカイブページ";
+//     if (is_post_type_tax()) {
+//       echo "タクソノミーアーカイブページ";
+//       $term = get_queried_object();
+//       $taxonomy = get_taxonomy($term->taxonomy);
+//       if ($taxonomy) {
+//         echo " (タクソノミー: " . $term->taxonomy . ", 投稿タイプ: " . implode(', ', $taxonomy->object_type) . ")";
+//       }
+//     }
+//   } elseif (is_archive()) {
+//     if (is_post_type_archive()) {
+//       echo "is_archive";
+//       echo " (is_post_type_archive: " . get_post_type() . ")";
+//     } else {
+//       echo "is_archive";
+//     }
+//   } elseif (is_search()) {
+//     echo "is_search";
+//   } elseif (is_404()) {
+//     echo "is_404";
+//   } else {
+//     echo "その他のページタイプ";
+//   }
+// }
 
-// 使用例：
-add_action('wp_footer', function () {
-  if (is_user_logged_in()) {
-    echo '<div style="background: #f0f0f0; color: #333; padding: 10px; position: fixed; bottom: 0; right: 0; z-index: 9999;">';
-    debug_page_type();
-    echo '</div>';
-  }
-});
+// // 使用例：
+// add_action('wp_footer', function () {
+//   if (is_user_logged_in()) {
+//     echo '<div style="background: #f0f0f0; color: #333; padding: 10px; position: fixed; bottom: 0; right: 0; z-index: 9999;">';
+//     debug_page_type();
+//     echo '</div>';
+//   }
+// });

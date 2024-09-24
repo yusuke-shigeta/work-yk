@@ -20,4 +20,4 @@ jobs:
           password: ${{ secrets.PROD_PASSWORD }}
           local-dir: ./wordpress/wp-content/themes/yk-original/
           server-dir: /dnw-web.com/public_html/work/yk/wp-content/themes/yk-original/
-          # dangerous-clean-slate: true # 追加: サーバーディレクトリをクリアしてからアップロードこれ時間かかる
+          dangerous-clean-slate: true # 追加: サーバーディレクトリをクリアしてからアップロードこれ時間かかる
