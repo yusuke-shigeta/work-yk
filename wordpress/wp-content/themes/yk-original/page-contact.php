@@ -84,6 +84,7 @@
     $email = sanitize_email($_POST['user_email']);
     // 任意
     $detail = isset($_POST['details']) ? array_map('sanitize_text_field', $_POST['details']) : ['なし'];
+    $detail = implode(', ', $detail);
     $company = isset($_POST['user_company']) ? sanitize_text_field($_POST['user_company']) : 'なし';
     $tel = isset($_POST['user_tel']) ? sanitize_text_field($_POST['user_tel']) : 'なし';
     $message = isset($_POST['user_message']) ? sanitize_text_field($_POST['user_message']) : 'なし';;
@@ -115,7 +116,7 @@
       $headers_user .= "Content-Type: text/plain; charset=UTF-8\r\n";
       $headers_user .= "MIME-Version: 1.0\r\n";
 
-      $bodyuser = <<<EOD
+      $body_user = <<<EOD
       $name 様 お問い合わせありがとうございます。
 
       名前: $name
