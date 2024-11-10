@@ -14,32 +14,47 @@
         <ul class="form-list">
 
           <li class="form-item">
-            <?php
-            $details = [
-              'detail1' => '問い合わせ内容1',
-              'detail2' => '問い合わせ内容2',
-              'detail3' => '問い合わせ内容3',
-            ];
-            foreach ($details as $name => $label) :
-            ?>
-              <label class="label" for="<?php echo $name; ?>">
-                <?php echo $label; ?>
-                <input id="<?php echo $name; ?>" class="input-checkbox" type="checkbox" name="details[]" value="<?php echo $name; ?>">
-              </label>
-            <?php endforeach; ?>
-          </li>
-
-          <li class="form-item">
-            <label class="label" for="user-company">
-              会社名
-              <input id="user-company" class="input-text" type="text" name="user_company">
+            <h3>お名前</h3>
+            <label class="label">
+              姓
+              <input class="input-text" type="text" name="user_name_first" required>
+            </label>
+            <label class="label">
+              名
+              <input class="input-text" type="text" name="user_name_last" required>
             </label>
           </li>
 
           <li class="form-item">
-            <label class="label" for="user-name">
-              お名前
-              <input id="user-name" class="input-text" type="text" name="user_name" required>
+            <h3>お名前（フリガナ）</h3>
+            <label class="label">
+              セイ
+              <input class="input-text" type="text" name="user_name_first_ruby" required>
+            </label>
+            <label class="label">
+              メイ
+              <input class="input-text" type="text" name="user_name_last_ruby" required>
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3 class="hide">工事を行いたい建物の住所</h3>
+            <label class="label">
+              工事を行いたい建物の住所
+              <!-- todo, エリアを記入 -->
+              <input class="input-text" type="text" name="user_building_address" required>
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3 class="hide">現在お住まいのご住所必須</h3>
+            <label>
+              工事を行いたい建物の住所と同上
+              <input type="checkbox">
+            </label>
+            <label class="label">
+              現在お住まいのご住所必須
+              <input class="input-text" type="text" name="user_address" required>
             </label>
           </li>
 
@@ -58,9 +73,122 @@
           </li>
 
           <li class="form-item">
-            <label class="label" for="user-message">
-              メッセージ
-              <textarea id="user-message" class="input-textarea" name="user_message"></textarea>
+            <?php
+            $details = [
+              'detail1' => '相談内容',
+              'detail2' => '相談内容2',
+              'detail3' => '相談内容3',
+            ];
+            foreach ($details as $name => $label) :
+            ?>
+              <label class="label">
+                <?php echo $label; ?>
+                <input class="input-checkbox" type="checkbox" name="details[]" value="<?php echo $name; ?>">
+              </label>
+            <?php endforeach; ?>
+          </li>
+
+          <li class="form-item">
+            <h3>リノベーションを検討されている建物の種別</h3>
+            <?php
+            $building_type = [
+              'building_type1' => '建物の種別',
+              'building_type2' => '建物の種別2',
+              'building_type3' => '建物の種別3',
+            ];
+            foreach ($building_type as $name => $label) :
+            ?>
+              <label class="label" for="<?php echo $name; ?>">
+                <?php echo $label; ?>
+                <input id="<?php echo $name; ?>" class="input-checkbox" type="checkbox" name="building_type[]" value="<?php echo $name; ?>">
+              </label>
+            <?php endforeach; ?>
+            <label class="label">
+              <input class="input-text" type="text" name="user_building_type">
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3>建物の現況</h3>
+            <label class="label">
+              建物の現況
+              <input class="input-text" type="text" name="user_company">
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3>工事完了ご希望時期</h3>
+            <label class="label">
+              工事完了ご希望時期
+              <input class="input-text" type="text" name="user_company">
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3>工事完了後のお引越しご希望日程※お急ぎの場合や決まった日付のある場合</h3>
+            <label class="label">
+              工事完了後のお引越しご希望日程<br>
+              ※お急ぎの場合や決まった日付のある場合
+              <input class="input-text" type="text" name="user_company">
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3>物件のお引き渡し時期※中古物件を購入される場合</h3>
+            <label class="label">
+              物件のお引き渡し時期<br>
+              ※中古物件を購入される場合
+              <input class="input-text" type="text" name="user_company">
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3>リノベーションのご予算</h3>
+            <label class="label">
+              リノベーションのご予算
+              <input class="input-text" type="text" name="user_company">
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3>お図面の有無（設計図、不動産会社の間取り図等）</h3>
+            <label class="label">
+              お図面の有無（設計図、不動産会社の間取り図等）
+              <input class="input-text" type="text" name="user_company">
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3>水廻り設備で交換をご希望されるもの</h3>
+            <label class="label">
+              水廻り設備で交換をご希望されるもの
+              <input class="input-text" type="text" name="user_company">
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3>当社をどこで知りましたか？</h3>
+            <label class="label">
+              当社をどこで知りましたか？<br>
+              （複数選択可能）
+              <input class="input-text" type="text" name="user_company">
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3>気に入った事例があれば教えてください</h3>
+            <label class="label">
+              気に入った事例があれば教えてください<br>
+              （複数選択可能）
+              <input class="input-text" type="text" name="user_company">
+            </label>
+          </li>
+
+          <li class="form-item">
+            <h3>その他ご相談したいこと気になることなど</h3>
+            <label class="label">
+              その他ご相談したいこと気になることなどはこちらにご記入お願いいたします。
+              <input class="input-text" type="text" name="user_company">
             </label>
           </li>
 
