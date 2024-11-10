@@ -1,17 +1,21 @@
 <footer class="footer">
   <div class="footer-inner">
 
-    <div class="footer-info">
-      <a class="logo footer-info-logo" href="<?php echo home_url() ?>">
-        <img src="<?php echo get_template_directory_uri() ?>/assets/img/header-logo.png" alt="Logo" width="61" height="24">
-      </a>
-      <p class="footer-info-text">株式会社YK</p>
-      <p class="footer-info-text">〒157-0061</p>
-      <p class="footer-info-text">東京都世田谷区北烏山3-18-17 エスペラント烏山Ⅲ202</p>
-      <a class="footer-info-sns" href="">
-        <img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram">
-      </a>
-    </div>
+    <a href="<?php echo home_url() ?>" class="logo footer-logo">
+      <img src="<?php echo get_template_directory_uri() ?>/assets/img/header-logo.png" alt="Logo" width="61" height="24">
+    </a>
+
+    <ul class="footer-companyList">
+      <li class="footer-companyList-item">株式会社YK</li>
+      <li class="footer-companyList-item">〒157-0061</li>
+      <li class="footer-companyList-item">東京都世田谷区北烏山3-18-17 エスペラント烏山Ⅲ202</li>
+    </ul>
+
+    <ul class="footer-snsList">
+      <li class="footer-snsItem">
+        <a class="link footer-snsLink" href="https://www.instagram.com/yk_design_inc/"><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon-instagram-gray.png" alt="Instagram"></a>
+      </li>
+    </ul>
 
     <nav class="footer-nav">
       <?php

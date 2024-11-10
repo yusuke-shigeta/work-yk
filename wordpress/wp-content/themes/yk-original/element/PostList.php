@@ -17,7 +17,7 @@ $work_before = $work_images_before[0];
     <h3 class="postItem-title"><?php the_title(); ?></h3>
     <ul class="postItem-dataList">
       <?php
-      $data_keys = ['場所', '建物種別', '増築年数', '費用', '対象面積', '工期'];
+      $data_keys = ['場所', '建物種別', '工期'];
       foreach ($data_keys as $key): ?>
         <?php if ($work_data[$key]): ?>
           <li class="postItem-dataItem"><?php echo esc_html($key); ?>: <?php echo esc_html($work_data[$key]); ?></li>
