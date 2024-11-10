@@ -135,7 +135,7 @@ function create_post_type_work()
 }
 add_action('init', 'create_post_type_work');
 
-define('WORK_CUSTOM_FIELDS', ['場所', '建物種別', '増築年数', '費用', '対象面積', '工期']);
+define('WORK_CUSTOM_FIELDS', ['場所', '建物種別', '工期']);
 
 function add_custom_fields_work()
 {
