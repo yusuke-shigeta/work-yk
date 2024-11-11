@@ -11,195 +11,369 @@
   <section class="sec">
     <div class="inner inner-sec">
       <form class="form" action="" method="post">
-        <ul class="form-list">
 
-          <li class="form-item">
-            <h3>お名前</h3>
-            <label class="label">
-              姓
-              <input class="input-text" type="text" name="user_name_first" required>
-            </label>
-            <label class="label">
-              名
-              <input class="input-text" type="text" name="user_name_last" required>
-            </label>
-          </li>
+        <section class="form-sec">
+          <h2 class="form-sec-title">連絡先情報</h2>
+          <ul class="form-sec-list">
 
-          <li class="form-item">
-            <h3>お名前（フリガナ）</h3>
-            <label class="label">
-              セイ
-              <input class="input-text" type="text" name="user_name_first_ruby" required>
-            </label>
-            <label class="label">
-              メイ
-              <input class="input-text" type="text" name="user_name_last_ruby" required>
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">お名前</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    姓
+                    <input class="input-text" type="text" name="user_name_first" required>
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    名
+                    <input class="input-text" type="text" name="user_name_last" required>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <h3 class="hide">工事を行いたい建物の住所</h3>
-            <label class="label">
-              工事を行いたい建物の住所
-              <!-- todo, エリアを記入 -->
-              <input class="input-text" type="text" name="user_building_address" required>
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">フリガナ</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    セイ
+                    <input class="input-text" type="text" name="user_name_first" required>
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    メイ
+                    <input class="input-text" type="text" name="user_name_last" required>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <h3 class="hide">現在お住まいのご住所必須</h3>
-            <label>
-              工事を行いたい建物の住所と同上
-              <input type="checkbox">
-            </label>
-            <label class="label">
-              現在お住まいのご住所必須
-              <input class="input-text" type="text" name="user_address" required>
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="hide form-sec-item-title">電話番号</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    電話番号
+                    <input class="input-text" type="text" name="user_name_first" required>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <label class="label" for="user-tel">
-              電話番号
-              <input id="user-tel" class="input-text" type="number" name="user_tel">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="hide form-sec-item-title">メールアドレス</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    メールアドレス
+                    <input class="input-text" type="text" name="user_name_first" required>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <label class="label" for="user-email">
-              メールアドレス
-              <input id="user-email" class="input-text" type="email" name="user_email" required>
-            </label>
-          </li>
+          </ul>
+        </section>
 
-          <li class="form-item">
-            <?php
-            $details = [
-              'detail1' => '相談内容',
-              'detail2' => '相談内容2',
-              'detail3' => '相談内容3',
-            ];
-            foreach ($details as $name => $label) :
-            ?>
-              <label class="label">
-                <?php echo $label; ?>
-                <input class="input-checkbox" type="checkbox" name="details[]" value="<?php echo $name; ?>">
-              </label>
-            <?php endforeach; ?>
-          </li>
+        <section class="form-sec">
+          <h2 class="form-sec-title">住所関連</h2>
+          <ul class="form-sec-list">
 
-          <li class="form-item">
-            <h3>リノベーションを検討されている建物の種別</h3>
-            <?php
-            $building_type = [
-              'building_type1' => '建物の種別',
-              'building_type2' => '建物の種別2',
-              'building_type3' => '建物の種別3',
-            ];
-            foreach ($building_type as $name => $label) :
-            ?>
-              <label class="label" for="<?php echo $name; ?>">
-                <?php echo $label; ?>
-                <input id="<?php echo $name; ?>" class="input-checkbox" type="checkbox" name="building_type[]" value="<?php echo $name; ?>">
-              </label>
-            <?php endforeach; ?>
-            <label class="label">
-              <input class="input-text" type="text" name="user_building_type">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="hide form-sec-item-title">工事を行いたい建物の住所</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    工事を行いたい建物の住所
+                    <!-- todo, エリアを記入 -->
+                    <input class="input-text" type="text" name="user_building_address" required>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <h3>建物の現況</h3>
-            <label class="label">
-              建物の現況
-              <input class="input-text" type="text" name="user_company">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="hide form-sec-item-title">現在お住まいのご住所</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    現在お住まいのご住所
+                    <input class="input-text" type="text" name="user_address" required>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <h3>工事完了ご希望時期</h3>
-            <label class="label">
-              工事完了ご希望時期
-              <input class="input-text" type="text" name="user_company">
-            </label>
-          </li>
+          </ul>
+        </section>
 
-          <li class="form-item">
-            <h3>工事完了後のお引越しご希望日程※お急ぎの場合や決まった日付のある場合</h3>
-            <label class="label">
-              工事完了後のお引越しご希望日程<br>
-              ※お急ぎの場合や決まった日付のある場合
-              <input class="input-text" type="text" name="user_company">
-            </label>
-          </li>
+        <section class="form-sec">
+          <h2 class="form-sec-title">ご相談内容</h2>
+          <ul class="form-sec-list">
 
-          <li class="form-item">
-            <h3>物件のお引き渡し時期※中古物件を購入される場合</h3>
-            <label class="label">
-              物件のお引き渡し時期<br>
-              ※中古物件を購入される場合
-              <input class="input-text" type="text" name="user_company">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">ご相談内容</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    <select name="" id="">
+                      <option value="相談内容1">相談内容1</option>
+                      <option value="相談内容2">相談内容2</option>
+                      <option value="相談内容3">相談内容3</option>
+                    </select>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <h3>リノベーションのご予算</h3>
-            <label class="label">
-              リノベーションのご予算
-              <input class="input-text" type="text" name="user_company">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">リノベーションを検討されている建物の種別</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    <select name="" id="">
+                      <option value="建物の種別1">建物の種別1</option>
+                      <option value="建物の種別2">建物の種別2</option>
+                      <option value="建物の種別3">建物の種別3</option>
+                    </select>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <h3>お図面の有無（設計図、不動産会社の間取り図等）</h3>
-            <label class="label">
-              お図面の有無（設計図、不動産会社の間取り図等）
-              <input class="input-text" type="text" name="user_company">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">建物の現況</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    築年数（年）
+                    <input class="input-text" type="text" name="user_company" required>
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    延べ床面積（㎡）
+                    <input class="input-text" type="text" name="user_company" required>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <h3>水廻り設備で交換をご希望されるもの</h3>
-            <label class="label">
-              水廻り設備で交換をご希望されるもの
-              <input class="input-text" type="text" name="user_company">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">工事完了ご希望時期</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    <select name="" id="">
+                      <option value="工事完了ご希望時期1">工事完了ご希望時期1</option>
+                      <option value="工事完了ご希望時期2">工事完了ご希望時期2</option>
+                      <option value="工事完了ご希望時期3">工事完了ご希望時期3</option>
+                    </select>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <h3>当社をどこで知りましたか？</h3>
-            <label class="label">
-              当社をどこで知りましたか？<br>
-              （複数選択可能）
-              <input class="input-text" type="text" name="user_company">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">工事完了後のお引越しご希望日程※お急ぎの場合や決まった日付のある場合</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    <input class="input-text" type="date" name="user_company">
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <h3>気に入った事例があれば教えてください</h3>
-            <label class="label">
-              気に入った事例があれば教えてください<br>
-              （複数選択可能）
-              <input class="input-text" type="text" name="user_company">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">物件のお引き渡し時期※中古物件を購入される場合</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    <input class="input-text" type="date" name="user_company">
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <h3>その他ご相談したいこと気になることなど</h3>
-            <label class="label">
-              その他ご相談したいこと気になることなどはこちらにご記入お願いいたします。
-              <input class="input-text" type="text" name="user_company">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">リノベーションのご予算</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    <select name="" id="">
+                      <option value="リノベーションのご予算1">リノベーションのご予算1</option>
+                      <option value="リノベーションのご予算2">リノベーションのご予算2</option>
+                      <option value="リノベーションのご予算3">リノベーションのご予算3</option>
+                    </select>
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-          <li class="form-item">
-            <label class="label" for="submit_contact">
-              送信する
-              <input id="submit_contact" type="submit" name="submit" value="送信">
-            </label>
-          </li>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">お図面の有無（設計図、不動産会社の間取り図等）</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    有
+                    <input class="input-radio" type="radio" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    無
+                    <input class="input-radio" type="radio" name="user_company">
+                  </label>
+                </li>
+              </ul>
+            </li>
 
-        </ul>
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">水廻り設備で交換をご希望されるもの</h3>
+              <p class="form-sec-item-text">（複数選択可）</p>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    キッチン
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    トイレ
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    洗面
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    お風呂
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </section>
+
+        <section class="form-sec">
+          <h2 class="form-sec-title">その他</h2>
+          <ul class="form-sec-list">
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">当社をどこで知りましたか？</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    インターネット検索（Google、Yahoo!など）
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    住宅情報サイト（SUUMO、HOME'S、リノベりすなど）
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    Instagram
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    Facebook
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    Pinterest
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    YouTube
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    雑誌
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    店舗を見て
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    知人からのご紹介
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    ご紹介者のお名前
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    その他
+                    <input class="input-checkbox" type="checkbox" name="user_company">
+                  </label>
+                </li>
+              </ul>
+            </li>
+
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">気に入った事例があれば教えてください</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    <input class="input-text" type="text" name="user_company">
+                  </label>
+                </li>
+              </ul>
+            </li>
+
+            <li class="form-sec-item">
+              <h3 class="form-sec-item-title">その他ご相談したいこと気になることなど</h3>
+              <ul class="form-sec-item-list">
+                <li class="form-sec-item-item">
+                  <label class="label form-item-label">
+                    <textarea name="" id=""></textarea>
+                  </label>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </section>
+
+        <section class="">
+          <label class="label form-item-label" for="submit_contact">
+            送信する
+            <input id="submit_contact" type="submit" name="submit" value="送信">
+          </label>
+        </section>
+
       </form>
     </div>
   </section>
