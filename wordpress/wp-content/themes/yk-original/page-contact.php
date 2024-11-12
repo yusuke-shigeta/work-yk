@@ -153,13 +153,13 @@
                 <li class="form-sec-item-item">
                   <label class="label label-input-text">
                     築年数（年）
-                    <input class="input input-text" type="text" name="user_building_condition" required>
+                    <input class="input input-text" type="text" name="user_building_condition_year" required>
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-text">
                     延べ床面積（㎡）
-                    <input class="input input-text" type="text" name="user_building_condition" required>
+                    <input class="input input-text" type="text" name="user_building_condition_area" required>
                   </label>
                 </li>
               </ul>
@@ -385,15 +385,47 @@
 
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // ユーザーが入力した情報を取得
-    // 必須
-    $name = sanitize_text_field($_POST['user_name']);
-    $email = sanitize_email($_POST['user_email']);
+
+    // input-text:
+    $user_name_first = sanitize_text_field($_POST['user_name_first']);
+    $user_name_last = sanitize_text_field($_POST['user_name_last']);
+    $user_name_ruby_first = sanitize_text_field($_POST['user_name_ruby_first']);
+    $user_name_ruby_last = sanitize_text_field($_POST['user_name_ruby_last']);
+    $user_tel = sanitize_text_field($_POST['user_tel']);
+    $user_email = sanitize_email($_POST['user_email']);
+    $user_building_address = sanitize_text_field($_POST['user_building_address']);
+    $user_address = sanitize_text_field($_POST['user_address']);
+    $user_building_condition_year = sanitize_text_field($_POST['user_building_condition_year']);
+    $user_building_condition_area = sanitize_text_field($_POST['user_building_condition_area']);
+    $user_constructionCompletion = sanitize_text_field($_POST['user_constructionCompletion']);
+    $user_example = sanitize_text_field($_POST['user_example']);
+    // input-text;
+
+    // input-time:
+    $user_movingPeriod = sanitize_text_field($_POST['user_movingPeriod']);
+    $user_propertyDelivery = sanitize_text_field($_POST['user_propertyDelivery']);
+    // input-time;
+
+    // input-radio:
+    $user_drawing = sanitize_text_field($_POST['user_drawing']);
+    // input-radio;
+
+    // input-checkbox:
+    $user_waterEquipment = isset($_POST['user_waterEquipment']) ? array_map('sanitize_text_field', $_POST['user_waterEquipment']) : [];
+    $user_opportunity = isset($_POST['user_opportunity']) ? array_map('sanitize_text_field', $_POST['user_opportunity']) : [];
+    // input-checkbox;
+
+    // select:
+    $user_inquiry = sanitize_text_field($_POST['user_inquiry']);
+    $user_building_type = sanitize_text_field($_POST['user_building_type']);
+    $user_budget = sanitize_text_field($_POST['user_budget']);
+    // select;
+
+    // textarea:
+    $user_otherRequests = sanitize_text_field($_POST['user_otherRequests']);
+    // textarea;
+
     // 任意
-    $detail = isset($_POST['details']) ? implode(', ', array_map('sanitize_text_field', $_POST['details'])) : 'なし';
-    $company = isset($_POST['user_company']) ? sanitize_text_field($_POST['user_company']) : 'なし';
-    $tel = isset($_POST['user_tel']) ? sanitize_text_field($_POST['user_tel']) : 'なし';
-    $message = isset($_POST['user_message']) ? sanitize_text_field($_POST['user_message']) : 'なし';;
 
     $to_admin = "dnw.webx@gmail.com"; // 送信先のメールアドレスに変更してください
     $subject_admin = "お問い合わせフォームからのメッセージ";
@@ -423,21 +455,21 @@
       $headers_user .= "MIME-Version: 1.0\r\n";
 
       $body_user = <<<EOD
-      $name 様 
+       様 
       お問い合わせありがとうございます。
 
-      名前: $name
-      会社名: $company
-      電話番号: $tel
-      メールアドレス: $email
-      お問い合わせ内容: $detail
-      メッセージ: $message
+      名前: 
+      会社名: 
+      電話番号: 
+      メールアドレス: 
+      お問い合わせ内容: 
+      メッセージ: 
       EOD;
 
       wp_mail($email, $subject_user, $body_user, $headers_user);
     } else {
       echo '<p>メッセージの送信に失敗しました。</p>';
-      error_log("Mail failed to send to $to with subject $subject");
+      error_log("Mail failed to send to $to with subject $subject_user");
       echo '<p>エラーメッセージ: ' . error_get_last()['message'] . '</p>';
     }
   } else {
