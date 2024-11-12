@@ -385,6 +385,7 @@
 
   <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // input-text:
     $user_name_first = sanitize_text_field($_POST['user_name_first']);
     $user_name_last = sanitize_text_field($_POST['user_name_last']);
@@ -434,57 +435,47 @@
     $headers_admin .= "MIME-Version: 1.0\r\n";
 
     $body_admin = <<<EOD
-      メールが届きました。
+    メールが届きました。
 
-      名前: $name
-      会社名: $company
-      電話番号: $tel
-      メールアドレス: $email
-      お問い合わせ内容: $detail
-      メッセージ: $message
-      EOD;
-  }
-  ?>
-
-  <?php if (wp_mail($to_admin, $subject_admin, $body_admin, $headers_admin)): ?>
-
-    <?php
-    // 送信成功を伝えるポップアップ
-    ?>
-    <div class="popup popup-success">
-      <p>メッセージが送信されました。</p>
-      <p>担当者からの連絡をお待ちください。</p>
-    </div>
-
-    <?php
-    $subject_user = "お問い合わせありがとうございます";
-    $headers_user = "From: 株式会社YKユーザー向け <dnw.webx@gmail.com>\r\n"; // 送信元のメールアドレスに変更してください
-    $headers_user .= "Reply-To: $email\r\n";
-    $headers_user .= "Content-Type: text/plain; charset=UTF-8\r\n";
-    $headers_user .= "MIME-Version: 1.0\r\n";
-
-    $body_user = <<<EOD
-    様
-    お問い合わせありがとうございます。
-
-    名前: 
-    会社名: 
-    電話番号: 
-    メールアドレス: 
-    お問い合わせ内容: 
-    メッセージ: 
+    名前: $name
+    会社名: $company
+    電話番号: $tel
+    メールアドレス: $email
+    お問い合わせ内容: $detail
+    メッセージ: $message
     EOD;
 
-    wp_mail($email, $subject_user, $body_user, $headers_user);
-    ?>
-  <?php else: ?>
-    <?php
-    echo '<p>メッセージの送信に失敗しました。</p>';
-    error_log("Mail failed to send to $to with subject $subject_user");
-    echo '<p>エラーメッセージ: ' . error_get_last()['message'] . '</p>';
+    if (wp_mail($to_admin, $subject_admin, $body_admin, $headers_admin)) {
+      echo '<p>メッセージが送信されました。</p>';
+
+      $subject_user = "お問い合わせありがとうございます";
+      $headers_user = "From: 株式会社YKユーザー向け <dnw.webx@gmail.com>\r\n"; // 送信元のメールアドレスに変更してください
+      $headers_user .= "Reply-To: $email\r\n";
+      $headers_user .= "Content-Type: text/plain; charset=UTF-8\r\n";
+      $headers_user .= "MIME-Version: 1.0\r\n";
+
+      $body_user = <<<EOD
+       様 
+      お問い合わせありがとうございます。
+
+      名前: 
+      会社名: 
+      電話番号: 
+      メールアドレス: 
+      お問い合わせ内容: 
+      メッセージ: 
+      EOD;
+
+      wp_mail($email, $subject_user, $body_user, $headers_user);
+    } else {
+      echo '<p>メッセージの送信に失敗しました。</p>';
+      error_log("Mail failed to send to $to with subject $subject_user");
+      echo '<p>エラーメッセージ: ' . error_get_last()['message'] . '</p>';
+    }
+  } else {
     error_log("Form not submitted");
-    ?>
-  <?php endif; ?>
+  }
+  ?>
 
 </main>
 
