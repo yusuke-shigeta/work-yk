@@ -446,7 +446,12 @@
     EOD;
 
     if (wp_mail($to_admin, $subject_admin, $body_admin, $headers_admin)) {
-      echo '<p>メッセージが送信されました。</p>';
+
+      // 送信成功ポップアップ
+      echo '<div class="popup popup-success">';
+      echo '<p class="popup-text popup-success-text">メッセージが送信されました。</p>';
+      echo '<p class="popup-text popup-success-text">担当者からの連絡をお待ちください。</p>';
+      echo '</div>';
 
       $subject_user = "お問い合わせありがとうございます";
       $headers_user = "From: 株式会社YKユーザー向け <dnw.webx@gmail.com>\r\n"; // 送信元のメールアドレスに変更してください
