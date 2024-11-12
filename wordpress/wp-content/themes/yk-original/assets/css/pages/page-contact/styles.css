@@ -3,30 +3,84 @@
 @import url("../../element/logo.css");
 @import url("../../element/Firstview.css");
 
+.main {
+  background: #eff2f6;
+  color: #333;
+}
+
 .sec {
-  margin: 50px 0 100px;
+  padding: 50px 0 100px;
 }
 
 /* label: */
 .label {
   display: block;
+  width: 100%;
   line-height: var(--line-height-default);
 }
 
-.label-checkbox {
+.label-input-checkbox,
+.label-input-radio {
   display: grid;
   align-items: center;
   grid-template-columns: repeat(2, max-content);
+  gap: 0 6px;
+}
+
+.label-input-submit {
+  width: 200px;
+  height: 50px;
 }
 /* label; */
 
 /* input: */
+.input,
+.select,
+.textarea {
+  width: 100%;
+}
+
+.input-text,
+.select {
+  height: 34px;
+}
+
 .input-text {
   display: block;
   border: 1px solid #000;
   border-radius: 8px;
   padding: 4px 8px;
   font-size: 14px;
+}
+
+.input-submit {
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background: var(--main-color);
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+}
+
+.input-submit:hover {
+  background: #fff;
+  color: #333;
+}
+
+.select {
+  padding: 6px;
+  border: 1px solid #000;
+}
+
+.textarea {
+  border: 1px solid #000;
+  border-radius: 8px;
+  resize: none;
 }
 /* input; */
 
@@ -36,19 +90,19 @@
   margin: 0 auto;
 }
 
-.form-sec {
-  margin: 60px 0 0;
+.form-sec:not(:first-child) {
+  margin: 100px 0 0;
 }
 
 .form-sec-title {
   margin: 0 0 30px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .form-sec-list {
   display: grid;
-  gap: 24px 0;
+  gap: 60px 0;
 }
 
 .form-sec-item-title {
@@ -56,13 +110,21 @@
   font-weight: bold;
 }
 
-.form-sec-item-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+.form-sec-item-text {
+  margin: 0 0 8px;
 }
 
-.form-sec-item-item {
+.form-sec-item-list {
+  display: flex;
+  gap: 6px;
+}
+
+.form-sec-item-list-row {
+  flex-direction: row;
+}
+
+.form-sec-item-list-column {
+  flex-direction: column;
 }
 /* form; */
 
@@ -72,6 +134,6 @@
 
 @media screen and (min-width: 960px) {
   .sec {
-    margin: 70px 0 120px;
+    padding: 70px 0 120px;
   }
 }
