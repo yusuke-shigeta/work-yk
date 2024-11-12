@@ -116,15 +116,16 @@
 
 .form-sec-item-list {
   display: flex;
-  gap: 6px;
 }
 
 .form-sec-item-list-row {
   flex-direction: row;
+  gap: 14px;
 }
 
 .form-sec-item-list-column {
   flex-direction: column;
+  gap: 6px;
 }
 /* form; */
 
