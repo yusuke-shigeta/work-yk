@@ -389,8 +389,8 @@
     // input-text:
     $user_name_first = sanitize_text_field($_POST['user_name_first']);
     $user_name_last = sanitize_text_field($_POST['user_name_last']);
-    $user_name_ruby_first = sanitize_text_field($_POST['user_name_ruby_first']);
-    $user_name_ruby_last = sanitize_text_field($_POST['user_name_ruby_last']);
+    $user_name_first_ruby = sanitize_text_field($_POST['user_name_first_ruby']);
+    $user_name_last_ruby = sanitize_text_field($_POST['user_name_last_ruby']);
     $user_tel = sanitize_text_field($_POST['user_tel']);
     $user_email = sanitize_email($_POST['user_email']);
     $user_building_address = sanitize_text_field($_POST['user_building_address']);
