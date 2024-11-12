@@ -244,25 +244,25 @@
               <ul class="form-sec-item-list form-sec-item-list-column">
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_waterEquipment">
+                    <input class="input input-checkbox" type="checkbox" name="user_waterEquipment[]">
                     キッチン
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_waterEquipment">
+                    <input class="input input-checkbox" type="checkbox" name="user_waterEquipment[]">
                     トイレ
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_waterEquipment">
+                    <input class="input input-checkbox" type="checkbox" name="user_waterEquipment[]">
                     洗面
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_waterEquipment">
+                    <input class="input input-checkbox" type="checkbox" name="user_waterEquipment[]">
                     お風呂
                   </label>
                 </li>
@@ -281,67 +281,67 @@
               <ul class="form-sec-item-list form-sec-item-list-column">
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     インターネット検索（Google、Yahoo!など）
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     住宅情報サイト（SUUMO、HOME'S、リノベりすなど）
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     Instagram
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     Facebook
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     Pinterest
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     YouTube
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     雑誌
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     店舗を見て
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     知人からのご紹介
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     ご紹介者のお名前
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
-                    <input class="input input-checkbox" type="checkbox" name="user_opportunity">
+                    <input class="input input-checkbox" type="checkbox" name="user_opportunity[]">
                     その他
                   </label>
                 </li>
