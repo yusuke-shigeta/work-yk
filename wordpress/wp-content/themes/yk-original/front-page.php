@@ -155,8 +155,6 @@
       @include(get_template_directory() . '/element/Title-head2.php');
       ?>
 
-      <p class="contact-text">テキストテキストテキストテキストテキストテキスト</p>
-
       <?php
       $btn_color = "white";
       $btn_unique_class = "contact-btn";
