@@ -520,7 +520,7 @@
 
       EOD;
 
-      wp_mail($email, $subject_user, $body_user, $headers_user);
+      wp_mail($user_email, $subject_user, $body_user, $headers_user);
     } else {
       echo '<div class="modal modal-error">';
       echo '<div id="popup" class="popup popup-error">';
