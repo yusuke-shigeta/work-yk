@@ -229,13 +229,13 @@
               <ul class="form-sec-item-list form-sec-item-list-column">
                 <li class="form-sec-item-item">
                   <label class="label label-input-radio">
-                    <input class="input input-radio" type="radio" name="user_drawing">
+                    <input class="input input-radio" type="radio" name="user_drawing" value="有">
                     有
                   </label>
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-radio">
-                    <input class="input input-radio" type="radio" name="user_drawing" checked>
+                    <input class="input input-radio" type="radio" name="user_drawing" value="無" checked>
                     無
                   </label>
                 </li>
