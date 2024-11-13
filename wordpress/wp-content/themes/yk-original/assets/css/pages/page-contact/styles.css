@@ -35,6 +35,11 @@
 /* label; */
 
 /* input: */
+input[type="submit"],
+input[type="button"] {
+  -webkit-appearance: none;
+}
+
 .input,
 .select,
 .textarea {
