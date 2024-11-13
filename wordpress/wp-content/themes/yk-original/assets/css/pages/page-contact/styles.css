@@ -6,6 +6,7 @@
 .main {
   background: #eff2f6;
   color: #333;
+  line-height: var(--line-height-default);
 }
 
 .sec {
@@ -37,7 +38,9 @@
 .input,
 .select,
 .textarea {
+  display: block;
   width: 100%;
+  max-width: 400px;
 }
 
 .input-text,
@@ -46,7 +49,6 @@
 }
 
 .input-text {
-  display: block;
   border: 1px solid #000;
   border-radius: 8px;
   padding: 4px 8px;
@@ -78,6 +80,7 @@
 }
 
 .textarea {
+  height: 200px;
   border: 1px solid #000;
   border-radius: 8px;
   padding: 4px 8px;
@@ -151,10 +154,6 @@
   border-radius: 8px;
   padding: 20px;
   background: #fff;
-}
-
-.popup-text {
-  line-height: var(--line-height-default);
 }
 
 .popup-text-tel {

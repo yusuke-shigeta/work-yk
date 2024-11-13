@@ -292,7 +292,7 @@
                 <li class="form-sec-item-item">
                   <label class="label label-input-checkbox">
                     <input class="input input-checkbox" type="checkbox" name="user_opportunity[]" value="住宅情報サイト（SUUMO、HOME'S、リノベりすなど）">
-                    住宅情報サイト（SUUMO、HOME'S、リノベりすなど）
+                    住宅情報サイト（SUUMO、HOME'S）
                   </label>
                 </li>
                 <li class="form-sec-item-item">
