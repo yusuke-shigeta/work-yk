@@ -40,6 +40,11 @@ input[type="button"] {
   -webkit-appearance: none;
 }
 
+input[type="radio"],
+input[type="checkbox"] {
+  -webkit-transform: scale(1);
+}
+
 .input,
 .select,
 .textarea {
