@@ -391,27 +391,27 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // input-text:
-    $user_name_first = sanitize_text_field($_POST['user_name_first']);
-    $user_name_last = sanitize_text_field($_POST['user_name_last']);
-    $user_name_first_ruby = sanitize_text_field($_POST['user_name_first_ruby']);
-    $user_name_last_ruby = sanitize_text_field($_POST['user_name_last_ruby']);
-    $user_tel = sanitize_text_field($_POST['user_tel']);
-    $user_email = sanitize_email($_POST['user_email']);
-    $user_building_address = sanitize_text_field($_POST['user_building_address']);
-    $user_address = sanitize_text_field($_POST['user_address']);
-    $user_building_condition_year = sanitize_text_field($_POST['user_building_condition_year']);
-    $user_building_condition_area = sanitize_text_field($_POST['user_building_condition_area']);
-    $user_constructionCompletion = sanitize_text_field($_POST['user_constructionCompletion']);
-    $user_example = sanitize_text_field($_POST['user_example']);
+    $user_name_first = !empty($_POST['user_name_first']) ? sanitize_text_field($_POST['user_name_first']) : '';
+    $user_name_last = !empty($_POST['user_name_last']) ? sanitize_text_field($_POST['user_name_last']) : '';
+    $user_name_first_ruby = !empty($_POST['user_name_first_ruby']) ? sanitize_text_field($_POST['user_name_first_ruby']) : '';
+    $user_name_last_ruby = !empty($_POST['user_name_last_ruby']) ? sanitize_text_field($_POST['user_name_last_ruby']) : '';
+    $user_tel = !empty($_POST['user_tel']) ? sanitize_text_field($_POST['user_tel']) : '';
+    $user_email = !empty($_POST['user_email']) ? sanitize_email($_POST['user_email']) : '';
+    $user_building_address = !empty($_POST['user_building_address']) ? sanitize_text_field($_POST['user_building_address']) : '';
+    $user_address = !empty($_POST['user_address']) ? sanitize_text_field($_POST['user_address']) : '';
+    $user_building_condition_year = !empty($_POST['user_building_condition_year']) ? sanitize_text_field($_POST['user_building_condition_year']) : '';
+    $user_building_condition_area = !empty($_POST['user_building_condition_area']) ? sanitize_text_field($_POST['user_building_condition_area']) : '';
+    $user_constructionCompletion = !empty($_POST['user_constructionCompletion']) ? sanitize_text_field($_POST['user_constructionCompletion']) : '';
+    $user_example = !empty($_POST['user_example']) ? sanitize_text_field($_POST['user_example']) : '';
     // input-text;
 
     // input-time:
-    $user_movingPeriod = sanitize_text_field($_POST['user_movingPeriod']);
-    $user_propertyDelivery = sanitize_text_field($_POST['user_propertyDelivery']);
+    $user_movingPeriod = !empty($_POST['user_movingPeriod']) ? sanitize_text_field($_POST['user_movingPeriod']) : '';
+    $user_propertyDelivery = !empty($_POST['user_propertyDelivery']) ? sanitize_text_field($_POST['user_propertyDelivery']) : '';
     // input-time;
 
     // input-radio:
-    $user_drawing = sanitize_text_field($_POST['user_drawing']);
+    $user_drawing = !empty($_POST['user_drawing']) ? sanitize_text_field($_POST['user_drawing']) : '';
     // input-radio;
 
     // input-checkbox:
@@ -420,13 +420,13 @@
     // input-checkbox;
 
     // select:
-    $user_inquiry = sanitize_text_field($_POST['user_inquiry']);
-    $user_building_type = sanitize_text_field($_POST['user_building_type']);
-    $user_budget = sanitize_text_field($_POST['user_budget']);
+    $user_inquiry = !empty($_POST['user_inquiry']) ? sanitize_text_field($_POST['user_inquiry']) : '';
+    $user_building_type = !empty($_POST['user_building_type']) ? sanitize_text_field($_POST['user_building_type']) : '';
+    $user_budget = !empty($_POST['user_budget']) ? sanitize_text_field($_POST['user_budget']) : '';
     // select;
 
     // textarea:
-    $user_otherRequests = sanitize_text_field($_POST['user_otherRequests']);
+    $user_otherRequests = !empty($_POST['user_otherRequests']) ? sanitize_text_field($_POST['user_otherRequests']) : '';
     // textarea;
 
     // 任意
