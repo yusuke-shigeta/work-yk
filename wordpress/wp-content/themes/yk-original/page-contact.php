@@ -415,8 +415,8 @@
     // input-radio;
 
     // input-checkbox:
-    $user_waterEquipment = isset($_POST['user_waterEquipment']) ? array_map('sanitize_text_field', $_POST['user_waterEquipment']) : [];
-    $user_opportunity = isset($_POST['user_opportunity']) ? array_map('sanitize_text_field', $_POST['user_opportunity']) : [];
+    $user_waterEquipment = isset($_POST['user_waterEquipment']) ? implode(', ', array_map('sanitize_text_field', $_POST['user_waterEquipment'])) : '';
+    $user_opportunity = isset($_POST['user_opportunity']) ? implode(', ', array_map('sanitize_text_field', $_POST['user_opportunity'])) : '';
     // input-checkbox;
 
     // select:
