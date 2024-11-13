@@ -377,7 +377,7 @@
           </ul>
         </section>
 
-        <section class="form-sec">
+        <section class="form-sec form-sec-submit">
           <label class="label label-input-submit">
             <input class="input-submit" type="submit" name="submit_contact" value="送信する">
           </label>
