@@ -122,6 +122,7 @@
                   <label class="label label-select">
                     ご相談内容
                     <select class="select" name="user_inquiry" id="" required>
+                      <option value="" disabled selected>選択してください</option>
                       <option value="相談内容1">相談内容1</option>
                       <option value="相談内容2">相談内容2</option>
                       <option value="相談内容3">相談内容3</option>
@@ -138,6 +139,7 @@
                   <label class="label label-select">
                     リノベーションを検討されている建物の種別
                     <select class="select" name="user_building_type" id="" required>
+                      <option value="" disabled selected>選択してください</option>
                       <option value="建物の種別1">建物の種別1</option>
                       <option value="建物の種別2">建物の種別2</option>
                       <option value="建物の種別3">建物の種別3</option>
@@ -172,6 +174,7 @@
                   <label class="label label-select">
                     リノベーションを検討されている建物の種別
                     <select class="select" name="user_constructionCompletion" id="" required>
+                      <option value="" disabled selected>選択してください</option>
                       <option value="建物の種別1">建物の種別1</option>
                       <option value="建物の種別2">建物の種別2</option>
                       <option value="建物の種別3">建物の種別3</option>
@@ -211,6 +214,7 @@
                 <li class="form-sec-item-item">
                   <label class="label label-select">
                     <select class="select" name="user_budget" id="" required>
+                      <option value="" disabled selected>選択してください</option>
                       <option value="リノベーションのご予算1">リノベーションのご予算1</option>
                       <option value="リノベーションのご予算2">リノベーションのご予算2</option>
                       <option value="リノベーションのご予算3">リノベーションのご予算3</option>
@@ -231,7 +235,7 @@
                 </li>
                 <li class="form-sec-item-item">
                   <label class="label label-input-radio">
-                    <input class="input input-radio" type="radio" name="user_drawing">
+                    <input class="input input-radio" type="radio" name="user_drawing" checked>
                     無
                   </label>
                 </li>
@@ -513,9 +517,11 @@
 
       wp_mail($email, $subject_user, $body_user, $headers_user);
     } else {
-      echo '<p>メッセージの送信に失敗しました。</p>';
-      error_log("Mail failed to send to $to with subject $subject_user");
-      echo '<p>エラーメッセージ: ' . error_get_last()['message'] . '</p>';
+      echo '<div class="popup popup-error">';
+      echo '<p class="popup-text popup-error-text">メッセージの送信に失敗しました。</p>';
+      echo '<p class="popup-text popup-error-text">お手数ですが、担当者に直接お電話お願いします。</p>';
+      echo '<p class="popup-text popup-error-text">電話番号: 0367958733</p>';
+      echo '</div>';
     }
   } else {
     error_log("Form not submitted");
