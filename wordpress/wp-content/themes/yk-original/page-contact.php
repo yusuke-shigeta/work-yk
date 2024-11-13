@@ -443,30 +443,65 @@
     ご対応お願いいたします。
 
     基本情報
-    お名前: $user_name_first $user_name_last
-    お名前（フリガナ）: $user_name_first_ruby $user_name_last_ruby
-    電話番号: $user_tel
-    メールアドレス: $user_email
+    お名前:
+    $user_name_first $user_name_last
+
+    お名前（フリガナ）:
+    $user_name_first_ruby $user_name_last_ruby
+
+    電話番号:
+    $user_tel
+
+    メールアドレス:
+    $user_email
+
 
     住所関連
-    工事を行いたい建物の住所: $user_building_address
-    現在お住まいのご住所: $user_address
+    工事を行いたい建物の住所:
+    $user_building_address
+
+    現在お住まいのご住所:
+    $user_address
+
 
     ご相談内容
-    ご相談内容: $user_inquiry
-    リノベーションを検討されている建物の種別: $user_building_type
-    建物の現況: 築 $user_building_condition_year 年, 延べ床面積（㎡） $user_building_condition_area
-    工事完了ご希望時期: $user_constructionCompletion
-    工事完了後のお引越しご希望日程: $user_movingPeriod
-    中古物件を購入される場合物件のお引き渡し時期: $user_propertyDelivery
-    リノベーションのご予算: $user_budget
-    お図面の有無（設計図、不動産会社の間取り図等）: $user_drawing
-    水廻り設備で交換をご希望されるもの: $user_waterEquipment
+    ご相談内容:
+    $user_inquiry
+
+    リノベーションを検討されている建物の種別:
+    $user_building_type
+
+    建物の現況:
+    築 $user_building_condition_year 年, 延べ床面積（㎡） $user_building_condition_area
+
+    工事完了ご希望時期:
+    $user_constructionCompletion
+
+    工事完了後のお引越しご希望日程:
+    $user_movingPeriod
+    
+    中古物件を購入される場合物件のお引き渡し時期:
+    $user_propertyDelivery
+
+    リノベーションのご予算:
+    $user_budget
+
+    お図面の有無（設計図、不動産会社の間取り図等）:
+    $user_drawing
+
+    水廻り設備で交換をご希望されるもの:
+    $user_waterEquipment
+
 
     その他
-    当社をどこで知りましたか？: $user_opportunity
-    気に入った事例があれば教えてください: $user_example
-    その他ご相談したいこと気になることなどこちらにご記入ください: $user_otherRequests
+    当社をどこで知りましたか？:
+    $user_opportunity
+
+    気に入った事例があれば教えてください:
+    $user_example
+
+    その他ご相談したいこと気になることなどこちらにご記入ください:
+    $user_otherRequests
 
     EOD;
 
@@ -493,30 +528,42 @@
       ご質問やご要望がございましたら、いつでもお気軽にご連絡ください。
 
       基本情報
-      お名前: $user_name_first $user_name_last
-      お名前（フリガナ）: $user_name_first_ruby $user_name_last_ruby
-      電話番号: $user_tel
-      メールアドレス: $user_email
+      お名前:
+      $user_name_first $user_name_last
+
+      お名前（フリガナ）:
+      $user_name_first_ruby $user_name_last_ruby
+
+      電話番号:
+      $user_tel
+
+      メールアドレス:
+      $user_email
+
 
       住所関連
-      工事を行いたい建物の住所: $user_building_address
-      現在お住まいのご住所: $user_address
+      工事を行いたい建物の住所:
+      $user_building_address
+
+      現在お住まいのご住所:
+      $user_address
+
 
       ご相談内容
-      ご相談内容: $user_inquiry
-      リノベーションを検討されている建物の種別: $user_building_type
-      建物の現況: 築 $user_building_condition_year 年, 延べ床面積（㎡） $user_building_condition_area
-      工事完了ご希望時期: $user_constructionCompletion
-      工事完了後のお引越しご希望日程: $user_movingPeriod
-      中古物件を購入される場合物件のお引き渡し時期: $user_propertyDelivery
-      リノベーションのご予算: $user_budget
-      お図面の有無（設計図、不動産会社の間取り図等）: $user_drawing
-      水廻り設備で交換をご希望されるもの: $user_waterEquipment
+      ご相談内容:
+      $user_inquiry
 
-      その他
-      当社をどこで知りましたか？: $user_opportunity
-      気に入った事例があれば教えてください: $user_example
-      その他ご相談したいこと気になることなどこちらにご記入ください: $user_otherRequests
+      リノベーションを検討されている建物の種別:
+      $user_building_type
+
+      建物の現況:
+      築 $user_building_condition_year 年, 延べ床面積（㎡） $user_building_condition_area
+
+      工事完了ご希望時期:
+      $user_constructionCompletion
+
+      工事完了後のお引越しご希望日程:
+      $user_movingPeriod
 
       EOD;
 
