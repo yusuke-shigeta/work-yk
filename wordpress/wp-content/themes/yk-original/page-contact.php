@@ -123,9 +123,12 @@
                     ご相談内容
                     <select class="select" name="user_inquiry" id="" required>
                       <option value="" disabled selected>選択してください</option>
-                      <option value="相談内容1">相談内容1</option>
-                      <option value="相談内容2">相談内容2</option>
-                      <option value="相談内容3">相談内容3</option>
+                      <option value="今の住まいをリノベーション">今の住まいをリノベーション</option>
+                      <option value="中古購入してリノベーション（既に物件が決まっている）">中古購入してリノベーション（既に物件が決まっている）</option>
+                      <option value="中古購入してリノベーション（購入検討中）">中古購入してリノベーション（購入検討中）</option>
+                      <option value="ご実家・親族の住まいを受け継いでリノベーション">ご実家・親族の住まいを受け継いでリノベーション</option>
+                      <option value="建て替えかリノベーションを検討中">建て替えかリノベーションを検討中</option>
+                      <option value="部分的なリフォーム・リノベーション">部分的なリフォーム・リノベーション</option>
                     </select>
                   </label>
                 </li>
@@ -140,9 +143,14 @@
                     リノベーションを検討されている建物の種別
                     <select class="select" name="user_building_type" id="" required>
                       <option value="" disabled selected>選択してください</option>
-                      <option value="建物の種別1">建物の種別1</option>
-                      <option value="建物の種別2">建物の種別2</option>
-                      <option value="建物の種別3">建物の種別3</option>
+                      <option value="マンション">マンション</option>
+                      <option value="戸建（在来木造）">戸建（在来木造）</option>
+                      <option value="戸建（2×4工法）">戸建（2×4工法）</option>
+                      <option value="戸建（プレハブ）">戸建（プレハブ）</option>
+                      <option value="戸建（鉄骨造）">戸建（鉄骨造）</option>
+                      <option value="戸建（鉄筋コンクリート造）">戸建（鉄筋コンクリート造）</option>
+                      <option value="戸建（構造不明）">戸建（構造不明）</option>
+                      <option value="ビル・店舗">ビル・店舗</option>
                     </select>
                   </label>
                 </li>
@@ -162,23 +170,6 @@
                   <label class="label label-input-text">
                     延べ床面積（㎡）
                     <input class="input input-text" type="text" name="user_building_condition_area" required>
-                  </label>
-                </li>
-              </ul>
-            </li>
-
-            <li class="form-sec-item user-constructionCompletion">
-              <h3 class="hide form-sec-item-title">c</h3>
-              <ul class="form-sec-item-list form-sec-item-list-column">
-                <li class="form-sec-item-item">
-                  <label class="label label-select">
-                    リノベーションを検討されている建物の種別
-                    <select class="select" name="user_constructionCompletion" id="" required>
-                      <option value="" disabled selected>選択してください</option>
-                      <option value="建物の種別1">建物の種別1</option>
-                      <option value="建物の種別2">建物の種別2</option>
-                      <option value="建物の種別3">建物の種別3</option>
-                    </select>
                   </label>
                 </li>
               </ul>
@@ -215,9 +206,14 @@
                   <label class="label label-select">
                     <select class="select" name="user_budget" id="" required>
                       <option value="" disabled selected>選択してください</option>
-                      <option value="リノベーションのご予算1">リノベーションのご予算1</option>
-                      <option value="リノベーションのご予算2">リノベーションのご予算2</option>
-                      <option value="リノベーションのご予算3">リノベーションのご予算3</option>
+                      <option value="100～200万円">100～200万円</option>
+                      <option value="200～300万円">200～300万円</option>
+                      <option value="300～500万円">300～500万円</option>
+                      <option value="500～700万円">500～700万円</option>
+                      <option value="700～1000万円">700～1000万円</option>
+                      <option value="1000～1500万円">1000～1500万円</option>
+                      <option value="1500万円以上">1500万円以上</option>
+                      <option value="未定">未定</option>
                     </select>
                   </label>
                 </li>
