@@ -55,6 +55,13 @@
   font-size: 14px;
 }
 
+.input-radio,
+.input-checkbox {
+  border: 1px solid #333;
+  appearance: checkbox;
+  background: #fff;
+}
+
 .input-submit {
   cursor: pointer;
   display: inline-block;
@@ -77,6 +84,9 @@
 .select {
   padding: 6px;
   border: 1px solid #000;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
 }
 
 .textarea {
