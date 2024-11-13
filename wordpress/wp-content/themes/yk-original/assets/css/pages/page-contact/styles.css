@@ -183,10 +183,9 @@ input[type="checkbox"] {
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   width: 320px;
-  height: 230px;
   border: 1px solid var(--main-color);
   border-radius: 8px;
-  padding: 20px;
+  padding: 28px 20px;
   background: #fff;
 }
 
