@@ -565,6 +565,29 @@
       工事完了後のお引越しご希望日程:
       $user_movingPeriod
 
+      中古物件を購入される場合物件のお引き渡し時期:
+      $user_propertyDelivery
+
+      リノベーションのご予算:
+      $user_budget
+
+      お図面の有無（設計図、不動産会社の間取り図等）:
+      $user_drawing
+
+      水廻り設備で交換をご希望されるもの:
+      $user_waterEquipment
+
+
+      その他
+      当社をどこで知りましたか？:
+      $user_opportunity
+
+      気に入った事例があれば教えてください:
+      $user_example
+
+      その他ご相談したいこと気になることなどこちらにご記入ください:
+      $user_otherRequests
+
       EOD;
 
       wp_mail($user_email, $subject_user, $body_user, $headers_user);
