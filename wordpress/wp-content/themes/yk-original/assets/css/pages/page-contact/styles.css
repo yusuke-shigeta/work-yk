@@ -130,6 +130,43 @@
 }
 /* form; */
 
+/* modal: */
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+/* modal; */
+
+/* popup: */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff;
+}
+
+.popup-text {
+  line-height: var(--line-height-default);
+}
+
+.popup-text-tel {
+  text-decoration: underline;
+}
+
+.popup-button {
+  margin: 20px 0 0;
+  height: 32px;
+}
+/* popup; */
+
 .hide {
   display: none;
 }

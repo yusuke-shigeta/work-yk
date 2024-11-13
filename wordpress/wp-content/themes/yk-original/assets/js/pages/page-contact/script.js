@@ -4,6 +4,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const rootUrl = url.hostname;
   console.log(rootUrl);
 
+  const popup = document.getElementById("popup");
+
+  if (popup) {
+    document.body.style.overflow = "hidden";
+  }
+
   // 本番環境以外の場合、formの値を自動入力
   if (!rootUrl.includes("yk-rm.co.jp")) {
     document.querySelector(".firstview").addEventListener("click", function () {

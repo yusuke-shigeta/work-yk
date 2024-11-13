@@ -472,9 +472,11 @@
     if (wp_mail($to_admin, $subject_admin, $body_admin, $headers_admin)) {
 
       // 送信成功ポップアップ
-      echo '<div class="popup popup-success">';
+      echo '<div class="modal modal-success">';
+      echo '<div id="popup" class="popup popup-success">';
       echo '<p class="popup-text popup-success-text">メッセージが送信されました。</p>';
       echo '<p class="popup-text popup-success-text">担当者からの連絡をお待ちください。</p>';
+      echo '<a class="btn btn-color-gray popup-button pupup-button-success" href="' . home_url() . '">トップページへ戻る</a>';
       echo '</div>';
 
       $subject_user = "お問い合わせありがとうございます";
@@ -517,10 +519,12 @@
 
       wp_mail($email, $subject_user, $body_user, $headers_user);
     } else {
-      echo '<div class="popup popup-error">';
+      echo '<div class="modal modal-error">';
+      echo '<div id="popup" class="popup popup-error">';
       echo '<p class="popup-text popup-error-text">メッセージの送信に失敗しました。</p>';
-      echo '<p class="popup-text popup-error-text">お手数ですが、担当者に直接お電話お願いします。</p>';
-      echo '<p class="popup-text popup-error-text">電話番号: 0367958733</p>';
+      echo '<p class="popup-text popup-error-text">お手数ですが、担当者に直接ご連絡お願いいたします。</p>';
+      echo '<a class="popup-text popup-error-text popup-text-tel" href="tel:0367958733">電話番号: 0367958733</p>';
+      echo '<a class="btn btn-color-gray popup-button pupup-button-error" href="' . home_url() . '">トップページへ戻る</a>';
       echo '</div>';
     }
   } else {
