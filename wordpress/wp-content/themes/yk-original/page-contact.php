@@ -439,12 +439,13 @@
     $headers_admin .= "MIME-Version: 1.0\r\n";
 
     $body_admin = <<<EOD
-    メールが届きました。
+    お客様からメールが届きました。
+    ご対応お願いいたします。
 
     基本情報
-    お名前:
-    お名前（フリガナ）:
-    電話番号:
+    お名前: $user_name_first $user_name_last
+    お名前（フリガナ）: $user_name_first_ruby $user_name_last_ruby
+    電話番号: $user_tel
     メールアドレス:
 
     住所関連
@@ -486,7 +487,7 @@
       $headers_user .= "MIME-Version: 1.0\r\n";
 
       $body_user = <<<EOD
-      様 
+      様
       お問い合わせありがとうございます。
 
       基本情報
