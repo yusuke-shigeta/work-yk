@@ -482,7 +482,7 @@
 
       $subject_user = "お問い合わせありがとうございます";
       $headers_user = "From: 株式会社YKユーザー向け <dnw.webx@gmail.com>\r\n"; // 送信元のメールアドレスに変更してください
-      $headers_user .= "Reply-To: $email\r\n";
+      $headers_user .= "Reply-To: $user_email\r\n";
       $headers_user .= "Content-Type: text/plain; charset=UTF-8\r\n";
       $headers_user .= "MIME-Version: 1.0\r\n";
 
