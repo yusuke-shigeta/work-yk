@@ -82,7 +82,7 @@ get_header();
         <ul class="work-data-list">
           <?php
           $work_data = get_work_data();
-          $data_keys = ['場所', '建物種別', '増築年数', '費用', '対象面積', '工期'];
+          $data_keys = ['場所', '建物種別', '工期'];
 
           foreach ($data_keys as $key): ?>
             <?php if ($work_data[$key]): ?>
