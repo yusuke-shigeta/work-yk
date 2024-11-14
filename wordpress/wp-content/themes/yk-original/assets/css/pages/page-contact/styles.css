@@ -14,7 +14,7 @@
 }
 
 /* label: */
-.label {
+label {
   display: block;
   width: 100%;
   line-height: var(--line-height-default);
@@ -31,6 +31,21 @@
 .label-input-submit {
   width: 200px;
   height: 50px;
+}
+
+.label {
+  padding: 2px;
+  color: #fff;
+  font-size: 13px;
+  margin: 0 0 0 4px;
+}
+
+.label-require {
+  background: rgb(255, 155, 170);
+}
+
+.label-any {
+  background: #949393;
 }
 /* label; */
 
@@ -81,12 +96,12 @@ input[type="checkbox"] {
 .input-submit {
   cursor: pointer;
   display: inline-block;
-  border: 1px solid var(--main-color);
+  border: 1px solid var(--sub-color);
   border-radius: 8px;
   width: 100%;
   height: 100%;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  background: var(--main-color);
+  background: var(--sub-color);
   color: #fff;
   font-weight: bold;
   letter-spacing: 0.06em;
@@ -94,7 +109,7 @@ input[type="checkbox"] {
 
 .input-submit:hover {
   background: #fff;
-  color: #333;
+  color: var(--sub-color);
 }
 
 .select {
