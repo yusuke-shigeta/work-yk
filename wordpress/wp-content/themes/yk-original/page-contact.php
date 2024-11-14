@@ -96,6 +96,24 @@
               </ul>
             </li>
 
+            <li class="form-sec-item user-constructionCompletion">
+              <h3 class="hide form-sec-item-title">工事完了ご希望時期</h3>
+              <ul class="form-sec-item-list form-sec-item-list-column">
+                <li class="form-sec-item-item">
+                  <label class="label label-select">
+                    工事完了ご希望時期
+                    <select class="select" name="user_constructionCompletion" required>
+                      <option value="" disabled selected>選択してください</option>
+                      <option value="6ヶ月以内（急ぎ）">6ヶ月以内（急ぎ）</option>
+                      <option value="6ヶ月〜1年以内">6ヶ月〜1年以内</option>
+                      <option value="1年以上先">1年以上先</option>
+                      <option value="いつでもよい">いつでもよい</option>
+                    </select>
+                  </label>
+                </li>
+              </ul>
+            </li>
+
             <li class="form-sec-item user-address">
               <h3 class="hide form-sec-item-title">現在お住まいのご住所</h3>
               <ul class="form-sec-item-list form-sec-item-list-column">
@@ -397,7 +415,6 @@
     $user_address = !empty($_POST['user_address']) ? sanitize_text_field($_POST['user_address']) : '';
     $user_building_condition_year = !empty($_POST['user_building_condition_year']) ? sanitize_text_field($_POST['user_building_condition_year']) : '';
     $user_building_condition_area = !empty($_POST['user_building_condition_area']) ? sanitize_text_field($_POST['user_building_condition_area']) : '';
-    $user_constructionCompletion = !empty($_POST['user_constructionCompletion']) ? sanitize_text_field($_POST['user_constructionCompletion']) : '';
     $user_example = !empty($_POST['user_example']) ? sanitize_text_field($_POST['user_example']) : '';
     // input-text;
 
@@ -417,6 +434,7 @@
 
     // select:
     $user_inquiry = !empty($_POST['user_inquiry']) ? sanitize_text_field($_POST['user_inquiry']) : '';
+    $user_constructionCompletion = !empty($_POST['user_constructionCompletion']) ? sanitize_text_field($_POST['user_constructionCompletion']) : '';
     $user_building_type = !empty($_POST['user_building_type']) ? sanitize_text_field($_POST['user_building_type']) : '';
     $user_budget = !empty($_POST['user_budget']) ? sanitize_text_field($_POST['user_budget']) : '';
     // select;
