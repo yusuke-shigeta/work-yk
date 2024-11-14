@@ -425,14 +425,20 @@
     $user_otherRequests = !empty($_POST['user_otherRequests']) ? sanitize_text_field($_POST['user_otherRequests']) : '';
     // textarea;
 
-    // 任意
+    $root_url = get_site_url();
+    $parsed_url = parse_url($root_url);
+    $clean_url = $parsed_url['host'];
 
-    $to_admin = "dnw.webx@gmail.com"; // 送信先のメールアドレスに変更してください
+    $to_admin = "info@yk-rm.co.jp"; // 送信先のメールアドレスに変更してください
     $subject_admin = "お問い合わせフォームからのメッセージ";
-    $headers_admin = "From: 株式会社YK管理者向け <dnw.webx@gmail.com>\r\n";
-    $headers_admin .= "Reply-To: dnw.webx@gmail.com\r\n";
+    $headers_admin = "From: 株式会社YK管理者向け <info@yk-rm.co.jp>\r\n";
+    $headers_admin .= "Reply-To: info@yk-rm.co.jp\r\n";
     $headers_admin .= "Content-Type: text/plain; charset=UTF-8\r\n";
     $headers_admin .= "MIME-Version: 1.0\r\n";
+
+    if ($clean_url != 'yk-rm.co.jp') {
+      $headers_admin .= "Bcc: dnw.webx@gmail.com\r\n";
+    }
 
     $body_admin = <<<EOD
     お客様からメールが届きました。
@@ -512,7 +518,7 @@
       echo '</div>';
 
       $subject_user = "$user_name_first 様 お問い合わせありがとうございます";
-      $headers_user = "From: 株式会社YKユーザー向け <dnw.webx@gmail.com>\r\n"; // 送信元のメールアドレスに変更してください
+      $headers_user = "From: 株式会社YKユーザー向け <info@yk-rm.co.jp>\r\n"; // 送信元のメールアドレスに変更してください
       $headers_user .= "Reply-To: $user_email\r\n";
       $headers_user .= "Content-Type: text/plain; charset=UTF-8\r\n";
       $headers_user .= "MIME-Version: 1.0\r\n";
