@@ -206,11 +206,12 @@
             </li>
 
             <li class="form-sec-item user-propertyDelivery">
-              <h3 class="form-sec-item-title">物件のお引き渡し時期</h3>
-              <p class="form-sec-item-text">※中古物件を購入される場合</p>
+              <h3 class="hide form-sec-item-title">物件のお引き渡し時期</h3>
               <ul class="form-sec-item-list form-sec-item-list-column">
                 <li class="form-sec-item-item">
                   <label class="label label-input-text">
+                    物件のお引き渡し時期<br>
+                    ※中古物件を購入される場合
                     <input class="input input-text" type="date" name="user_propertyDelivery">
                   </label>
                 </li>
@@ -218,10 +219,11 @@
             </li>
 
             <li class="form-sec-item user-budget">
-              <h3 class="form-sec-item-title">リノベーションのご予算</h3>
+              <h3 class="hide form-sec-item-title">リノベーションのご予算</h3>
               <ul class="form-sec-item-list form-sec-item-list-column">
                 <li class="form-sec-item-item">
                   <label class="label label-select">
+                    リノベーションのご予算
                     <select class="select" name="user_budget" id="" required>
                       <option value="" disabled selected>選択してください</option>
                       <option value="100～200万円">100～200万円</option>
@@ -367,10 +369,11 @@
             </li>
 
             <li class="form-sec-item user-example">
-              <h3 class="form-sec-item-title">気に入った事例があれば教えてください</h3>
+              <h3 class="hide form-sec-item-title">気に入った事例があれば教えてください</h3>
               <ul class="form-sec-item-list form-sec-item-list-column">
                 <li class="form-sec-item-item">
                   <label class="label label-input-text">
+                    気に入った事例があれば教えてください
                     <input class="input input-text" type="text" name="user_example">
                   </label>
                 </li>
@@ -378,10 +381,11 @@
             </li>
 
             <li class="form-sec-item user-otherRequests">
-              <h3 class="form-sec-item-title">その他ご相談したいこと気になることなど</h3>
+              <h3 class="hide form-sec-item-title">その他ご相談したいこと気になることなど</h3>
               <ul class="form-sec-item-list form-sec-item-list-column">
                 <li class="form-sec-item-item">
                   <label class="label label-textarea">
+                    その他ご相談したいこと気になることなど
                     <textarea class="textarea" name="user_otherRequests"></textarea>
                   </label>
                 </li>
@@ -459,7 +463,7 @@
     }
 
     $body_admin = <<<EOD
-    お客様からメールが届きました。
+    お客様からお問い合わせメールが届きました。
     ご対応お願いいたします。
 
     基本情報
