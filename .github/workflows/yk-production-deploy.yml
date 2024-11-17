@@ -1,4 +1,5 @@
-name: staging deploy
+# todo, name変更
+name: production deploy
 
 on:
   push:
