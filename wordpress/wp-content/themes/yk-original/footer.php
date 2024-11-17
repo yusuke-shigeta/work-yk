@@ -7,8 +7,8 @@
 
     <ul class="footer-companyList">
       <li class="footer-companyList-item">株式会社YK</li>
-      <li class="footer-companyList-item">〒157-0061</li>
-      <li class="footer-companyList-item">東京都世田谷区北烏山3-18-17 エスペラント烏山Ⅲ202</li>
+      <li class="footer-companyList-item">〒157-0062</li>
+      <li class="footer-companyList-item">東京都世田谷区南鳥山 7-16-102</li>
     </ul>
 
     <ul class="footer-snsList">
