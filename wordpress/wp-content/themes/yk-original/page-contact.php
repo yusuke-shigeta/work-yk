@@ -103,25 +103,6 @@
               </ul>
             </li>
 
-            <li class="form-sec-item user-constructionCompletion">
-              <h3 class="hide form-sec-item-title">工事完了ご希望時期</h3>
-              <ul class="form-sec-item-list form-sec-item-list-column">
-                <li class="form-sec-item-item">
-                  <label class="label-select">
-                    <span>工事完了ご希望時期</span>
-                    <span class="label label-require">必須</span>
-                    <select class="select" name="user_constructionCompletion" required>
-                      <option value="" disabled selected>選択してください</option>
-                      <option value="6ヶ月以内（急ぎ）">6ヶ月以内（急ぎ）</option>
-                      <option value="6ヶ月〜1年以内">6ヶ月〜1年以内</option>
-                      <option value="1年以上先">1年以上先</option>
-                      <option value="いつでもよい">いつでもよい</option>
-                    </select>
-                  </label>
-                </li>
-              </ul>
-            </li>
-
             <li class="form-sec-item user-address">
               <h3 class="hide form-sec-item-title">現在お住まいのご住所</h3>
               <ul class="form-sec-item-list form-sec-item-list-column">
@@ -201,6 +182,25 @@
                     <span>延べ床面積（㎡）</span>
                     <span class="label label-require">必須</span>
                     <input class="input input-text" type="text" name="user_building_condition_area" required>
+                  </label>
+                </li>
+              </ul>
+            </li>
+
+            <li class="form-sec-item user-constructionCompletion">
+              <h3 class="hide form-sec-item-title">工事完了ご希望時期</h3>
+              <ul class="form-sec-item-list form-sec-item-list-column">
+                <li class="form-sec-item-item">
+                  <label class="label-select">
+                    <span>工事完了ご希望時期</span>
+                    <span class="label label-require">必須</span>
+                    <select class="select" name="user_constructionCompletion" required>
+                      <option value="" disabled selected>選択してください</option>
+                      <option value="6ヶ月以内（急ぎ）">6ヶ月以内（急ぎ）</option>
+                      <option value="6ヶ月〜1年以内">6ヶ月〜1年以内</option>
+                      <option value="1年以上先">1年以上先</option>
+                      <option value="いつでもよい">いつでもよい</option>
+                    </select>
                   </label>
                 </li>
               </ul>
