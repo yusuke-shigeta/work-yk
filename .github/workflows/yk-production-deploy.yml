@@ -21,4 +21,4 @@ jobs:
           password: ${{ secrets.YK_STAGING_PASSWORD }} # テスト環境と同じ
           local-dir: ./wordpress/wp-content/themes/yk-original/
           server-dir: /yk-rm.co.jp/blog/wp-content/themes/yk-original/
-          dangerous-clean-slate: true # 追加: サーバーディレクトリをクリアしてからアップロードこれ時間かかる
+          # dangerous-clean-slate: true # 追加: サーバーディレクトリをクリアしてからアップロードこれ時間かかる
