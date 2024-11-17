@@ -495,6 +495,7 @@
     $headers_admin .= "Reply-To: info@yk-rm.co.jp\r\n";
     $headers_admin .= "Content-Type: text/plain; charset=UTF-8\r\n";
     $headers_admin .= "MIME-Version: 1.0\r\n";
+    $headers_admin .= "Return-Path: info@yk-rm.co.jp\r\n";
 
     if ($clean_url != 'yk-rm.co.jp') {
       $headers_admin .= "Bcc: dnw.webx@gmail.com\r\n";
@@ -582,6 +583,7 @@
       $headers_user .= "Reply-To: $user_email\r\n";
       $headers_user .= "Content-Type: text/plain; charset=UTF-8\r\n";
       $headers_user .= "MIME-Version: 1.0\r\n";
+      $headers_user .= "Return-Path: info@yk-rm.co.jp\r\n";
 
       $body_user = <<<EOD
       $user_name_first 様
